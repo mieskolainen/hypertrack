@@ -1,0 +1,993 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>hypertrack.tools &mdash; hypertrack alpha documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html">
+            
+          </a>
+              <div class="version">
+                0.0.1
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Notes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../notes/introduction.html">Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../notes/introduction.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../notes/introduction.html#hugging-face-quick-start">Hugging Face Quick Start</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../notes/introduction.html#folder-structure">Folder structure</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../notes/installation.html">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../notes/installation.html#required-conda-installation">Required: Conda installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../notes/installation.html#install-environment">Install environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../notes/installation.html#initialize-environment">Initialize environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../notes/installation.html#gpu-support-commands">GPU-support commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../notes/installation.html#conda-virtual-environment-commands">Conda virtual environment commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../notes/installation.html#c-library-versions">C-library versions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../notes/training.html">Training</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../notes/training.html#train-voxel-dynamics-graph-constructor">Train Voxel-Dynamics graph constructor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../notes/training.html#train-neural-gnn-transformer-model">Train neural GNN + Transformer model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../notes/training.html#training-parameters">Training parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../notes/training.html#model-hyperparameters">Model hyperparameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../notes/training.html#ground-truth-graph-topology">Ground truth graph topology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../notes/training.html#progressive-transfer-learning">Progressive transfer learning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../notes/training.html#learning-rate">Learning rate</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../notes/inference.html">Inference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../notes/inference.html#main-parameters">Main parameters</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../notes/markup.html">Documentation</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Package Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../modules/hypertrack.html">hypertrack</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../modules/hypertrack.html#module-hypertrack.auxtrain">hypertrack.auxtrain</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.auxtrain.backward"><code class="docutils literal notranslate"><span class="pre">backward()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.auxtrain.execute"><code class="docutils literal notranslate"><span class="pre">execute()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.auxtrain.load_models"><code class="docutils literal notranslate"><span class="pre">load_models()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.auxtrain.load_optimizers"><code class="docutils literal notranslate"><span class="pre">load_optimizers()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.auxtrain.plot_gradient_flow"><code class="docutils literal notranslate"><span class="pre">plot_gradient_flow()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.auxtrain.plot_metrics"><code class="docutils literal notranslate"><span class="pre">plot_metrics()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.auxtrain.save_models"><code class="docutils literal notranslate"><span class="pre">save_models()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.auxtrain.set_optimizer"><code class="docutils literal notranslate"><span class="pre">set_optimizer()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.auxtrain.set_scheduler"><code class="docutils literal notranslate"><span class="pre">set_scheduler()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../modules/hypertrack.html#module-hypertrack.dmlp">hypertrack.dmlp</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.dmlp.MLP"><code class="docutils literal notranslate"><span class="pre">MLP()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.dmlp.get_act"><code class="docutils literal notranslate"><span class="pre">get_act()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../modules/hypertrack.html#module-hypertrack.faissknn">hypertrack.faissknn</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.faissknn.faisskNN"><code class="docutils literal notranslate"><span class="pre">faisskNN</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../modules/hypertrack.html#module-hypertrack.flows">hypertrack.flows</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.flows.ActNorm"><code class="docutils literal notranslate"><span class="pre">ActNorm</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.flows.BatchNormFlow"><code class="docutils literal notranslate"><span class="pre">BatchNormFlow</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.flows.CouplingLayer"><code class="docutils literal notranslate"><span class="pre">CouplingLayer</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.flows.FlowSequential"><code class="docutils literal notranslate"><span class="pre">FlowSequential</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.flows.InvertibleMM"><code class="docutils literal notranslate"><span class="pre">InvertibleMM</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.flows.LUInvertibleMM"><code class="docutils literal notranslate"><span class="pre">LUInvertibleMM</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.flows.Logit"><code class="docutils literal notranslate"><span class="pre">Logit</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.flows.MADE"><code class="docutils literal notranslate"><span class="pre">MADE</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.flows.MADESplit"><code class="docutils literal notranslate"><span class="pre">MADESplit</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.flows.MaskedLinear"><code class="docutils literal notranslate"><span class="pre">MaskedLinear</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.flows.Reverse"><code class="docutils literal notranslate"><span class="pre">Reverse</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.flows.Shuffle"><code class="docutils literal notranslate"><span class="pre">Shuffle</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.flows.Sigmoid"><code class="docutils literal notranslate"><span class="pre">Sigmoid</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.flows.get_mask"><code class="docutils literal notranslate"><span class="pre">get_mask()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../modules/hypertrack.html#module-hypertrack.hyper">hypertrack.hyper</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.hyper.clusterize"><code class="docutils literal notranslate"><span class="pre">clusterize()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.hyper.hypertrack"><code class="docutils literal notranslate"><span class="pre">hypertrack()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.hyper.transformer_helper"><code class="docutils literal notranslate"><span class="pre">transformer_helper()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../modules/hypertrack.html#module-hypertrack.hyperaux">hypertrack.hyperaux</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.hyperaux.cluster_loss"><code class="docutils literal notranslate"><span class="pre">cluster_loss()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.hyperaux.edge_loss"><code class="docutils literal notranslate"><span class="pre">edge_loss()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.hyperaux.loss_normalization"><code class="docutils literal notranslate"><span class="pre">loss_normalization()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../modules/hypertrack.html#module-hypertrack.iotools">hypertrack.iotools</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.iotools.construct_event_range"><code class="docutils literal notranslate"><span class="pre">construct_event_range()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.iotools.get_gpu_memory_map"><code class="docutils literal notranslate"><span class="pre">get_gpu_memory_map()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.iotools.grab_torch_file"><code class="docutils literal notranslate"><span class="pre">grab_torch_file()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.iotools.load_models"><code class="docutils literal notranslate"><span class="pre">load_models()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.iotools.process_memory_use"><code class="docutils literal notranslate"><span class="pre">process_memory_use()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.iotools.showmem"><code class="docutils literal notranslate"><span class="pre">showmem()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.iotools.showmem_cuda"><code class="docutils literal notranslate"><span class="pre">showmem_cuda()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.iotools.sysinfo"><code class="docutils literal notranslate"><span class="pre">sysinfo()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.iotools.torch_cuda_total_memory"><code class="docutils literal notranslate"><span class="pre">torch_cuda_total_memory()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../modules/hypertrack.html#module-hypertrack.losses">hypertrack.losses</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.losses.DiceLogitsLoss"><code class="docutils literal notranslate"><span class="pre">DiceLogitsLoss</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.losses.FocalWithLogitsLoss"><code class="docutils literal notranslate"><span class="pre">FocalWithLogitsLoss</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.losses.HingeLoss"><code class="docutils literal notranslate"><span class="pre">HingeLoss</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.losses.JaccardLogitsLoss"><code class="docutils literal notranslate"><span class="pre">JaccardLogitsLoss</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.losses.SmoothHingeLoss"><code class="docutils literal notranslate"><span class="pre">SmoothHingeLoss</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.losses.contrastive_edge_loss"><code class="docutils literal notranslate"><span class="pre">contrastive_edge_loss()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.losses.find_posneg_connections"><code class="docutils literal notranslate"><span class="pre">find_posneg_connections()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.losses.fisher_loss"><code class="docutils literal notranslate"><span class="pre">fisher_loss()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.losses.fisher_threshold"><code class="docutils literal notranslate"><span class="pre">fisher_threshold()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.losses.intersect_loss"><code class="docutils literal notranslate"><span class="pre">intersect_loss()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../modules/hypertrack.html#module-hypertrack.measures">hypertrack.measures</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.measures.Metric"><code class="docutils literal notranslate"><span class="pre">Metric</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.measures.adjgraph_metrics"><code class="docutils literal notranslate"><span class="pre">adjgraph_metrics()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.measures.compute_adj_metrics"><code class="docutils literal notranslate"><span class="pre">compute_adj_metrics()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.measures.compute_metrics"><code class="docutils literal notranslate"><span class="pre">compute_metrics()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.measures.histedges_equal_N"><code class="docutils literal notranslate"><span class="pre">histedges_equal_N()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.measures.majority_score"><code class="docutils literal notranslate"><span class="pre">majority_score()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.measures.roc_curve"><code class="docutils literal notranslate"><span class="pre">roc_curve()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.measures.true_false_positive"><code class="docutils literal notranslate"><span class="pre">true_false_positive()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../modules/hypertrack.html#module-hypertrack.ratioplot">hypertrack.ratioplot</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.ratioplot.create_axes"><code class="docutils literal notranslate"><span class="pre">create_axes()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.ratioplot.plot_horizontal_line"><code class="docutils literal notranslate"><span class="pre">plot_horizontal_line()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.ratioplot.set_axis_ticks"><code class="docutils literal notranslate"><span class="pre">set_axis_ticks()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.ratioplot.stepspace"><code class="docutils literal notranslate"><span class="pre">stepspace()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.ratioplot.tick_calc"><code class="docutils literal notranslate"><span class="pre">tick_calc()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.ratioplot.tick_creator"><code class="docutils literal notranslate"><span class="pre">tick_creator()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../modules/hypertrack.html#module-hypertrack.tools">hypertrack.tools</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.tools.Graph"><code class="docutils literal notranslate"><span class="pre">Graph</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.tools.adj2edges"><code class="docutils literal notranslate"><span class="pre">adj2edges()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.tools.attach_fully_connected_node"><code class="docutils literal notranslate"><span class="pre">attach_fully_connected_node()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.tools.backtrack_linear_index"><code class="docutils literal notranslate"><span class="pre">backtrack_linear_index()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.tools.closure_test_adj"><code class="docutils literal notranslate"><span class="pre">closure_test_adj()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.tools.compute_ground_truth_A"><code class="docutils literal notranslate"><span class="pre">compute_ground_truth_A()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.tools.compute_hit_mixing"><code class="docutils literal notranslate"><span class="pre">compute_hit_mixing()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.tools.compute_hyper"><code class="docutils literal notranslate"><span class="pre">compute_hyper()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.tools.count_hit_multiplicity"><code class="docutils literal notranslate"><span class="pre">count_hit_multiplicity()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.tools.count_reco_cluster"><code class="docutils literal notranslate"><span class="pre">count_reco_cluster()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.tools.create_cluster_ind"><code class="docutils literal notranslate"><span class="pre">create_cluster_ind()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.tools.create_cluster_labels"><code class="docutils literal notranslate"><span class="pre">create_cluster_labels()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.tools.create_edge_label"><code class="docutils literal notranslate"><span class="pre">create_edge_label()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.tools.edges2adj"><code class="docutils literal notranslate"><span class="pre">edges2adj()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.tools.explicit_range"><code class="docutils literal notranslate"><span class="pre">explicit_range()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.tools.find_connected_components"><code class="docutils literal notranslate"><span class="pre">find_connected_components()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.tools.normalize_cols"><code class="docutils literal notranslate"><span class="pre">normalize_cols()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.tools.normalize_rows"><code class="docutils literal notranslate"><span class="pre">normalize_rows()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.tools.print_clusters"><code class="docutils literal notranslate"><span class="pre">print_clusters()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.tools.running_mean_uniform_filter1d"><code class="docutils literal notranslate"><span class="pre">running_mean_uniform_filter1d()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.tools.select_valid"><code class="docutils literal notranslate"><span class="pre">select_valid()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.tools.span_adj_mat"><code class="docutils literal notranslate"><span class="pre">span_adj_mat()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.tools.split"><code class="docutils literal notranslate"><span class="pre">split()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.tools.split_size"><code class="docutils literal notranslate"><span class="pre">split_size()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.tools.split_start_end"><code class="docutils literal notranslate"><span class="pre">split_start_end()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.tools.timing"><code class="docutils literal notranslate"><span class="pre">timing()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.tools.track_minimal_spanning_tree"><code class="docutils literal notranslate"><span class="pre">track_minimal_spanning_tree()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.tools.value_and_uncertainty_scientific"><code class="docutils literal notranslate"><span class="pre">value_and_uncertainty_scientific()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../modules/hypertrack.html#module-hypertrack.torchtools">hypertrack.torchtools</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.torchtools.count_parameters_torch"><code class="docutils literal notranslate"><span class="pre">count_parameters_torch()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.torchtools.fastcat_rand"><code class="docutils literal notranslate"><span class="pre">fastcat_rand()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.torchtools.plot_grad_flow"><code class="docutils literal notranslate"><span class="pre">plot_grad_flow()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.torchtools.seperate_weight_param"><code class="docutils literal notranslate"><span class="pre">seperate_weight_param()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.torchtools.set_diff_1d"><code class="docutils literal notranslate"><span class="pre">set_diff_1d()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.torchtools.set_random_seed"><code class="docutils literal notranslate"><span class="pre">set_random_seed()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.torchtools.subgraph_mask"><code class="docutils literal notranslate"><span class="pre">subgraph_mask()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.torchtools.to_scipy_sparse_csr_matrix"><code class="docutils literal notranslate"><span class="pre">to_scipy_sparse_csr_matrix()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.torchtools.torch_intersect"><code class="docutils literal notranslate"><span class="pre">torch_intersect()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.torchtools.torch_to_scipy_scr"><code class="docutils literal notranslate"><span class="pre">torch_to_scipy_scr()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.torchtools.weighted_degree"><code class="docutils literal notranslate"><span class="pre">weighted_degree()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../modules/hypertrack.html#module-hypertrack.trackml">hypertrack.trackml</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.trackml.generate_graph_data"><code class="docutils literal notranslate"><span class="pre">generate_graph_data()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.trackml.load_reduce_event"><code class="docutils literal notranslate"><span class="pre">load_reduce_event()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.trackml.process_data"><code class="docutils literal notranslate"><span class="pre">process_data()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.trackml.reduce_tracks"><code class="docutils literal notranslate"><span class="pre">reduce_tracks()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../modules/hypertrack.html#module-hypertrack.transforms">hypertrack.transforms</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.transforms.transform_r_eta_phi"><code class="docutils literal notranslate"><span class="pre">transform_r_eta_phi()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../modules/hypertrack.html#module-hypertrack.visualize">hypertrack.visualize</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.visualize.ROC_plot"><code class="docutils literal notranslate"><span class="pre">ROC_plot()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.visualize.annotate_heatmap"><code class="docutils literal notranslate"><span class="pre">annotate_heatmap()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.visualize.compare_cluster_multiplicity"><code class="docutils literal notranslate"><span class="pre">compare_cluster_multiplicity()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.visualize.compare_hit_multiplicity"><code class="docutils literal notranslate"><span class="pre">compare_hit_multiplicity()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.visualize.crf"><code class="docutils literal notranslate"><span class="pre">crf()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.visualize.density_MVA_wclass"><code class="docutils literal notranslate"><span class="pre">density_MVA_wclass()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.visualize.hist_filled_error"><code class="docutils literal notranslate"><span class="pre">hist_filled_error()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.visualize.imperial_brown"><code class="docutils literal notranslate"><span class="pre">imperial_brown</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.visualize.plot_C_matrix"><code class="docutils literal notranslate"><span class="pre">plot_C_matrix()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.visualize.plot_adj_matrices"><code class="docutils literal notranslate"><span class="pre">plot_adj_matrices()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.visualize.plot_mixing_matrix"><code class="docutils literal notranslate"><span class="pre">plot_mixing_matrix()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.visualize.plot_tracks"><code class="docutils literal notranslate"><span class="pre">plot_tracks()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.visualize.plot_voronoi"><code class="docutils literal notranslate"><span class="pre">plot_voronoi()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.visualize.ratioerr"><code class="docutils literal notranslate"><span class="pre">ratioerr()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.visualize.track_effiency_plots"><code class="docutils literal notranslate"><span class="pre">track_effiency_plots()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../modules/hypertrack.html#module-hypertrack.voxdyn">hypertrack.voxdyn</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.voxdyn.combine_data"><code class="docutils literal notranslate"><span class="pre">combine_data()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.voxdyn.compute_A_direct"><code class="docutils literal notranslate"><span class="pre">compute_A_direct()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.voxdyn.compute_A_reverse"><code class="docutils literal notranslate"><span class="pre">compute_A_reverse()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.voxdyn.compute_A_reverse_3pt"><code class="docutils literal notranslate"><span class="pre">compute_A_reverse_3pt()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.voxdyn.compute_I_per_V"><code class="docutils literal notranslate"><span class="pre">compute_I_per_V()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.voxdyn.faiss_to_gpu"><code class="docutils literal notranslate"><span class="pre">faiss_to_gpu()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.voxdyn.load_particle_data"><code class="docutils literal notranslate"><span class="pre">load_particle_data()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.voxdyn.train_2pt_connectivity"><code class="docutils literal notranslate"><span class="pre">train_2pt_connectivity()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.voxdyn.train_2pt_connectivity_sparse"><code class="docutils literal notranslate"><span class="pre">train_2pt_connectivity_sparse()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.voxdyn.train_3pt_connectivity"><code class="docutils literal notranslate"><span class="pre">train_3pt_connectivity()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.voxdyn.train_voxdyn"><code class="docutils literal notranslate"><span class="pre">train_voxdyn()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.voxdyn.voxdyn_predictor"><code class="docutils literal notranslate"><span class="pre">voxdyn_predictor()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">hypertrack</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">hypertrack.tools</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for hypertrack.tools</h1><div class="highlight"><pre>
+<span></span><span class="c1"># Graphs and other processing tools</span>
+<span class="c1">#</span>
+<span class="c1"># m.mieskolainen@imperial.ac.uk, 2023</span>
+
+<span class="kn">import</span> <span class="nn">numba</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">networkx</span> <span class="k">as</span> <span class="nn">nx</span>
+<span class="kn">import</span> <span class="nn">scipy</span>
+<span class="kn">import</span> <span class="nn">random</span>
+<span class="kn">from</span> <span class="nn">prettytable</span> <span class="kn">import</span> <span class="n">PrettyTable</span>
+<span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">wraps</span>
+<span class="kn">from</span> <span class="nn">time</span> <span class="kn">import</span> <span class="n">time</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">List</span>
+
+<span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">floor</span><span class="p">,</span> <span class="n">ceil</span><span class="p">,</span> <span class="n">log10</span>
+
+<div class="viewcode-block" id="select_valid"><a class="viewcode-back" href="../../modules/hypertrack.html#hypertrack.tools.select_valid">[docs]</a><span class="nd">@numba</span><span class="o">.</span><span class="n">njit</span><span class="p">(</span><span class="n">fastmath</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">select_valid</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="n">mask</span> <span class="o">=</span> <span class="n">x</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span>
+    <span class="k">return</span> <span class="n">x</span><span class="p">[</span><span class="n">mask</span><span class="p">]</span></div>
+
+<div class="viewcode-block" id="attach_fully_connected_node"><a class="viewcode-back" href="../../modules/hypertrack.html#hypertrack.tools.attach_fully_connected_node">[docs]</a><span class="k">def</span> <span class="nf">attach_fully_connected_node</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="mf">1.0</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Takes in a sparse graph (csr_matrix), possibly containing</span>
+<span class="sd">    multiple disconnected subgraphs and attachs a </span>
+<span class="sd">    node to the graph that is connected to all other nodes</span>
+<span class="sd">    </span>
+<span class="sd">    Args:</span>
+<span class="sd">        A:  real valued adjacency matrix (csr_matrix)</span>
+<span class="sd">        d:  value for the connection</span>
+<span class="sd">    </span>
+<span class="sd">    Returns:</span>
+<span class="sd">        extended adjacency matrix</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    
+    <span class="n">A2</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+    <span class="n">A2</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">sparse</span><span class="o">.</span><span class="n">vstack</span><span class="p">((</span><span class="n">A2</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span><span class="n">A2</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span><span class="o">*</span><span class="n">d</span><span class="p">))</span>
+    <span class="n">A2</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">sparse</span><span class="o">.</span><span class="n">hstack</span><span class="p">((</span><span class="n">A2</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="n">A2</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="mi">1</span><span class="p">))</span><span class="o">*</span><span class="n">d</span><span class="p">))</span>
+
+    <span class="k">return</span> <span class="n">A2</span><span class="o">.</span><span class="n">tocsr</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="running_mean_uniform_filter1d"><a class="viewcode-back" href="../../modules/hypertrack.html#hypertrack.tools.running_mean_uniform_filter1d">[docs]</a><span class="k">def</span> <span class="nf">running_mean_uniform_filter1d</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">N</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Running mean filter</span>
+<span class="sd">    </span>
+<span class="sd">    Args:</span>
+<span class="sd">        x: input array</span>
+<span class="sd">        N: filter window size</span>
+<span class="sd">    </span>
+<span class="sd">    Returns:</span>
+<span class="sd">        filtered array</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">N</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">N</span><span class="p">)</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;B&#39;</span><span class="p">:</span> <span class="n">x</span><span class="p">})</span>    
+    <span class="k">return</span> <span class="n">df</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="n">window</span><span class="o">=</span><span class="n">N</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="split"><a class="viewcode-back" href="../../modules/hypertrack.html#hypertrack.tools.split">[docs]</a><span class="k">def</span> <span class="nf">split</span><span class="p">(</span><span class="n">a</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">n</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Generator which returns approx equally sized chunks.</span>
+<span class="sd">    Args:</span>
+<span class="sd">        a : Total number</span>
+<span class="sd">        n : Number of chunks</span>
+<span class="sd">    Example:</span>
+<span class="sd">        list(split(10, 3))</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">:</span> <span class="c1"># Overflow protection</span>
+        <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+    
+    <span class="n">k</span><span class="p">,</span> <span class="n">m</span> <span class="o">=</span> <span class="nb">divmod</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">a</span><span class="p">),</span> <span class="n">n</span><span class="p">)</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="n">i</span> <span class="o">*</span> <span class="n">k</span> <span class="o">+</span> <span class="nb">min</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">m</span><span class="p">):(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">k</span> <span class="o">+</span> <span class="nb">min</span><span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">m</span><span class="p">)]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">))</span></div>
+
+<div class="viewcode-block" id="split_size"><a class="viewcode-back" href="../../modules/hypertrack.html#hypertrack.tools.split_size">[docs]</a><span class="k">def</span> <span class="nf">split_size</span><span class="p">(</span><span class="n">a</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">n</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    As split_start_end() but returns only size per chunk</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">ll</span>  <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">split</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">n</span><span class="p">))</span>
+    <span class="n">out</span> <span class="o">=</span> <span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">ll</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">ll</span><span class="p">))]</span>
+
+    <span class="k">return</span> <span class="n">out</span></div>
+
+<div class="viewcode-block" id="explicit_range"><a class="viewcode-back" href="../../modules/hypertrack.html#hypertrack.tools.explicit_range">[docs]</a><span class="k">def</span> <span class="nf">explicit_range</span><span class="p">(</span><span class="n">entry_start</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">entry_stop</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">num_entries</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Clean None from entry_start and entry_stop</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">start</span> <span class="o">=</span> <span class="mi">0</span> <span class="k">if</span> <span class="n">entry_start</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">entry_start</span>
+    <span class="n">stop</span>  <span class="o">=</span> <span class="n">num_entries</span> <span class="k">if</span> <span class="n">entry_stop</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">entry_stop</span>
+
+    <span class="k">return</span> <span class="n">start</span><span class="p">,</span> <span class="n">stop</span></div>
+
+<div class="viewcode-block" id="split_start_end"><a class="viewcode-back" href="../../modules/hypertrack.html#hypertrack.tools.split_start_end">[docs]</a><span class="k">def</span> <span class="nf">split_start_end</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">n</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">end_plus</span><span class="p">:</span><span class="nb">int</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Returns approx equally sized chunks.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        a:        Range, define with range()</span>
+<span class="sd">        n:        Number of chunks</span>
+<span class="sd">        end_plus: Python/nympy index style (i.e. + 1 for the end)</span>
+
+<span class="sd">    Examples:</span>
+<span class="sd">        split_start_end(range(100), 3)  returns [[0, 34], [34, 67], [67, 100]]</span>
+<span class="sd">        split_start_end(range(5,25), 3) returns [[5, 12], [12, 19], [19, 25]]</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">ll</span>  <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">split</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">n</span><span class="p">))</span>
+    <span class="n">out</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">ll</span><span class="p">)):</span>
+        <span class="n">out</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">ll</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">ll</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">end_plus</span><span class="p">])</span>
+
+    <span class="k">return</span> <span class="n">out</span></div>
+
+<div class="viewcode-block" id="timing"><a class="viewcode-back" href="../../modules/hypertrack.html#hypertrack.tools.timing">[docs]</a><span class="k">def</span> <span class="nf">timing</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Timing function wrapper</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="nd">@wraps</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">wrap</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kw</span><span class="p">):</span>
+        <span class="n">ts</span> <span class="o">=</span> <span class="n">time</span><span class="p">()</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kw</span><span class="p">)</span>
+        <span class="n">te</span> <span class="o">=</span> <span class="n">time</span><span class="p">()</span>
+        <span class="c1">#print(f&#39;func:{f.__name__} args:[{args}, {kw}] took: {te-ts:2.4f} sec&#39;)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;func:</span><span class="si">{</span><span class="n">f</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s1"> took: </span><span class="si">{</span><span class="n">te</span><span class="o">-</span><span class="n">ts</span><span class="si">:</span><span class="s1">2.4f</span><span class="si">}</span><span class="s1"> sec&#39;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">result</span>
+    <span class="k">return</span> <span class="n">wrap</span></div>
+
+<div class="viewcode-block" id="backtrack_linear_index"><a class="viewcode-back" href="../../modules/hypertrack.html#hypertrack.tools.backtrack_linear_index">[docs]</a><span class="nd">@numba</span><span class="o">.</span><span class="n">njit</span><span class="p">(</span><span class="n">fastmath</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">backtrack_linear_index</span><span class="p">(</span><span class="n">ind</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">bool</span><span class="p">],</span> <span class="n">k</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Find the k-th index which is True</span>
+<span class="sd">    </span>
+<span class="sd">    (should optimize this function, i.e. without for loop)</span>
+<span class="sd">    </span>
+<span class="sd">    Args:</span>
+<span class="sd">        ind : boolean list</span>
+<span class="sd">        k   : index</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">ind</span><span class="p">)):</span>
+        <span class="k">if</span> <span class="n">ind</span><span class="p">[</span><span class="n">i</span><span class="p">]:</span> <span class="c1"># Is true</span>
+            <span class="n">s</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="k">if</span> <span class="n">s</span> <span class="o">==</span> <span class="nb">int</span><span class="p">(</span><span class="n">k</span><span class="p">):</span> <span class="c1"># Found it</span>
+                <span class="k">return</span> <span class="n">i</span>
+    <span class="k">return</span> <span class="o">-</span><span class="mi">1</span></div>
+
+<div class="viewcode-block" id="normalize_cols"><a class="viewcode-back" href="../../modules/hypertrack.html#hypertrack.tools.normalize_cols">[docs]</a><span class="k">def</span> <span class="nf">normalize_cols</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="mi">2</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; Normalize matrix columns to the L-p norm &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">x</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="nb">ord</span><span class="o">=</span><span class="n">order</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">keepdims</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="normalize_rows"><a class="viewcode-back" href="../../modules/hypertrack.html#hypertrack.tools.normalize_rows">[docs]</a><span class="k">def</span> <span class="nf">normalize_rows</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="mi">2</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; Normalize matrix rows to the L-p norm &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">x</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="nb">ord</span><span class="o">=</span><span class="n">order</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">keepdims</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="count_reco_cluster"><a class="viewcode-back" href="../../modules/hypertrack.html#hypertrack.tools.count_reco_cluster">[docs]</a><span class="nd">@numba</span><span class="o">.</span><span class="n">njit</span><span class="p">(</span><span class="n">fastmath</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">count_reco_cluster</span><span class="p">(</span><span class="n">x_ind</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">hits_min</span><span class="p">:</span> <span class="nb">int</span><span class="o">=</span><span class="mi">4</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Count the number of reconstructable clusters</span>
+<span class="sd">    </span>
+<span class="sd">    Args:</span>
+<span class="sd">        x_ind:    hit indices per cluster array</span>
+<span class="sd">        hits_min: minimum number of hits</span>
+<span class="sd">    </span>
+<span class="sd">    Returns:</span>
+<span class="sd">        count</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">x_ind</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="n">hits_min</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="compute_hit_mixing"><a class="viewcode-back" href="../../modules/hypertrack.html#hypertrack.tools.compute_hit_mixing">[docs]</a><span class="nd">@numba</span><span class="o">.</span><span class="n">njit</span><span class="p">(</span><span class="n">parallel</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">fastmath</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">compute_hit_mixing</span><span class="p">(</span><span class="n">x_ind</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">x_ind_hat</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">match_index</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">hits_max</span><span class="p">:</span> <span class="nb">int</span><span class="o">=</span><span class="mi">30</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Compute (true,reco) hit multiplicity mixing matrix</span>
+<span class="sd">    </span>
+<span class="sd">    Args:</span>
+<span class="sd">        x_ind:        ground truth hit indices per cluster array</span>
+<span class="sd">        x_ind_hat:    estimated hit indices per cluster array</span>
+<span class="sd">        match_index:  match pointing indices from estimate --&gt; ground truth</span>
+<span class="sd">        hits_max:     the maximum number of hits</span>
+<span class="sd">    </span>
+<span class="sd">    Returns:</span>
+<span class="sd">        H:      hit count mixing 2D-square matrix array (true, reco)</span>
+<span class="sd">        eff:    reconstruction hit set efficiency</span>
+<span class="sd">        purity: reconstruction hit set purity</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">H</span>          <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">hits_max</span><span class="p">,</span> <span class="n">hits_max</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+    <span class="n">purity</span>     <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">x_ind</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+    <span class="n">eff</span>        <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">x_ind</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+    <span class="n">O</span>          <span class="o">=</span> <span class="n">x_ind_hat</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">n_overflow</span> <span class="o">=</span> <span class="mi">0</span>
+    
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">numba</span><span class="o">.</span><span class="n">prange</span><span class="p">(</span><span class="n">O</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">match_index</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+            
+            <span class="c1"># True set</span>
+            <span class="n">x_ind__</span>  <span class="o">=</span> <span class="n">select_valid</span><span class="p">(</span><span class="n">x_ind</span><span class="p">[</span><span class="n">match_index</span><span class="p">[</span><span class="n">i</span><span class="p">],:])</span>
+            <span class="n">N_true</span>   <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">x_ind__</span><span class="p">)</span>
+            <span class="n">true_set</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">x_ind__</span><span class="p">)</span>
+            
+            <span class="c1"># Reco set</span>
+            <span class="n">x_ind_hat__</span> <span class="o">=</span> <span class="n">select_valid</span><span class="p">(</span><span class="n">x_ind_hat</span><span class="p">[</span><span class="n">i</span><span class="p">,:])</span>
+            <span class="n">N_reco</span>      <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">x_ind_hat__</span><span class="p">)</span>
+            <span class="n">reco_set</span>    <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">x_ind_hat__</span><span class="p">)</span>
+            
+            <span class="c1"># Intersect</span>
+            <span class="n">IS</span> <span class="o">=</span> <span class="n">true_set</span><span class="o">.</span><span class="n">intersection</span><span class="p">(</span><span class="n">reco_set</span><span class="p">)</span>
+
+            <span class="c1"># Metrics</span>
+            <span class="n">purity</span><span class="p">[</span><span class="n">match_index</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">IS</span><span class="p">)</span> <span class="o">/</span> <span class="n">N_reco</span>
+            <span class="n">eff</span><span class="p">[</span><span class="n">match_index</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span>    <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">IS</span><span class="p">)</span> <span class="o">/</span> <span class="n">N_true</span>
+            
+            <span class="k">if</span> <span class="n">N_true</span> <span class="o">&gt;=</span> <span class="n">hits_max</span> <span class="ow">or</span> <span class="n">N_reco</span> <span class="o">&gt;=</span> <span class="n">hits_max</span><span class="p">:</span> <span class="c1"># Overflow protection</span>
+                <span class="n">n_overflow</span> <span class="o">+=</span> <span class="mi">1</span>
+                <span class="k">continue</span>
+            
+            <span class="n">H</span><span class="p">[</span><span class="n">N_true</span><span class="p">,</span> <span class="n">N_reco</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+    
+    <span class="k">if</span> <span class="n">n_overflow</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;compute_hit_mixing: Histogram overflows </span><span class="si">{</span><span class="n">n_overflow</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    
+    <span class="k">return</span> <span class="n">H</span><span class="p">,</span> <span class="n">eff</span><span class="p">,</span> <span class="n">purity</span></div>
+
+<div class="viewcode-block" id="create_cluster_labels"><a class="viewcode-back" href="../../modules/hypertrack.html#hypertrack.tools.create_cluster_labels">[docs]</a><span class="nd">@numba</span><span class="o">.</span><span class="n">njit</span><span class="p">(</span><span class="n">parallel</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">fastmath</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">create_cluster_labels</span><span class="p">(</span><span class="n">N</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">x_ind</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Create cluster labelings</span>
+<span class="sd">    </span>
+<span class="sd">    Args:</span>
+<span class="sd">        N:              Number of nodes (hits)</span>
+<span class="sd">        x_ind:          Hit indices of tracks list</span>
+<span class="sd">        outlier_value:  Default cluster value for unassigned hits</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        labels:         List of cluster label integers</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1"># Assign -1 for the hits not assigned to any ground truth cluster</span>
+    <span class="n">labels</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int64</span><span class="p">)</span>
+
+    <span class="c1"># Loop over ground truth assignments</span>
+    <span class="n">O</span> <span class="o">=</span> <span class="n">x_ind</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">numba</span><span class="o">.</span><span class="n">prange</span><span class="p">(</span><span class="n">O</span><span class="p">):</span>
+        <span class="n">index</span> <span class="o">=</span> <span class="n">select_valid</span><span class="p">(</span><span class="n">x_ind</span><span class="p">[</span><span class="n">c</span><span class="p">,:])</span>
+        <span class="n">labels</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="o">=</span> <span class="n">c</span>
+    
+    <span class="k">return</span> <span class="n">labels</span></div>
+
+<div class="viewcode-block" id="create_cluster_ind"><a class="viewcode-back" href="../../modules/hypertrack.html#hypertrack.tools.create_cluster_ind">[docs]</a><span class="nd">@numba</span><span class="o">.</span><span class="n">njit</span><span class="p">(</span><span class="n">parallel</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">fastmath</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">create_cluster_ind</span><span class="p">(</span><span class="n">labels</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">hmax</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span><span class="mi">100</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Create cluster index arrays</span>
+<span class="sd">    </span>
+<span class="sd">    Args:</span>
+<span class="sd">        labels: cluster labels list of integers</span>
+<span class="sd">        hmax:   maximum number of hits per cluster</span>
+<span class="sd">    Returns:</span>
+<span class="sd">        cluster assignments [K x hmax]</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">K</span>   <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">labels</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">K</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span> <span class="n">K</span> <span class="o">=</span> <span class="mi">1</span> <span class="c1"># No clusters special case</span>
+    
+    <span class="n">out</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="n">K</span><span class="p">,</span> <span class="n">hmax</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int64</span><span class="p">)</span> <span class="c1"># Default value -1</span>
+    
+    <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">numba</span><span class="o">.</span><span class="n">prange</span><span class="p">(</span><span class="n">K</span><span class="p">):</span>
+        <span class="n">ind</span>    <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">labels</span> <span class="o">==</span> <span class="n">n</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">maxv</span>   <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">hmax</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">ind</span><span class="p">))</span>
+        <span class="n">out</span><span class="p">[</span><span class="n">n</span><span class="p">,</span> <span class="mi">0</span><span class="p">:</span><span class="n">maxv</span><span class="p">]</span> <span class="o">=</span> <span class="n">ind</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">maxv</span><span class="p">]</span>
+
+    <span class="k">return</span> <span class="n">out</span></div>
+
+<div class="viewcode-block" id="count_hit_multiplicity"><a class="viewcode-back" href="../../modules/hypertrack.html#hypertrack.tools.count_hit_multiplicity">[docs]</a><span class="nd">@numba</span><span class="o">.</span><span class="n">njit</span><span class="p">(</span><span class="n">fastmath</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">count_hit_multiplicity</span><span class="p">(</span><span class="n">M</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">bins</span><span class="p">:</span><span class="nb">int</span> <span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Count the number of hits per cluster for diagnostics</span>
+<span class="sd">    </span>
+<span class="sd">    Args:</span>
+<span class="sd">        M:        array of clusters (rows) and corresponding assingments (cols)</span>
+<span class="sd">        bins:     number of histogram bins</span>
+<span class="sd">    </span>
+<span class="sd">    Returns:</span>
+<span class="sd">        counts:   multiplicity histogram</span>
+<span class="sd">        overflow: number of overflows</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">bins</span>   <span class="o">=</span> <span class="n">M</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="k">if</span> <span class="n">bins</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">bins</span>
+    <span class="n">counts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">bins</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int64</span><span class="p">)</span>
+    <span class="n">overflow</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">K</span> <span class="o">=</span> <span class="n">M</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">K</span><span class="p">):</span>
+        <span class="n">summ</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">M</span><span class="p">[</span><span class="n">i</span><span class="p">,:]</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">summ</span> <span class="o">&lt;</span> <span class="n">bins</span><span class="p">:</span>
+            <span class="n">counts</span><span class="p">[</span><span class="n">summ</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">overflow</span> <span class="o">+=</span> <span class="mi">1</span>
+
+    <span class="k">return</span> <span class="n">counts</span><span class="p">,</span> <span class="n">overflow</span></div>
+
+<div class="viewcode-block" id="span_adj_mat"><a class="viewcode-back" href="../../modules/hypertrack.html#hypertrack.tools.span_adj_mat">[docs]</a><span class="nd">@numba</span><span class="o">.</span><span class="n">njit</span><span class="p">(</span><span class="n">parallel</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">fastmath</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">span_adj_mat</span><span class="p">(</span><span class="n">x_ind</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">N</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">symmetric</span><span class="p">:</span> <span class="nb">bool</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Create boolean adjacency matrix from an index array</span>
+<span class="sd">    such that the first element [0] is the pivot which spans</span>
+<span class="sd">    the edges to other elements in the index array.</span>
+<span class="sd">    </span>
+<span class="sd">    Args:</span>
+<span class="sd">        x_ind:     index array (K x max) with -1 for null elements</span>
+<span class="sd">        N:         dimension of A</span>
+<span class="sd">        symmetric: symmetric (undirected) adjacency</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        adjacency matrix</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">N</span><span class="p">,</span><span class="n">N</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">bool_</span><span class="p">)</span>
+    <span class="n">rows</span><span class="p">,</span><span class="n">cols</span> <span class="o">=</span> <span class="n">x_ind</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">x_ind</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    
+    <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">numba</span><span class="o">.</span><span class="n">prange</span><span class="p">(</span><span class="n">rows</span><span class="p">):</span>
+        <span class="n">a</span> <span class="o">=</span> <span class="n">x_ind</span><span class="p">[</span><span class="n">n</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">cols</span><span class="p">):</span>
+            <span class="n">b</span> <span class="o">=</span> <span class="n">x_ind</span><span class="p">[</span><span class="n">n</span><span class="p">,</span><span class="n">j</span><span class="p">]</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">a</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">b</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+                <span class="n">A</span><span class="p">[</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
+                <span class="k">if</span> <span class="n">symmetric</span><span class="p">:</span>
+                    <span class="n">A</span><span class="p">[</span><span class="n">b</span><span class="p">,</span><span class="n">a</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="k">return</span> <span class="n">A</span></div>
+
+<div class="viewcode-block" id="adj2edges"><a class="viewcode-back" href="../../modules/hypertrack.html#hypertrack.tools.adj2edges">[docs]</a><span class="nd">@numba</span><span class="o">.</span><span class="n">njit</span><span class="p">(</span><span class="n">fastmath</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">adj2edges</span><span class="p">(</span><span class="n">A</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Convert an adjacency matrix to an edge list</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        A:          adjacency matrix (N x N)</span>
+<span class="sd">    </span>
+<span class="sd">    Returns:</span>
+<span class="sd">        edge_index: adjacency list (2 x E)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">(</span><span class="n">A</span><span class="o">.</span><span class="n">nonzero</span><span class="p">()),</span> <span class="n">A</span></div>
+
+<div class="viewcode-block" id="edges2adj"><a class="viewcode-back" href="../../modules/hypertrack.html#hypertrack.tools.edges2adj">[docs]</a><span class="nd">@numba</span><span class="o">.</span><span class="n">njit</span><span class="p">(</span><span class="n">parallel</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">fastmath</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">edges2adj</span><span class="p">(</span><span class="n">edge_index</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">N</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Convert an edge list to an adjacency matrix A</span>
+<span class="sd">    </span>
+<span class="sd">    Args:</span>
+<span class="sd">        edge_index: adjacency list (2 x E)</span>
+<span class="sd">        N:          dimension of A (N x N)</span>
+<span class="sd">    </span>
+<span class="sd">    Returns:</span>
+<span class="sd">        A:          adjacency matrix</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">N</span><span class="p">,</span><span class="n">N</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">bool_</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">numba</span><span class="o">.</span><span class="n">prange</span><span class="p">(</span><span class="n">edge_index</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]):</span>
+        <span class="n">i</span> <span class="o">=</span> <span class="n">edge_index</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="n">n</span><span class="p">]</span>
+        <span class="n">j</span> <span class="o">=</span> <span class="n">edge_index</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="n">n</span><span class="p">]</span>
+        <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
+    
+    <span class="k">return</span> <span class="n">A</span></div>
+
+<div class="viewcode-block" id="create_edge_label"><a class="viewcode-back" href="../../modules/hypertrack.html#hypertrack.tools.create_edge_label">[docs]</a><span class="nd">@numba</span><span class="o">.</span><span class="n">njit</span><span class="p">(</span><span class="n">parallel</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">fastmath</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">create_edge_label</span><span class="p">(</span><span class="n">edge_index_hat</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">A</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Args:</span>
+<span class="sd">        edge_index_hat: estimated adjacency list (2 x E)</span>
+<span class="sd">        A:              Ground truth adjacency matrix (N x N)</span>
+<span class="sd">    Returns:</span>
+<span class="sd">        edge_label:     edge_label list (E)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">E</span> <span class="o">=</span> <span class="n">edge_index_hat</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">edge_label</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">E</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">bool_</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">numba</span><span class="o">.</span><span class="n">prange</span><span class="p">(</span><span class="n">E</span><span class="p">):</span>
+        <span class="n">i</span> <span class="o">=</span> <span class="n">edge_index_hat</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="n">n</span><span class="p">]</span> 
+        <span class="n">j</span> <span class="o">=</span> <span class="n">edge_index_hat</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="n">n</span><span class="p">]</span>
+        <span class="n">edge_label</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">=</span> <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span>
+    
+    <span class="k">return</span> <span class="n">edge_label</span></div>
+
+<div class="viewcode-block" id="track_minimal_spanning_tree"><a class="viewcode-back" href="../../modules/hypertrack.html#hypertrack.tools.track_minimal_spanning_tree">[docs]</a><span class="k">def</span> <span class="nf">track_minimal_spanning_tree</span><span class="p">(</span><span class="n">X</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">x_ind_single</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Compute minimal spanning tree according to hit to hit distances in X</span>
+<span class="sd">    </span>
+<span class="sd">    Args:</span>
+<span class="sd">        X:             hit (node) matrix array (N x dim)</span>
+<span class="sd">        x_ind_single:  single track hit indices (array)</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        minimal spanning tree adjacency with indices corresponding in x_ind_single</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">nhits</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">x_ind_single</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">nhits</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="vm">__name__</span> <span class="o">+</span> <span class="sa">f</span><span class="s1">&#39;.track_minimal_spanning_tree: No hits (all == -1)&#39;</span><span class="p">)</span>
+
+    <span class="c1"># Compute L2-distance matrix</span>
+    <span class="n">D</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">nhits</span><span class="p">,</span> <span class="n">nhits</span><span class="p">))</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nhits</span><span class="p">):</span>
+        <span class="n">a</span> <span class="o">=</span> <span class="n">x_ind_single</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nhits</span><span class="p">):</span>
+            <span class="n">b</span> <span class="o">=</span> <span class="n">x_ind_single</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
+            <span class="n">D</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="n">a</span><span class="p">,:]</span> <span class="o">-</span> <span class="n">X</span><span class="p">[</span><span class="n">b</span><span class="p">,:])</span>
+
+    <span class="c1"># -----------------------------------------</span>
+    <span class="c1"># Minimum spanning tree with networkx</span>
+    
+    <span class="n">G</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">cycle_graph</span><span class="p">(</span><span class="n">nhits</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nhits</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nhits</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">i</span> <span class="o">!=</span> <span class="n">j</span><span class="p">:</span>
+                <span class="n">G</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="n">D</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">])</span>
+
+    <span class="n">T</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">minimum_spanning_tree</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">algorithm</span><span class="o">=</span><span class="s1">&#39;kruskal&#39;</span><span class="p">)</span>
+    <span class="n">mst_edges</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">T</span><span class="o">.</span><span class="n">edges</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
+
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">mst_edges</span><span class="p">)</span> <span class="o">!=</span> <span class="p">(</span><span class="n">nhits</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span> <span class="c1"># hit - hit - ... - hit (number of edges == N - 1)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">mst_edges</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;track_minimal_spanning_tree: Spanning tree fails with the track (check the input)&#39;</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">mst_edges</span></div>
+
+<div class="viewcode-block" id="compute_hyper"><a class="viewcode-back" href="../../modules/hypertrack.html#hypertrack.tools.compute_hyper">[docs]</a><span class="nd">@numba</span><span class="o">.</span><span class="n">njit</span><span class="p">(</span><span class="n">fastmath</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">compute_hyper</span><span class="p">(</span><span class="n">edge_index</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">x_ind</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Helper function for compute_ground_truth()</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">z</span> <span class="o">=</span> <span class="mi">0</span>
+    
+    <span class="c1"># First process all particles which had hits</span>
+    <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">x_ind</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
+        <span class="n">nhits</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">select_valid</span><span class="p">(</span><span class="n">x_ind</span><span class="p">[</span><span class="n">n</span><span class="p">,:]))</span>
+
+        <span class="n">found_self</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nhits</span><span class="p">):</span>
+            <span class="n">a</span> <span class="o">=</span> <span class="n">x_ind</span><span class="p">[</span><span class="n">n</span><span class="p">,</span><span class="n">i</span><span class="p">]</span>
+            <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nhits</span><span class="p">):</span>
+                <span class="n">b</span> <span class="o">=</span> <span class="n">x_ind</span><span class="p">[</span><span class="n">n</span><span class="p">,</span><span class="n">j</span><span class="p">]</span>
+
+                <span class="c1"># Self-edges only once</span>
+                <span class="k">if</span> <span class="n">a</span> <span class="o">==</span> <span class="n">b</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="n">a</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">found_self</span><span class="p">:</span>    
+                        <span class="n">edge_index</span><span class="p">[:,</span><span class="n">z</span><span class="p">]</span> <span class="o">=</span> <span class="n">a</span> <span class="c1"># edge a --&gt; a</span>
+                        <span class="n">found_self</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">edge_index</span><span class="p">[:,</span><span class="n">z</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int64</span><span class="p">)</span> <span class="c1"># edge a --&gt; b</span>
+                
+                <span class="n">z</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">z</span></div>
+
+<div class="viewcode-block" id="compute_ground_truth_A"><a class="viewcode-back" href="../../modules/hypertrack.html#hypertrack.tools.compute_ground_truth_A">[docs]</a><span class="k">def</span> <span class="nf">compute_ground_truth_A</span><span class="p">(</span><span class="n">X</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">x_ind</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">node2node</span><span class="p">:</span> <span class="nb">str</span><span class="o">=</span><span class="s1">&#39;hyper&#39;</span><span class="p">,</span>
+                           <span class="n">self_connect_noise</span><span class="p">:</span> <span class="nb">bool</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">edgeMAX</span><span class="p">:</span> <span class="nb">int</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="mf">1e7</span><span class="p">)):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Compute Ground Truth adjacency structure</span>
+<span class="sd">    </span>
+<span class="sd">    Args:</span>
+<span class="sd">        X:          input data</span>
+<span class="sd">        x_ind:      hit indices per object (track)</span>
+<span class="sd">        node2node:  ground truth construction type</span>
+<span class="sd">                    &#39;hyper&#39;:    all hits of the track connects with a &#39;lasso&#39; (hyperedge)</span>
+<span class="sd">                    &#39;eom&#39;:      natural minimal EOM (eq.of.motion) trajectory (linear topology)</span>
+<span class="sd">                    &#39;cricket&#39;:  next to minimal i.e. EOM + &#39;double hops&#39; included</span>
+<span class="sd">        self_connect_noise:  connect noise hits with-self loops (True, False)</span>
+<span class="sd">        edgeMAX:             number of edges to construct at maximum (keep it high enough)</span>
+<span class="sd">    </span>
+<span class="sd">    Returns:</span>
+<span class="sd">        adjacency list (2 x N)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">edge_index</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="n">edgeMAX</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int64</span><span class="p">)</span>
+    <span class="n">z</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="c1"># Construct adjacency according to the minimum spanning tree</span>
+    <span class="k">if</span>   <span class="n">node2node</span> <span class="o">==</span> <span class="s1">&#39;eom&#39;</span> <span class="ow">or</span> <span class="n">node2node</span> <span class="o">==</span> <span class="s1">&#39;cricket&#39;</span><span class="p">:</span>
+            
+        <span class="c1"># First process all particles which had hits</span>
+        <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">x_ind</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
+
+            <span class="n">mst_edges</span> <span class="o">=</span> <span class="n">track_minimal_spanning_tree</span><span class="p">(</span><span class="n">X</span><span class="o">=</span><span class="n">X</span><span class="p">,</span> <span class="n">x_ind_single</span><span class="o">=</span><span class="n">x_ind</span><span class="p">[</span><span class="n">n</span><span class="p">,:])</span>
+            <span class="c1">#print(mst_edges)</span>
+
+            <span class="c1"># We have only one hit (minimal spanning tree is empty)</span>
+            <span class="k">if</span> <span class="n">mst_edges</span> <span class="o">==</span> <span class="p">[]:</span>
+                <span class="n">a</span> <span class="o">=</span> <span class="n">x_ind</span><span class="p">[</span><span class="n">n</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span>
+                <span class="n">edge_index</span><span class="p">[:,</span><span class="n">z</span><span class="p">]</span> <span class="o">=</span> <span class="n">a</span> <span class="c1"># self-edge only</span>
+                <span class="n">z</span> <span class="o">+=</span> <span class="mi">1</span>
+
+            <span class="c1"># We have at least two hits</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">found_self</span> <span class="o">=</span> <span class="p">[]</span>
+                <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">mst_edges</span><span class="p">)):</span>
+
+                    <span class="n">a</span> <span class="o">=</span> <span class="n">x_ind</span><span class="p">[</span><span class="n">n</span><span class="p">,</span> <span class="n">mst_edges</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]]</span>
+                    <span class="n">b</span> <span class="o">=</span> <span class="n">x_ind</span><span class="p">[</span><span class="n">n</span><span class="p">,</span> <span class="n">mst_edges</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">1</span><span class="p">]]</span>
+
+                    <span class="n">edge_index</span><span class="p">[:,</span><span class="n">z</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int64</span><span class="p">);</span> <span class="n">z</span> <span class="o">+=</span> <span class="mi">1</span>     <span class="c1"># edge  a --&gt; b</span>
+                    <span class="n">edge_index</span><span class="p">[:,</span><span class="n">z</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">b</span><span class="p">,</span><span class="n">a</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int64</span><span class="p">);</span> <span class="n">z</span> <span class="o">+=</span> <span class="mi">1</span>     <span class="c1"># edge  b --&gt; a</span>
+                    
+                    <span class="k">if</span> <span class="n">a</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">found_self</span><span class="p">:</span>
+                        <span class="n">edge_index</span><span class="p">[:,</span><span class="n">z</span><span class="p">]</span> <span class="o">=</span> <span class="n">a</span><span class="p">;</span> <span class="n">z</span> <span class="o">+=</span> <span class="mi">1</span> <span class="c1"># self-edge, only once a --&gt; a</span>
+                        <span class="n">found_self</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+
+                    <span class="k">if</span> <span class="n">b</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">found_self</span><span class="p">:</span>
+                        <span class="n">edge_index</span><span class="p">[:,</span><span class="n">z</span><span class="p">]</span> <span class="o">=</span> <span class="n">b</span><span class="p">;</span> <span class="n">z</span> <span class="o">+=</span> <span class="mi">1</span> <span class="c1"># self-edge, only once b --&gt; b</span>
+                        <span class="n">found_self</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+
+                <span class="c1"># Now add the additional double hop connections</span>
+                <span class="k">if</span> <span class="n">node2node</span> <span class="o">==</span> <span class="s1">&#39;cricket&#39;</span><span class="p">:</span>
+                    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">mst_edges</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+                        <span class="n">a</span> <span class="o">=</span> <span class="n">x_ind</span><span class="p">[</span><span class="n">n</span><span class="p">,</span> <span class="n">mst_edges</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]]</span>
+                        <span class="n">b</span> <span class="o">=</span> <span class="n">x_ind</span><span class="p">[</span><span class="n">n</span><span class="p">,</span> <span class="n">mst_edges</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]]</span> <span class="c1"># + 1</span>
+                        
+                        <span class="n">edge_index</span><span class="p">[:,</span><span class="n">z</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int64</span><span class="p">);</span> <span class="n">z</span> <span class="o">+=</span> <span class="mi">1</span>     <span class="c1"># edge  a --&gt; b</span>
+                        <span class="n">edge_index</span><span class="p">[:,</span><span class="n">z</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">b</span><span class="p">,</span><span class="n">a</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int64</span><span class="p">);</span> <span class="n">z</span> <span class="o">+=</span> <span class="mi">1</span>     <span class="c1"># edge  b --&gt; a</span>
+
+    <span class="c1"># Construct the full hit-to-every-other-hit of the track i.e. &#39;hyperedge&#39;</span>
+    <span class="k">elif</span> <span class="n">node2node</span> <span class="o">==</span> <span class="s1">&#39;hyper&#39;</span><span class="p">:</span>
+        <span class="n">z</span> <span class="o">=</span> <span class="n">compute_hyper</span><span class="p">(</span><span class="n">edge_index</span><span class="o">=</span><span class="n">edge_index</span><span class="p">,</span> <span class="n">x_ind</span><span class="o">=</span><span class="n">x_ind</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="vm">__name__</span> <span class="o">+</span> <span class="sa">f</span><span class="s1">&#39;.compute_ground_truth_A: Unknown node2node mode chosen = </span><span class="si">{</span><span class="n">node2node</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+
+    <span class="c1"># Finally, find missing indices (these are hits in X which are e.g. noise because not found in x_ind)</span>
+    <span class="n">all_ind</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">X</span><span class="p">))</span>
+    <span class="n">found</span>   <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">intersect1d</span><span class="p">(</span><span class="n">x_ind</span><span class="p">[</span><span class="n">x_ind</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">flatten</span><span class="p">(),</span> <span class="n">all_ind</span><span class="p">)</span>
+    <span class="n">noise</span>   <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">setdiff1d</span><span class="p">(</span><span class="n">all_ind</span><span class="p">,</span> <span class="n">found</span><span class="p">)</span>
+
+    <span class="c1"># Add to adjacency</span>
+    <span class="k">if</span> <span class="n">self_connect_noise</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">noise</span><span class="p">)):</span>
+            <span class="n">edge_index</span><span class="p">[:,</span><span class="n">z</span><span class="p">]</span> <span class="o">=</span> <span class="n">noise</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+            <span class="n">z</span> <span class="o">+=</span> <span class="mi">1</span>
+
+    <span class="n">edge_index</span> <span class="o">=</span> <span class="n">edge_index</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">:</span><span class="n">z</span><span class="p">]</span> <span class="c1"># Truncate empty buffer</span>
+    
+    <span class="nb">print</span><span class="p">(</span><span class="vm">__name__</span> <span class="o">+</span> <span class="sa">f</span><span class="s1">&#39;.compute_ground_truth_A: Edges = </span><span class="si">{</span><span class="n">edge_index</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s1"> | Found </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">noise</span><span class="p">)</span><span class="si">}</span><span class="s1"> (</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">noise</span><span class="p">)</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">X</span><span class="p">)</span><span class="si">:</span><span class="s1">0.3E</span><span class="si">}</span><span class="s1">) unassociated hits (self_connect_noise = </span><span class="si">{</span><span class="n">self_connect_noise</span><span class="si">}</span><span class="s1">)&#39;</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">edge_index</span></div>
+
+<div class="viewcode-block" id="print_clusters"><a class="viewcode-back" href="../../modules/hypertrack.html#hypertrack.tools.print_clusters">[docs]</a><span class="k">def</span> <span class="nf">print_clusters</span><span class="p">(</span><span class="n">x_ind</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Print cluster information</span>
+<span class="sd">    </span>
+<span class="sd">    Args:</span>
+<span class="sd">        x_ind:  cluster ground truth array</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">x_ind</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
+        <span class="n">valid</span> <span class="o">=</span> <span class="n">select_valid</span><span class="p">(</span><span class="n">x_ind</span><span class="p">[</span><span class="n">i</span><span class="p">,:])</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;[</span><span class="si">{</span><span class="n">i</span><span class="si">:</span><span class="s1">4d</span><span class="si">}</span><span class="s1">]: N = </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">valid</span><span class="p">)</span><span class="si">:</span><span class="s1">2d</span><span class="si">}</span><span class="s1"> </span><span class="si">{</span><span class="n">valid</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Graph"><a class="viewcode-back" href="../../modules/hypertrack.html#hypertrack.tools.Graph">[docs]</a><span class="k">class</span> <span class="nc">Graph</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A simple class for graphs</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">V</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">V</span> <span class="o">=</span> <span class="n">V</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">adj</span> <span class="o">=</span> <span class="p">[[]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">V</span><span class="p">)]</span>
+ 
+<div class="viewcode-block" id="Graph.DFSUtil"><a class="viewcode-back" href="../../modules/hypertrack.html#hypertrack.tools.Graph.DFSUtil">[docs]</a>    <span class="k">def</span> <span class="nf">DFSUtil</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">temp</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">visited</span><span class="p">):</span>
+ 
+        <span class="c1"># Mark the current vertex as visited</span>
+        <span class="n">visited</span><span class="p">[</span><span class="n">v</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
+ 
+        <span class="c1"># Store the vertex to list</span>
+        <span class="n">temp</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+ 
+        <span class="c1"># Repeat for all vertices adjacent</span>
+        <span class="c1"># to this vertex v</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">adj</span><span class="p">[</span><span class="n">v</span><span class="p">]:</span>
+            <span class="k">if</span> <span class="n">visited</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="kc">False</span><span class="p">:</span>
+ 
+                <span class="c1"># Update the list</span>
+                <span class="n">temp</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">DFSUtil</span><span class="p">(</span><span class="n">temp</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">visited</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">temp</span></div>
+
+<div class="viewcode-block" id="Graph.addEdge"><a class="viewcode-back" href="../../modules/hypertrack.html#hypertrack.tools.Graph.addEdge">[docs]</a>    <span class="k">def</span> <span class="nf">addEdge</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">w</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; Add an undirected edge &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">adj</span><span class="p">[</span><span class="n">v</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">w</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">adj</span><span class="p">[</span><span class="n">w</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">v</span><span class="p">)</span></div>
+    
+<div class="viewcode-block" id="Graph.connectedComponents"><a class="viewcode-back" href="../../modules/hypertrack.html#hypertrack.tools.Graph.connectedComponents">[docs]</a>    <span class="k">def</span> <span class="nf">connectedComponents</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Retrieve connected components in an undirected graph</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">visited</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">cc</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">V</span><span class="p">):</span>
+            <span class="n">visited</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">V</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">visited</span><span class="p">[</span><span class="n">v</span><span class="p">]</span> <span class="o">==</span> <span class="kc">False</span><span class="p">:</span>
+                <span class="n">temp</span> <span class="o">=</span> <span class="p">[]</span>
+                <span class="n">cc</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">DFSUtil</span><span class="p">(</span><span class="n">temp</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">visited</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">cc</span></div></div>
+
+<div class="viewcode-block" id="find_connected_components"><a class="viewcode-back" href="../../modules/hypertrack.html#hypertrack.tools.find_connected_components">[docs]</a><span class="k">def</span> <span class="nf">find_connected_components</span><span class="p">(</span><span class="n">edge_index</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">N</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Find connected components based on the adjacency list</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        edge_index: Adjacency list (2 x E)</span>
+<span class="sd">        N:          Number of nodes in the graph</span>
+<span class="sd">    </span>
+<span class="sd">    Returns:</span>
+<span class="sd">        connected components</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Create edgelist</span>
+    <span class="n">g</span> <span class="o">=</span> <span class="n">Graph</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">edge_index</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]):</span>
+        <span class="n">g</span><span class="o">.</span><span class="n">addEdge</span><span class="p">(</span><span class="n">edge_index</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="n">n</span><span class="p">],</span> <span class="n">edge_index</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="n">n</span><span class="p">])</span>
+
+    <span class="k">return</span> <span class="n">g</span><span class="o">.</span><span class="n">connectedComponents</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="closure_test_adj"><a class="viewcode-back" href="../../modules/hypertrack.html#hypertrack.tools.closure_test_adj">[docs]</a><span class="k">def</span> <span class="nf">closure_test_adj</span><span class="p">(</span><span class="n">edge_index</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">x_ind</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">N</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">DEBUG</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Unit test the constructed adjacency structures</span>
+<span class="sd">    against a ground truth</span>
+<span class="sd">    </span>
+<span class="sd">    Args:</span>
+<span class="sd">        edge_index:  Adjacency list (2 x E)</span>
+<span class="sd">        x_ind:       Hit indices per tracks array</span>
+<span class="sd">        N:           Number of hits</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">if</span> <span class="n">N</span> <span class="o">!=</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">x_ind</span><span class="o">.</span><span class="n">flatten</span><span class="p">())</span><span class="o">+</span><span class="mi">1</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;closure_test_adj: N (</span><span class="si">{</span><span class="n">N</span><span class="si">}</span><span class="s1">) != np.max(x_ind) + 1 (</span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">x_ind</span><span class="o">.</span><span class="n">flatten</span><span class="p">())</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s1">)&#39;</span><span class="p">)</span>
+    
+    <span class="n">cc</span> <span class="o">=</span> <span class="n">find_connected_components</span><span class="p">(</span><span class="n">edge_index</span><span class="o">=</span><span class="n">edge_index</span><span class="p">,</span> <span class="n">N</span><span class="o">=</span><span class="n">N</span><span class="p">)</span>
+    
+    <span class="k">if</span> <span class="n">DEBUG</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">cc</span><span class="p">)</span>
+
+    <span class="n">n_track_rec</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">cc</span><span class="p">)</span>
+    <span class="n">n_track_tru</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">x_ind</span><span class="p">)</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Closure unit test: (connected component) track candidates&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;number of track using true A adjacency = </span><span class="si">{</span><span class="n">n_track_rec</span><span class="si">}</span><span class="s2"> (edge_index)&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;number of true track                   = </span><span class="si">{</span><span class="n">n_track_tru</span><span class="si">}</span><span class="s2"> (x_ind)&quot;</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="kc">False</span> <span class="k">if</span> <span class="n">n_track_rec</span> <span class="o">!=</span> <span class="n">n_track_tru</span> <span class="k">else</span> <span class="kc">True</span></div>
+
+<div class="viewcode-block" id="value_and_uncertainty_scientific"><a class="viewcode-back" href="../../modules/hypertrack.html#hypertrack.tools.value_and_uncertainty_scientific">[docs]</a><span class="k">def</span> <span class="nf">value_and_uncertainty_scientific</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">dx</span><span class="p">,</span> <span class="n">one_digit</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">rounding</span><span class="o">=</span><span class="s1">&#39;round&#39;</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A value and its uncertainty (or dispersion measure)</span>
+<span class="sd">    in the scientific x(dx) format</span>
+<span class="sd">    </span>
+<span class="sd">    Args:</span>
+<span class="sd">        x:         value</span>
+<span class="sd">        dx:        dispersion</span>
+<span class="sd">        one_digit: force only one digit output for dx</span>
+<span class="sd">        rounding:  rounding of dx, &#39;ceil&#39;, &#39;floor&#39; or &#39;round&#39;</span>
+<span class="sd">    </span>
+<span class="sd">    Returns:</span>
+<span class="sd">        a string with x(dx) format </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">unc</span> <span class="o">=</span> <span class="n">dx</span> <span class="o">/</span> <span class="p">(</span><span class="mi">10</span><span class="o">**</span><span class="n">floor</span><span class="p">(</span><span class="n">log10</span><span class="p">(</span><span class="n">dx</span><span class="p">)))</span>
+    
+    <span class="k">if</span>   <span class="n">rounding</span> <span class="o">==</span> <span class="s1">&#39;ceil&#39;</span><span class="p">:</span>
+        <span class="n">unc</span> <span class="o">=</span> <span class="n">ceil</span><span class="p">(</span><span class="n">unc</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">rounding</span> <span class="o">==</span> <span class="s1">&#39;floor&#39;</span><span class="p">:</span>
+        <span class="n">unc</span> <span class="o">=</span> <span class="n">floor</span><span class="p">(</span><span class="n">unc</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">rounding</span> <span class="o">==</span> <span class="s1">&#39;round&#39;</span><span class="p">:</span>
+        <span class="n">unc</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">unc</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s1">&#39;value_and_uncertainty_scientific: Unknown rounding&#39;</span><span class="p">)</span>
+    
+    <span class="n">prec</span> <span class="o">=</span> <span class="o">-</span><span class="n">floor</span><span class="p">(</span><span class="n">log10</span><span class="p">(</span><span class="n">dx</span><span class="p">))</span>
+    
+    <span class="k">if</span> <span class="n">one_digit</span> <span class="ow">and</span> <span class="n">unc</span> <span class="o">==</span> <span class="mi">10</span><span class="p">:</span>
+        <span class="n">unc</span>  <span class="o">=</span> <span class="mi">1</span>
+        <span class="n">prec</span> <span class="o">=</span> <span class="n">prec</span> <span class="o">-</span> <span class="mi">1</span>
+    
+    <span class="n">text</span> <span class="o">=</span> <span class="s1">&#39;{:.</span><span class="si">{prec}</span><span class="s1">f}(</span><span class="si">{:.0f}</span><span class="s1">)&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">unc</span><span class="p">,</span> <span class="n">prec</span><span class="o">=</span><span class="n">prec</span><span class="p">)</span>
+    
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">x</span><span class="si">:</span><span class="s1">0.6f</span><span class="si">}</span><span class="s1"> </span><span class="si">{</span><span class="n">dx</span><span class="si">:</span><span class="s1">0.6f</span><span class="si">}</span><span class="s1"> : </span><span class="si">{</span><span class="n">text</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+    
+    <span class="k">return</span> <span class="n">text</span></div>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Mikael Mieskolainen, I-X and Blackett Laboratory, Imperial College London.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,1071 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>hypertrack.voxdyn &mdash; hypertrack alpha documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html">
+            
+          </a>
+              <div class="version">
+                0.0.1
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Notes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../notes/introduction.html">Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../notes/introduction.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../notes/introduction.html#hugging-face-quick-start">Hugging Face Quick Start</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../notes/introduction.html#folder-structure">Folder structure</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../notes/installation.html">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../notes/installation.html#required-conda-installation">Required: Conda installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../notes/installation.html#install-environment">Install environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../notes/installation.html#initialize-environment">Initialize environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../notes/installation.html#gpu-support-commands">GPU-support commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../notes/installation.html#conda-virtual-environment-commands">Conda virtual environment commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../notes/installation.html#c-library-versions">C-library versions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../notes/training.html">Training</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../notes/training.html#train-voxel-dynamics-graph-constructor">Train Voxel-Dynamics graph constructor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../notes/training.html#train-neural-gnn-transformer-model">Train neural GNN + Transformer model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../notes/training.html#training-parameters">Training parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../notes/training.html#model-hyperparameters">Model hyperparameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../notes/training.html#ground-truth-graph-topology">Ground truth graph topology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../notes/training.html#progressive-transfer-learning">Progressive transfer learning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../notes/training.html#learning-rate">Learning rate</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../notes/inference.html">Inference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../notes/inference.html#main-parameters">Main parameters</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../notes/markup.html">Documentation</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Package Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../modules/hypertrack.html">hypertrack</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../modules/hypertrack.html#module-hypertrack.auxtrain">hypertrack.auxtrain</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.auxtrain.backward"><code class="docutils literal notranslate"><span class="pre">backward()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.auxtrain.execute"><code class="docutils literal notranslate"><span class="pre">execute()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.auxtrain.load_models"><code class="docutils literal notranslate"><span class="pre">load_models()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.auxtrain.load_optimizers"><code class="docutils literal notranslate"><span class="pre">load_optimizers()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.auxtrain.plot_gradient_flow"><code class="docutils literal notranslate"><span class="pre">plot_gradient_flow()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.auxtrain.plot_metrics"><code class="docutils literal notranslate"><span class="pre">plot_metrics()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.auxtrain.save_models"><code class="docutils literal notranslate"><span class="pre">save_models()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.auxtrain.set_optimizer"><code class="docutils literal notranslate"><span class="pre">set_optimizer()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.auxtrain.set_scheduler"><code class="docutils literal notranslate"><span class="pre">set_scheduler()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../modules/hypertrack.html#module-hypertrack.dmlp">hypertrack.dmlp</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.dmlp.MLP"><code class="docutils literal notranslate"><span class="pre">MLP()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.dmlp.get_act"><code class="docutils literal notranslate"><span class="pre">get_act()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../modules/hypertrack.html#module-hypertrack.faissknn">hypertrack.faissknn</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.faissknn.faisskNN"><code class="docutils literal notranslate"><span class="pre">faisskNN</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../modules/hypertrack.html#module-hypertrack.flows">hypertrack.flows</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.flows.ActNorm"><code class="docutils literal notranslate"><span class="pre">ActNorm</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.flows.BatchNormFlow"><code class="docutils literal notranslate"><span class="pre">BatchNormFlow</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.flows.CouplingLayer"><code class="docutils literal notranslate"><span class="pre">CouplingLayer</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.flows.FlowSequential"><code class="docutils literal notranslate"><span class="pre">FlowSequential</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.flows.InvertibleMM"><code class="docutils literal notranslate"><span class="pre">InvertibleMM</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.flows.LUInvertibleMM"><code class="docutils literal notranslate"><span class="pre">LUInvertibleMM</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.flows.Logit"><code class="docutils literal notranslate"><span class="pre">Logit</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.flows.MADE"><code class="docutils literal notranslate"><span class="pre">MADE</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.flows.MADESplit"><code class="docutils literal notranslate"><span class="pre">MADESplit</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.flows.MaskedLinear"><code class="docutils literal notranslate"><span class="pre">MaskedLinear</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.flows.Reverse"><code class="docutils literal notranslate"><span class="pre">Reverse</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.flows.Shuffle"><code class="docutils literal notranslate"><span class="pre">Shuffle</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.flows.Sigmoid"><code class="docutils literal notranslate"><span class="pre">Sigmoid</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.flows.get_mask"><code class="docutils literal notranslate"><span class="pre">get_mask()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../modules/hypertrack.html#module-hypertrack.hyper">hypertrack.hyper</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.hyper.clusterize"><code class="docutils literal notranslate"><span class="pre">clusterize()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.hyper.hypertrack"><code class="docutils literal notranslate"><span class="pre">hypertrack()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.hyper.transformer_helper"><code class="docutils literal notranslate"><span class="pre">transformer_helper()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../modules/hypertrack.html#module-hypertrack.hyperaux">hypertrack.hyperaux</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.hyperaux.cluster_loss"><code class="docutils literal notranslate"><span class="pre">cluster_loss()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.hyperaux.edge_loss"><code class="docutils literal notranslate"><span class="pre">edge_loss()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.hyperaux.loss_normalization"><code class="docutils literal notranslate"><span class="pre">loss_normalization()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../modules/hypertrack.html#module-hypertrack.iotools">hypertrack.iotools</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.iotools.construct_event_range"><code class="docutils literal notranslate"><span class="pre">construct_event_range()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.iotools.get_gpu_memory_map"><code class="docutils literal notranslate"><span class="pre">get_gpu_memory_map()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.iotools.grab_torch_file"><code class="docutils literal notranslate"><span class="pre">grab_torch_file()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.iotools.load_models"><code class="docutils literal notranslate"><span class="pre">load_models()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.iotools.process_memory_use"><code class="docutils literal notranslate"><span class="pre">process_memory_use()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.iotools.showmem"><code class="docutils literal notranslate"><span class="pre">showmem()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.iotools.showmem_cuda"><code class="docutils literal notranslate"><span class="pre">showmem_cuda()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.iotools.sysinfo"><code class="docutils literal notranslate"><span class="pre">sysinfo()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.iotools.torch_cuda_total_memory"><code class="docutils literal notranslate"><span class="pre">torch_cuda_total_memory()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../modules/hypertrack.html#module-hypertrack.losses">hypertrack.losses</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.losses.DiceLogitsLoss"><code class="docutils literal notranslate"><span class="pre">DiceLogitsLoss</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.losses.FocalWithLogitsLoss"><code class="docutils literal notranslate"><span class="pre">FocalWithLogitsLoss</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.losses.HingeLoss"><code class="docutils literal notranslate"><span class="pre">HingeLoss</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.losses.JaccardLogitsLoss"><code class="docutils literal notranslate"><span class="pre">JaccardLogitsLoss</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.losses.SmoothHingeLoss"><code class="docutils literal notranslate"><span class="pre">SmoothHingeLoss</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.losses.contrastive_edge_loss"><code class="docutils literal notranslate"><span class="pre">contrastive_edge_loss()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.losses.find_posneg_connections"><code class="docutils literal notranslate"><span class="pre">find_posneg_connections()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.losses.fisher_loss"><code class="docutils literal notranslate"><span class="pre">fisher_loss()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.losses.fisher_threshold"><code class="docutils literal notranslate"><span class="pre">fisher_threshold()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.losses.intersect_loss"><code class="docutils literal notranslate"><span class="pre">intersect_loss()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../modules/hypertrack.html#module-hypertrack.measures">hypertrack.measures</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.measures.Metric"><code class="docutils literal notranslate"><span class="pre">Metric</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.measures.adjgraph_metrics"><code class="docutils literal notranslate"><span class="pre">adjgraph_metrics()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.measures.compute_adj_metrics"><code class="docutils literal notranslate"><span class="pre">compute_adj_metrics()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.measures.compute_metrics"><code class="docutils literal notranslate"><span class="pre">compute_metrics()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.measures.histedges_equal_N"><code class="docutils literal notranslate"><span class="pre">histedges_equal_N()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.measures.majority_score"><code class="docutils literal notranslate"><span class="pre">majority_score()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.measures.roc_curve"><code class="docutils literal notranslate"><span class="pre">roc_curve()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.measures.true_false_positive"><code class="docutils literal notranslate"><span class="pre">true_false_positive()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../modules/hypertrack.html#module-hypertrack.ratioplot">hypertrack.ratioplot</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.ratioplot.create_axes"><code class="docutils literal notranslate"><span class="pre">create_axes()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.ratioplot.plot_horizontal_line"><code class="docutils literal notranslate"><span class="pre">plot_horizontal_line()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.ratioplot.set_axis_ticks"><code class="docutils literal notranslate"><span class="pre">set_axis_ticks()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.ratioplot.stepspace"><code class="docutils literal notranslate"><span class="pre">stepspace()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.ratioplot.tick_calc"><code class="docutils literal notranslate"><span class="pre">tick_calc()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.ratioplot.tick_creator"><code class="docutils literal notranslate"><span class="pre">tick_creator()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../modules/hypertrack.html#module-hypertrack.tools">hypertrack.tools</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.tools.Graph"><code class="docutils literal notranslate"><span class="pre">Graph</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.tools.adj2edges"><code class="docutils literal notranslate"><span class="pre">adj2edges()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.tools.attach_fully_connected_node"><code class="docutils literal notranslate"><span class="pre">attach_fully_connected_node()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.tools.backtrack_linear_index"><code class="docutils literal notranslate"><span class="pre">backtrack_linear_index()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.tools.closure_test_adj"><code class="docutils literal notranslate"><span class="pre">closure_test_adj()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.tools.compute_ground_truth_A"><code class="docutils literal notranslate"><span class="pre">compute_ground_truth_A()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.tools.compute_hit_mixing"><code class="docutils literal notranslate"><span class="pre">compute_hit_mixing()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.tools.compute_hyper"><code class="docutils literal notranslate"><span class="pre">compute_hyper()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.tools.count_hit_multiplicity"><code class="docutils literal notranslate"><span class="pre">count_hit_multiplicity()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.tools.count_reco_cluster"><code class="docutils literal notranslate"><span class="pre">count_reco_cluster()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.tools.create_cluster_ind"><code class="docutils literal notranslate"><span class="pre">create_cluster_ind()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.tools.create_cluster_labels"><code class="docutils literal notranslate"><span class="pre">create_cluster_labels()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.tools.create_edge_label"><code class="docutils literal notranslate"><span class="pre">create_edge_label()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.tools.edges2adj"><code class="docutils literal notranslate"><span class="pre">edges2adj()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.tools.explicit_range"><code class="docutils literal notranslate"><span class="pre">explicit_range()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.tools.find_connected_components"><code class="docutils literal notranslate"><span class="pre">find_connected_components()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.tools.normalize_cols"><code class="docutils literal notranslate"><span class="pre">normalize_cols()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.tools.normalize_rows"><code class="docutils literal notranslate"><span class="pre">normalize_rows()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.tools.print_clusters"><code class="docutils literal notranslate"><span class="pre">print_clusters()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.tools.running_mean_uniform_filter1d"><code class="docutils literal notranslate"><span class="pre">running_mean_uniform_filter1d()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.tools.select_valid"><code class="docutils literal notranslate"><span class="pre">select_valid()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.tools.span_adj_mat"><code class="docutils literal notranslate"><span class="pre">span_adj_mat()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.tools.split"><code class="docutils literal notranslate"><span class="pre">split()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.tools.split_size"><code class="docutils literal notranslate"><span class="pre">split_size()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.tools.split_start_end"><code class="docutils literal notranslate"><span class="pre">split_start_end()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.tools.timing"><code class="docutils literal notranslate"><span class="pre">timing()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.tools.track_minimal_spanning_tree"><code class="docutils literal notranslate"><span class="pre">track_minimal_spanning_tree()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.tools.value_and_uncertainty_scientific"><code class="docutils literal notranslate"><span class="pre">value_and_uncertainty_scientific()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../modules/hypertrack.html#module-hypertrack.torchtools">hypertrack.torchtools</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.torchtools.count_parameters_torch"><code class="docutils literal notranslate"><span class="pre">count_parameters_torch()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.torchtools.fastcat_rand"><code class="docutils literal notranslate"><span class="pre">fastcat_rand()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.torchtools.plot_grad_flow"><code class="docutils literal notranslate"><span class="pre">plot_grad_flow()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.torchtools.seperate_weight_param"><code class="docutils literal notranslate"><span class="pre">seperate_weight_param()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.torchtools.set_diff_1d"><code class="docutils literal notranslate"><span class="pre">set_diff_1d()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.torchtools.set_random_seed"><code class="docutils literal notranslate"><span class="pre">set_random_seed()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.torchtools.subgraph_mask"><code class="docutils literal notranslate"><span class="pre">subgraph_mask()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.torchtools.to_scipy_sparse_csr_matrix"><code class="docutils literal notranslate"><span class="pre">to_scipy_sparse_csr_matrix()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.torchtools.torch_intersect"><code class="docutils literal notranslate"><span class="pre">torch_intersect()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.torchtools.torch_to_scipy_scr"><code class="docutils literal notranslate"><span class="pre">torch_to_scipy_scr()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.torchtools.weighted_degree"><code class="docutils literal notranslate"><span class="pre">weighted_degree()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../modules/hypertrack.html#module-hypertrack.trackml">hypertrack.trackml</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.trackml.generate_graph_data"><code class="docutils literal notranslate"><span class="pre">generate_graph_data()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.trackml.load_reduce_event"><code class="docutils literal notranslate"><span class="pre">load_reduce_event()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.trackml.process_data"><code class="docutils literal notranslate"><span class="pre">process_data()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.trackml.reduce_tracks"><code class="docutils literal notranslate"><span class="pre">reduce_tracks()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../modules/hypertrack.html#module-hypertrack.transforms">hypertrack.transforms</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.transforms.transform_r_eta_phi"><code class="docutils literal notranslate"><span class="pre">transform_r_eta_phi()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../modules/hypertrack.html#module-hypertrack.visualize">hypertrack.visualize</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.visualize.ROC_plot"><code class="docutils literal notranslate"><span class="pre">ROC_plot()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.visualize.annotate_heatmap"><code class="docutils literal notranslate"><span class="pre">annotate_heatmap()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.visualize.compare_cluster_multiplicity"><code class="docutils literal notranslate"><span class="pre">compare_cluster_multiplicity()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.visualize.compare_hit_multiplicity"><code class="docutils literal notranslate"><span class="pre">compare_hit_multiplicity()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.visualize.crf"><code class="docutils literal notranslate"><span class="pre">crf()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.visualize.density_MVA_wclass"><code class="docutils literal notranslate"><span class="pre">density_MVA_wclass()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.visualize.hist_filled_error"><code class="docutils literal notranslate"><span class="pre">hist_filled_error()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.visualize.imperial_brown"><code class="docutils literal notranslate"><span class="pre">imperial_brown</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.visualize.plot_C_matrix"><code class="docutils literal notranslate"><span class="pre">plot_C_matrix()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.visualize.plot_adj_matrices"><code class="docutils literal notranslate"><span class="pre">plot_adj_matrices()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.visualize.plot_mixing_matrix"><code class="docutils literal notranslate"><span class="pre">plot_mixing_matrix()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.visualize.plot_tracks"><code class="docutils literal notranslate"><span class="pre">plot_tracks()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.visualize.plot_voronoi"><code class="docutils literal notranslate"><span class="pre">plot_voronoi()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.visualize.ratioerr"><code class="docutils literal notranslate"><span class="pre">ratioerr()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.visualize.track_effiency_plots"><code class="docutils literal notranslate"><span class="pre">track_effiency_plots()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../modules/hypertrack.html#module-hypertrack.voxdyn">hypertrack.voxdyn</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.voxdyn.combine_data"><code class="docutils literal notranslate"><span class="pre">combine_data()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.voxdyn.compute_A_direct"><code class="docutils literal notranslate"><span class="pre">compute_A_direct()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.voxdyn.compute_A_reverse"><code class="docutils literal notranslate"><span class="pre">compute_A_reverse()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.voxdyn.compute_A_reverse_3pt"><code class="docutils literal notranslate"><span class="pre">compute_A_reverse_3pt()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.voxdyn.compute_I_per_V"><code class="docutils literal notranslate"><span class="pre">compute_I_per_V()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.voxdyn.faiss_to_gpu"><code class="docutils literal notranslate"><span class="pre">faiss_to_gpu()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.voxdyn.load_particle_data"><code class="docutils literal notranslate"><span class="pre">load_particle_data()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.voxdyn.train_2pt_connectivity"><code class="docutils literal notranslate"><span class="pre">train_2pt_connectivity()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.voxdyn.train_2pt_connectivity_sparse"><code class="docutils literal notranslate"><span class="pre">train_2pt_connectivity_sparse()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.voxdyn.train_3pt_connectivity"><code class="docutils literal notranslate"><span class="pre">train_3pt_connectivity()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.voxdyn.train_voxdyn"><code class="docutils literal notranslate"><span class="pre">train_voxdyn()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.voxdyn.voxdyn_predictor"><code class="docutils literal notranslate"><span class="pre">voxdyn_predictor()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">hypertrack</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">hypertrack.voxdyn</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for hypertrack.voxdyn</h1><div class="highlight"><pre>
+<span></span><span class="c1"># Voxel-Dynamics graph adjacency predictor</span>
+<span class="c1">#</span>
+<span class="c1"># m.mieskolainen@imperial.ac.uk, 2023</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">numba</span>
+<span class="kn">import</span> <span class="nn">faiss</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">pickle</span>
+<span class="kn">import</span> <span class="nn">csr</span>
+<span class="kn">import</span> <span class="nn">gc</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">scipy</span>
+
+<span class="kn">from</span> <span class="nn">numba.typed</span> <span class="kn">import</span> <span class="n">List</span>
+<span class="kn">from</span> <span class="nn">termcolor</span> <span class="kn">import</span> <span class="n">cprint</span>
+
+<span class="kn">from</span> <span class="nn">hypertrack</span> <span class="kn">import</span> <span class="n">tools</span><span class="p">,</span> <span class="n">iotools</span><span class="p">,</span> <span class="n">visualize</span>
+<span class="kn">from</span> <span class="nn">hypertrack.tools</span> <span class="kn">import</span> <span class="n">select_valid</span>
+
+<div class="viewcode-block" id="train_2pt_connectivity"><a class="viewcode-back" href="../../modules/hypertrack.html#hypertrack.voxdyn.train_2pt_connectivity">[docs]</a><span class="nd">@tools</span><span class="o">.</span><span class="n">timing</span>
+<span class="nd">@numba</span><span class="o">.</span><span class="n">njit</span><span class="p">(</span><span class="n">parallel</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">fastmath</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">train_2pt_connectivity</span><span class="p">(</span><span class="n">C</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">linear_list</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]],</span> <span class="n">I</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">A_track</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Train a 2-point connectivity C-matrix</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        C:           a cell 2-point connectivity matrix (V x V) (csr-library matrix)</span>
+<span class="sd">        linear_list: a list of lists</span>
+<span class="sd">        I:           index assignments</span>
+<span class="sd">        A_track:     ground truth &#39;micro adjacency&#39; per track, a list of adjacency matrices</span>
+<span class="sd">        ncell:       number of V-cells</span>
+<span class="sd">    </span>
+<span class="sd">    Returns:</span>
+<span class="sd">        Values are filled in the input C</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    
+    <span class="n">L</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">linear_list</span><span class="p">)</span>
+    
+    <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">numba</span><span class="o">.</span><span class="n">prange</span><span class="p">(</span><span class="n">L</span><span class="p">):</span>
+        
+        <span class="c1"># Find in which cell hits this track belongs to</span>
+        <span class="n">cell_ind</span> <span class="o">=</span> <span class="n">I</span><span class="p">[</span><span class="n">linear_list</span><span class="p">[</span><span class="n">p</span><span class="p">]]</span>
+        <span class="n">N</span>        <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">cell_ind</span><span class="p">)</span>
+        
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+            <span class="n">u</span> <span class="o">=</span> <span class="n">cell_ind</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="c1"># [0] removes outer []</span>
+            <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+                <span class="n">v</span> <span class="o">=</span> <span class="n">cell_ind</span><span class="p">[</span><span class="n">j</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>  <span class="c1"># [0] removes outer []</span>
+                
+                <span class="c1"># Check ground truth adjacency</span>
+                <span class="k">if</span> <span class="n">A_track</span><span class="p">[</span><span class="n">p</span><span class="p">][</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]:</span>
+                    <span class="n">C</span><span class="p">[</span><span class="n">u</span><span class="p">,</span><span class="n">v</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span></div>
+
+<div class="viewcode-block" id="train_2pt_connectivity_sparse"><a class="viewcode-back" href="../../modules/hypertrack.html#hypertrack.voxdyn.train_2pt_connectivity_sparse">[docs]</a><span class="nd">@tools</span><span class="o">.</span><span class="n">timing</span>
+<span class="nd">@numba</span><span class="o">.</span><span class="n">njit</span><span class="p">(</span><span class="n">parallel</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">fastmath</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">train_2pt_connectivity_sparse</span><span class="p">(</span><span class="n">maxbuffer</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">int64</span><span class="p">,</span> <span class="n">linear_list</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]],</span> <span class="n">I</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">A_track</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Train a 2-point connectivity matrix [sparse matrix version]</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        maxbuffer:   maximum number of entry fills (int64)</span>
+<span class="sd">        linear_list: a list of lists</span>
+<span class="sd">        I:           index assignments</span>
+<span class="sd">        A_track:     ground truth &#39;micro adjacency&#39; per track, a list of adjacency matrices</span>
+<span class="sd">        ncell:       number of V-cells</span>
+<span class="sd">    </span>
+<span class="sd">    Returns:</span>
+<span class="sd">        row, col:    index arrays</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">row</span>   <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">maxbuffer</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">)</span> <span class="c1"># Keep it 32 bits (number of V-cells is much less)</span>
+    <span class="n">col</span>   <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">maxbuffer</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">)</span>
+    
+    <span class="n">L</span>     <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">linear_list</span><span class="p">)</span>
+    <span class="n">index</span> <span class="o">=</span> <span class="mi">0</span>
+    
+    <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">L</span><span class="p">):</span> <span class="c1"># ! Do not use numba.prange here, because of running index !</span>
+        
+        <span class="c1"># Find in which cell hits this track belongs to</span>
+        <span class="n">cell_ind</span> <span class="o">=</span> <span class="n">I</span><span class="p">[</span><span class="n">linear_list</span><span class="p">[</span><span class="n">p</span><span class="p">]]</span>
+        <span class="n">N</span>        <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">cell_ind</span><span class="p">)</span>
+        
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+            <span class="n">u</span> <span class="o">=</span> <span class="n">cell_ind</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="c1"># [0] removes outer []</span>
+            <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+                <span class="n">v</span> <span class="o">=</span> <span class="n">cell_ind</span><span class="p">[</span><span class="n">j</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="c1"># [0] removes outer []</span>
+                
+                <span class="c1"># Check ground truth adjacency</span>
+                <span class="k">if</span> <span class="n">A_track</span><span class="p">[</span><span class="n">p</span><span class="p">][</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]:</span>
+                    <span class="n">row</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">u</span><span class="p">)</span>
+                    <span class="n">col</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+                    <span class="n">index</span>   <span class="o">+=</span> <span class="mi">1</span>
+
+                    <span class="k">if</span> <span class="n">index</span> <span class="o">==</span> <span class="n">maxbuffer</span><span class="p">:</span>
+                        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;train_2_pt_connectivity_sparse: Warning, maximum buffer size (&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">maxbuffer</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;) reached.&quot;</span><span class="p">)</span>
+                        <span class="k">return</span> <span class="n">row</span><span class="p">,</span> <span class="n">col</span>
+    
+    <span class="k">return</span> <span class="n">row</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">index</span><span class="p">],</span> <span class="n">col</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">index</span><span class="p">]</span> <span class="c1"># Note that the original memory allocation is leaked (gc.collect cannot free it)</span></div>
+
+
+<div class="viewcode-block" id="train_3pt_connectivity"><a class="viewcode-back" href="../../modules/hypertrack.html#hypertrack.voxdyn.train_3pt_connectivity">[docs]</a><span class="nd">@tools</span><span class="o">.</span><span class="n">timing</span>
+<span class="nd">@numba</span><span class="o">.</span><span class="n">njit</span><span class="p">(</span><span class="n">parallel</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">fastmath</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">train_3pt_connectivity</span><span class="p">(</span><span class="n">C</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">linear_list</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]],</span> <span class="n">I</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">A_track</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Train a 3-point connectivity tensor [EXPERIMENTAL]</span>
+<span class="sd">    </span>
+<span class="sd">    Args:</span>
+<span class="sd">        C:           3-point connectivity tensor (V x V x V)</span>
+<span class="sd">        linear_list: a list of lists</span>
+<span class="sd">        I:           index assignments</span>
+<span class="sd">        A_track:     ground truth &#39;micro adjacency&#39; per track, a list of adjacency matrices</span>
+<span class="sd">        ncell:       number of V-cells</span>
+<span class="sd">    </span>
+<span class="sd">    Returns:</span>
+<span class="sd">        Values are filled in the input C</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    
+    <span class="n">L</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">linear_list</span><span class="p">)</span>
+    
+    <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">numba</span><span class="o">.</span><span class="n">prange</span><span class="p">(</span><span class="n">L</span><span class="p">):</span>
+        
+        <span class="c1"># Find in which cell hits this track belongs to</span>
+        <span class="n">cell_ind</span> <span class="o">=</span> <span class="n">I</span><span class="p">[</span><span class="n">linear_list</span><span class="p">[</span><span class="n">p</span><span class="p">]]</span>
+        <span class="n">N</span>        <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">cell_ind</span><span class="p">)</span>
+        
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+            <span class="n">u</span> <span class="o">=</span> <span class="n">cell_ind</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="c1"># [0] removes outer []</span>
+            <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+                <span class="n">v</span> <span class="o">=</span> <span class="n">cell_ind</span><span class="p">[</span><span class="n">j</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>  <span class="c1"># [0] removes outer []</span>
+                <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+                    <span class="n">w</span> <span class="o">=</span> <span class="n">cell_ind</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>  <span class="c1"># [0] removes outer []</span>
+
+                    <span class="c1"># Check ground truth adjacency</span>
+                    <span class="k">if</span> <span class="n">A_track</span><span class="p">[</span><span class="n">p</span><span class="p">][</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span> <span class="ow">and</span> <span class="n">A_track</span><span class="p">[</span><span class="n">p</span><span class="p">][</span><span class="n">j</span><span class="p">,</span><span class="n">k</span><span class="p">]</span> <span class="ow">and</span> <span class="n">A_track</span><span class="p">[</span><span class="n">p</span><span class="p">][</span><span class="n">k</span><span class="p">,</span><span class="n">i</span><span class="p">]:</span>
+                        <span class="n">C</span><span class="p">[</span><span class="n">u</span><span class="p">,</span><span class="n">v</span><span class="p">,</span><span class="n">w</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span></div>
+
+
+<div class="viewcode-block" id="compute_A_direct"><a class="viewcode-back" href="../../modules/hypertrack.html#hypertrack.voxdyn.compute_A_direct">[docs]</a><span class="nd">@numba</span><span class="o">.</span><span class="n">njit</span><span class="p">(</span><span class="n">parallel</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">fastmath</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">compute_A_direct</span><span class="p">(</span><span class="n">I</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">C</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    &quot;Direct&quot; -- Construct hit adjacency matrix given the hit indices</span>
+<span class="sd">    I which point which cell hits belong to</span>
+<span class="sd">    </span>
+<span class="sd">    Args:</span>
+<span class="sd">        I:  cell indices for each hit (N)</span>
+<span class="sd">        C:  cell 2-point connectivity matrix (V x V) (csr-library matrix)</span>
+<span class="sd">    </span>
+<span class="sd">    Returns:</span>
+<span class="sd">        edge_index: adjacency list (2 x E)</span>
+<span class="sd">        A:          adjacency matrix (N x N)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">N</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">I</span><span class="p">)</span>
+    <span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">N</span><span class="p">,</span><span class="n">N</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">bool_</span><span class="p">)</span> <span class="c1"># (think about sparse matrices)</span>
+    
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">numba</span><span class="o">.</span><span class="n">prange</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+        <span class="n">u</span>     <span class="o">=</span> <span class="n">I</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+        <span class="n">C_row</span> <span class="o">=</span> <span class="n">C</span><span class="o">.</span><span class="n">row</span><span class="p">(</span><span class="n">u</span><span class="p">)</span> <span class="c1"># !csr library, get dense row        </span>
+        <span class="n">mask</span>  <span class="o">=</span> <span class="n">C_row</span><span class="p">[</span><span class="n">I</span><span class="p">]</span>
+        <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">mask</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
+    
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">(</span><span class="n">A</span><span class="o">.</span><span class="n">nonzero</span><span class="p">()),</span> <span class="n">A</span></div>
+
+
+<div class="viewcode-block" id="compute_A_reverse"><a class="viewcode-back" href="../../modules/hypertrack.html#hypertrack.voxdyn.compute_A_reverse">[docs]</a><span class="nd">@numba</span><span class="o">.</span><span class="n">njit</span><span class="p">(</span><span class="n">parallel</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">fastmath</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">compute_A_reverse</span><span class="p">(</span><span class="n">I_per_V</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">H</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">C</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">N</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    &quot;Reverse&quot; -- Construct hit adjacency matrix given the hit indices</span>
+<span class="sd">    in I_per_V which point which V-cell hits belong to</span>
+<span class="sd">    </span>
+<span class="sd">    Args:</span>
+<span class="sd">        I_per_V:    cell indices for each hit (V x maxhits (buffer) per cell)</span>
+<span class="sd">        H:          number of hits per V-space cell</span>
+<span class="sd">        C:          cell connectivity matrix (V x V) (csr-library matrix)</span>
+<span class="sd">        N:          adjacency matrix dimension</span>
+<span class="sd">    </span>
+<span class="sd">    Returns:</span>
+<span class="sd">        edge_index: adjacency list (2 x E)</span>
+<span class="sd">        A:          adjacency matrix (N x N)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    
+    <span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">N</span><span class="p">,</span> <span class="n">N</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">bool_</span><span class="p">)</span> <span class="c1"># (think about sparse matrices)</span>
+    
+    <span class="c1"># Which V-cells have associated hits</span>
+    <span class="n">V_non_empty</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">H</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">V</span>           <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">V_non_empty</span><span class="p">)</span>
+    
+    <span class="c1"># Loop over V-cell space</span>
+    <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">numba</span><span class="o">.</span><span class="n">prange</span><span class="p">(</span><span class="n">V</span><span class="p">):</span>
+        <span class="n">u</span> <span class="o">=</span> <span class="n">V_non_empty</span><span class="p">[</span><span class="n">a</span><span class="p">]</span>
+        
+        <span class="n">C_row</span> <span class="o">=</span> <span class="n">C</span><span class="o">.</span><span class="n">row</span><span class="p">(</span><span class="n">u</span><span class="p">)</span> <span class="c1"># !csr library, get dense row</span>
+        
+        <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">V</span><span class="p">):</span>
+            <span class="n">v</span> <span class="o">=</span> <span class="n">V_non_empty</span><span class="p">[</span><span class="n">b</span><span class="p">]</span>
+            
+            <span class="c1"># Can be connected according to the C-matrix</span>
+            <span class="k">if</span> <span class="n">C_row</span><span class="p">[</span><span class="n">v</span><span class="p">]:</span> <span class="c1"># !csr library</span>
+                
+                <span class="c1"># Loop over associated real-space hits</span>
+                <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">I_per_V</span><span class="p">[</span><span class="n">u</span><span class="p">,</span> <span class="mi">0</span><span class="p">:</span><span class="n">H</span><span class="p">[</span><span class="n">u</span><span class="p">]]:</span>
+                    
+                    <span class="n">j</span>      <span class="o">=</span> <span class="n">I_per_V</span><span class="p">[</span><span class="n">v</span><span class="p">,</span> <span class="mi">0</span><span class="p">:</span><span class="n">H</span><span class="p">[</span><span class="n">v</span><span class="p">]]</span>
+                    <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
+    
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">(</span><span class="n">A</span><span class="o">.</span><span class="n">nonzero</span><span class="p">()),</span> <span class="n">A</span></div>
+
+
+<div class="viewcode-block" id="compute_A_reverse_3pt"><a class="viewcode-back" href="../../modules/hypertrack.html#hypertrack.voxdyn.compute_A_reverse_3pt">[docs]</a><span class="nd">@numba</span><span class="o">.</span><span class="n">njit</span><span class="p">(</span><span class="n">parallel</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">fastmath</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">compute_A_reverse_3pt</span><span class="p">(</span><span class="n">I_per_V3</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">H3</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">C3</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">N</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    3-pt version [EXPERIMENTAL]</span>
+<span class="sd">    </span>
+<span class="sd">    Args:</span>
+<span class="sd">        I_per_V3:  cell indices for each hit (dim |V| x maxhits (buffer) per cell)</span>
+<span class="sd">        H3:        number of hits per V-space cell</span>
+<span class="sd">        C3:        cell connectivity matrix (dim |V| x dim |V| x dim |V|)</span>
+<span class="sd">        N:         adjacency matrix dimension</span>
+<span class="sd">    Returns:</span>
+<span class="sd">       edge_index: adjacency list (2 x E)</span>
+<span class="sd">       A:          adjacency matrix (N x N)</span>
+<span class="sd">     </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    
+    <span class="n">A1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">N</span><span class="p">,</span> <span class="n">N</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">bool_</span><span class="p">)</span> <span class="c1"># (think about sparse matrices)</span>
+    <span class="n">A2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">N</span><span class="p">,</span> <span class="n">N</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">bool_</span><span class="p">)</span>
+    <span class="n">A3</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">N</span><span class="p">,</span> <span class="n">N</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">bool_</span><span class="p">)</span>
+    
+    <span class="c1"># Which V-cells have associated hits</span>
+    <span class="n">V_non_empty</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">H3</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">V</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">V_non_empty</span><span class="p">)</span>
+    
+    <span class="c1"># Loop over V-cell space</span>
+    <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">numba</span><span class="o">.</span><span class="n">prange</span><span class="p">(</span><span class="n">V</span><span class="p">):</span>
+        <span class="n">i</span> <span class="o">=</span> <span class="n">V_non_empty</span><span class="p">[</span><span class="n">a</span><span class="p">]</span>
+        
+        <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">V</span><span class="p">):</span>
+            <span class="n">j</span> <span class="o">=</span> <span class="n">V_non_empty</span><span class="p">[</span><span class="n">b</span><span class="p">]</span>
+            
+            <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">V</span><span class="p">):</span>
+                <span class="n">k</span> <span class="o">=</span> <span class="n">V_non_empty</span><span class="p">[</span><span class="n">c</span><span class="p">]</span>
+
+                <span class="k">if</span> <span class="n">C3</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">,</span><span class="n">k</span><span class="p">]:</span> <span class="c1"># Can be connected according to the C-matrix</span>
+                    
+                    <span class="c1"># Loop over associated real-space hits</span>
+                    <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="n">I_per_V3</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="mi">0</span><span class="p">:</span><span class="n">H3</span><span class="p">[</span><span class="n">i</span><span class="p">]]:</span>
+                        <span class="n">n</span>       <span class="o">=</span> <span class="n">I_per_V3</span><span class="p">[</span><span class="n">j</span><span class="p">,</span> <span class="mi">0</span><span class="p">:</span><span class="n">H3</span><span class="p">[</span><span class="n">j</span><span class="p">]]</span>
+                        <span class="n">A1</span><span class="p">[</span><span class="n">m</span><span class="p">,</span><span class="n">n</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
+                    
+                    <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="n">I_per_V3</span><span class="p">[</span><span class="n">j</span><span class="p">,</span> <span class="mi">0</span><span class="p">:</span><span class="n">H3</span><span class="p">[</span><span class="n">j</span><span class="p">]]:</span>
+                        <span class="n">n</span>       <span class="o">=</span> <span class="n">I_per_V3</span><span class="p">[</span><span class="n">k</span><span class="p">,</span> <span class="mi">0</span><span class="p">:</span><span class="n">H3</span><span class="p">[</span><span class="n">k</span><span class="p">]]</span>
+                        <span class="n">A2</span><span class="p">[</span><span class="n">m</span><span class="p">,</span><span class="n">n</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
+                    
+                    <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="n">I_per_V3</span><span class="p">[</span><span class="n">k</span><span class="p">,</span> <span class="mi">0</span><span class="p">:</span><span class="n">H3</span><span class="p">[</span><span class="n">k</span><span class="p">]]:</span>
+                        <span class="n">n</span>       <span class="o">=</span> <span class="n">I_per_V3</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="mi">0</span><span class="p">:</span><span class="n">H3</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span>
+                        <span class="n">A3</span><span class="p">[</span><span class="n">m</span><span class="p">,</span><span class="n">n</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
+    
+    <span class="n">A</span> <span class="o">=</span> <span class="n">A1</span> <span class="o">&amp;</span> <span class="n">A2</span> <span class="o">&amp;</span> <span class="n">A3</span>
+    
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">(</span><span class="n">A</span><span class="o">.</span><span class="n">nonzero</span><span class="p">()),</span> <span class="n">A</span></div>
+
+
+<div class="viewcode-block" id="compute_I_per_V"><a class="viewcode-back" href="../../modules/hypertrack.html#hypertrack.voxdyn.compute_I_per_V">[docs]</a><span class="nd">@numba</span><span class="o">.</span><span class="n">njit</span><span class="p">(</span><span class="n">parallel</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">fastmath</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">compute_I_per_V</span><span class="p">(</span><span class="n">I</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">ncell</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">buffer</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    From an event hit list to V-space cells</span>
+<span class="sd">    </span>
+<span class="sd">    Args:</span>
+<span class="sd">        I:       index list of hits which point to V-space cell</span>
+<span class="sd">        ncell:   number of V-cells</span>
+<span class="sd">        buffer:  buffer length (make large enough!)</span>
+<span class="sd">    </span>
+<span class="sd">    Returns:</span>
+<span class="sd">        I_per_V: hit index per V-cell</span>
+<span class="sd">        (several hits possible, empty slots are -1)</span>
+<span class="sd">        H:       number of hits per V-cell</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">I_per_V</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="n">ncell</span><span class="p">,</span> <span class="n">buffer</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">)</span>
+    <span class="n">H</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">ncell</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">)</span>
+    <span class="n">N</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">I</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">hit_index</span> <span class="ow">in</span> <span class="n">numba</span><span class="o">.</span><span class="n">prange</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+        <span class="n">v_index</span> <span class="o">=</span> <span class="n">I</span><span class="p">[</span><span class="n">hit_index</span><span class="p">]</span>
+        <span class="n">j</span> <span class="o">=</span> <span class="n">H</span><span class="p">[</span><span class="n">v_index</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">buffer</span><span class="p">:</span> <span class="c1"># Cannot fill more than the buffer size</span>
+            <span class="n">I_per_V</span><span class="p">[</span><span class="n">v_index</span><span class="p">,</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">hit_index</span>
+            <span class="n">H</span><span class="p">[</span><span class="n">v_index</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+
+    <span class="k">return</span> <span class="n">I_per_V</span><span class="p">,</span> <span class="n">H</span></div>
+
+
+<div class="viewcode-block" id="load_particle_data"><a class="viewcode-back" href="../../modules/hypertrack.html#hypertrack.voxdyn.load_particle_data">[docs]</a><span class="k">def</span> <span class="nf">load_particle_data</span><span class="p">(</span><span class="n">event</span><span class="p">:</span><span class="nb">int</span><span class="p">,</span> <span class="n">event_loader</span><span class="p">,</span> <span class="n">node2node</span><span class="p">:</span><span class="nb">str</span><span class="p">,</span> <span class="n">weighted</span><span class="p">:</span><span class="nb">bool</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Load particle data in a format suitable for training C-matrices (tensors)</span>
+<span class="sd">    </span>
+<span class="sd">    Args:</span>
+<span class="sd">        event_loader:  event loader function handle</span>
+<span class="sd">        event:         event index</span>
+<span class="sd">        node2node:     target graph topology type</span>
+<span class="sd">        weighted:      pick object weights</span>
+<span class="sd">    </span>
+<span class="sd">    Returns:</span>
+<span class="sd">        X:        event data vectors</span>
+<span class="sd">        A_track:  event adjacency matrix</span>
+<span class="sd">        weights:  weights for each data vector</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    
+    <span class="n">data_x</span>        <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">data_weights</span>  <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">A_track</span>       <span class="o">=</span> <span class="n">List</span><span class="p">()</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Event: </span><span class="si">{</span><span class="n">event</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+
+    <span class="c1"># --------------------------------------------------------------------</span>
+    <span class="c1"># Load event</span>
+    <span class="n">X</span><span class="p">,</span> <span class="n">x_ind</span><span class="p">,</span> <span class="n">objects</span><span class="p">,</span> <span class="n">hit_weights</span> <span class="o">=</span> <span class="n">event_loader</span><span class="p">(</span><span class="n">event</span><span class="o">=</span><span class="n">event</span><span class="p">)</span>
+    <span class="c1"># --------------------------------------------------------------------</span>
+    
+    <span class="c1"># Create ground truth adjacency matrix</span>
+    <span class="n">edge_index</span> <span class="o">=</span> <span class="n">tools</span><span class="o">.</span><span class="n">compute_ground_truth_A</span><span class="p">(</span><span class="n">X</span><span class="o">=</span><span class="n">X</span><span class="p">,</span> <span class="n">x_ind</span><span class="o">=</span><span class="n">x_ind</span><span class="p">,</span> <span class="n">node2node</span><span class="o">=</span><span class="n">node2node</span><span class="p">)</span>
+    <span class="n">A</span> <span class="o">=</span> <span class="n">tools</span><span class="o">.</span><span class="n">edges2adj</span><span class="p">(</span><span class="n">edge_index</span><span class="o">=</span><span class="n">edge_index</span><span class="p">,</span> <span class="n">N</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">X</span><span class="p">))</span>
+    
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;X.shape           = </span><span class="si">{</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;x_ind.shape       = </span><span class="si">{</span><span class="n">x_ind</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;edge_index.shape  = </span><span class="si">{</span><span class="n">edge_index</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s1"> (min ind = </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">edge_index</span><span class="o">.</span><span class="n">flatten</span><span class="p">())</span><span class="si">}</span><span class="s1"> | max ind = </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">edge_index</span><span class="o">.</span><span class="n">flatten</span><span class="p">())</span><span class="si">}</span><span class="s1">)&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;objects.shape     = </span><span class="si">{</span><span class="n">objects</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;hit_weights.shape = </span><span class="si">{</span><span class="n">hit_weights</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+    
+    <span class="c1"># --------------------------------------------------------------------</span>
+    <span class="c1"># Pick visible objects mapped in x_ind</span>
+    <span class="n">index_list</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">x_ind</span><span class="p">)):</span>
+        <span class="n">ind</span> <span class="o">=</span> <span class="n">select_valid</span><span class="p">(</span><span class="n">x_ind</span><span class="p">[</span><span class="n">i</span><span class="p">,:])</span>
+        <span class="n">A_track</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">A</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ix_</span><span class="p">(</span><span class="n">ind</span><span class="p">,</span> <span class="n">ind</span><span class="p">)])</span>
+        <span class="n">index_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ind</span><span class="p">)</span>
+    
+    <span class="c1"># Unravel to one array</span>
+    <span class="n">choose_ind</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">(</span><span class="n">index_list</span><span class="p">)</span><span class="o">.</span><span class="n">ravel</span><span class="p">()</span>
+
+    <span class="c1"># Add to the full batch over different events</span>
+    <span class="n">data_x</span> <span class="o">=</span> <span class="n">X</span><span class="p">[</span><span class="n">choose_ind</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">weighted</span><span class="p">:</span>
+        <span class="n">data_weights</span> <span class="o">=</span> <span class="n">hit_weights</span><span class="p">[</span><span class="n">choose_ind</span><span class="p">]</span>
+
+    <span class="k">return</span> <span class="p">{</span><span class="s1">&#39;X&#39;</span><span class="p">:</span> <span class="n">data_x</span><span class="p">,</span> <span class="s1">&#39;A&#39;</span><span class="p">:</span> <span class="n">A_track</span><span class="p">,</span> <span class="s1">&#39;weights&#39;</span><span class="p">:</span> <span class="n">data_weights</span><span class="p">}</span></div>
+
+<div class="viewcode-block" id="combine_data"><a class="viewcode-back" href="../../modules/hypertrack.html#hypertrack.voxdyn.combine_data">[docs]</a><span class="nd">@tools</span><span class="o">.</span><span class="n">timing</span>
+<span class="k">def</span> <span class="nf">combine_data</span><span class="p">(</span><span class="n">data</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span> <span class="n">weighted</span><span class="p">:</span> <span class="nb">bool</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Combine data from different events</span>
+<span class="sd">    </span>
+<span class="sd">    Args:</span>
+<span class="sd">        data:         event-by-event dictionary data in a list</span>
+<span class="sd">        weighted:     use weights</span>
+<span class="sd">    </span>
+<span class="sd">    Returns:</span>
+<span class="sd">        data_x:       data vectors</span>
+<span class="sd">        data_A:       adjacency per particle</span>
+<span class="sd">        data_weights: weights</span>
+<span class="sd">        linear_list:  indices of hits</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">linear_list</span>  <span class="o">=</span> <span class="n">List</span><span class="p">()</span>
+    <span class="n">k</span>            <span class="o">=</span> <span class="mi">0</span>
+    
+    <span class="n">data_x</span>       <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">data_A</span>       <span class="o">=</span> <span class="n">List</span><span class="p">()</span>
+    <span class="n">data_weights</span> <span class="o">=</span> <span class="kc">None</span>
+
+    <span class="c1"># Concatenate data over all events</span>
+    <span class="k">for</span> <span class="n">ev</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)):</span>
+        
+        <span class="n">X</span>       <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">ev</span><span class="p">][</span><span class="s1">&#39;X&#39;</span><span class="p">]</span>
+        <span class="n">A_track</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">ev</span><span class="p">][</span><span class="s1">&#39;A&#39;</span><span class="p">]</span>
+        <span class="n">weights</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">ev</span><span class="p">][</span><span class="s1">&#39;weights&#39;</span><span class="p">]</span>
+
+        <span class="c1"># Over all tracks</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">A_track</span><span class="p">)):</span>
+            
+            <span class="c1"># Add track adjacency</span>
+            <span class="n">data_A</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">A_track</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">())</span>
+
+            <span class="c1"># Add indices</span>
+            <span class="n">N</span>  <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">A_track</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+            <span class="n">linear_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">k</span><span class="o">+</span><span class="n">N</span><span class="p">))</span> <span class="c1"># This will contain int64 values</span>
+            <span class="n">k</span> <span class="o">+=</span> <span class="n">N</span>
+
+        <span class="k">if</span> <span class="n">ev</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">data_x</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+            <span class="k">if</span> <span class="n">weighted</span><span class="p">:</span>
+                <span class="n">data_weights</span> <span class="o">=</span> <span class="n">weights</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>       
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">data_x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">data_x</span><span class="p">,</span> <span class="n">X</span><span class="o">.</span><span class="n">copy</span><span class="p">()),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">weighted</span><span class="p">:</span>
+                <span class="n">data_weights</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">data_weights</span><span class="p">,</span> <span class="n">weights</span><span class="o">.</span><span class="n">copy</span><span class="p">()),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">data_x</span><span class="p">,</span> <span class="n">data_weights</span><span class="p">,</span> <span class="n">data_A</span><span class="p">,</span> <span class="n">linear_list</span></div>
+
+<div class="viewcode-block" id="faiss_to_gpu"><a class="viewcode-back" href="../../modules/hypertrack.html#hypertrack.voxdyn.faiss_to_gpu">[docs]</a><span class="k">def</span> <span class="nf">faiss_to_gpu</span><span class="p">(</span><span class="n">index</span><span class="p">,</span> <span class="n">device</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Faiss index object to GPU</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        index:  Faiss index object</span>
+<span class="sd">        device: &#39;cpu&#39; or &#39;cuda&#39;</span>
+<span class="sd">    </span>
+<span class="sd">    Returns:</span>
+<span class="sd">        index:  Index object</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1">#if device != &#39;cpu&#39; and torch.cuda.is_available():</span>
+    <span class="k">if</span> <span class="n">device</span> <span class="o">!=</span> <span class="s1">&#39;cpu&#39;</span><span class="p">:</span>    
+        <span class="n">res</span>   <span class="o">=</span> <span class="n">faiss</span><span class="o">.</span><span class="n">StandardGpuResources</span><span class="p">()</span>  <span class="c1"># use a single GPU</span>
+        <span class="n">index</span> <span class="o">=</span> <span class="n">faiss</span><span class="o">.</span><span class="n">index_cpu_to_gpu</span><span class="p">(</span><span class="n">res</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">index</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">index</span></div>
+
+<div class="viewcode-block" id="train_voxdyn"><a class="viewcode-back" href="../../modules/hypertrack.html#hypertrack.voxdyn.train_voxdyn">[docs]</a><span class="k">def</span> <span class="nf">train_voxdyn</span><span class="p">(</span><span class="n">event_loader</span><span class="p">,</span> <span class="n">event_range</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span> <span class="n">ncell_list</span><span class="p">:</span><span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span><span class="o">=</span><span class="p">[</span><span class="mi">65536</span><span class="p">,</span> <span class="mi">131072</span><span class="p">],</span> <span class="n">ncell3</span><span class="p">:</span><span class="nb">int</span><span class="o">=</span><span class="mi">1024</span><span class="p">,</span>
+                 <span class="n">niter</span><span class="p">:</span><span class="nb">int</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">min_points_per_centroid</span><span class="p">:</span><span class="nb">int</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">max_points_per_centroid</span><span class="p">:</span><span class="nb">int</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="mf">1E9</span><span class="p">),</span>
+                 <span class="n">node2node</span><span class="p">:</span><span class="nb">str</span><span class="o">=</span><span class="s1">&#39;hyper&#39;</span><span class="p">,</span> <span class="n">maxbuffer</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int64</span><span class="p">(</span><span class="mf">5E9</span><span class="p">),</span> <span class="n">weighted</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">device</span><span class="p">:</span><span class="nb">str</span><span class="o">=</span><span class="s1">&#39;cpu&#39;</span><span class="p">,</span> <span class="n">verbose</span><span class="p">:</span><span class="nb">bool</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Train the geometric Voxel-Dynamics estimator</span>
+<span class="sd">    </span>
+<span class="sd">    Args:</span>
+<span class="sd">        event_loader:               event loader function handle</span>
+<span class="sd">        event_range:                event index list</span>
+<span class="sd">        ncell_list:                 voxel counts to construct (list)</span>
+<span class="sd">        ncell3:                     3-point voxel count (int)</span>
+<span class="sd">        niter:                      number of K-means iterations</span>
+<span class="sd">        min_points_per_centroid:    minimum number of points per centroid in K-means</span>
+<span class="sd">        max_points_per_centroid:    maximum number of points per centroid in K-means</span>
+<span class="sd">        node2node:                  target graph topology type</span>
+<span class="sd">        maxbuffer:                  maximum (64 bit integer) number of entry fills for the sparse C-matrix</span>
+<span class="sd">        weighted:                   use weights</span>
+<span class="sd">        device:                     &#39;cpu&#39; or &#39;cuda&#39;</span>
+<span class="sd">        verbose:                    verbose print</span>
+<span class="sd">        </span>
+<span class="sd">    Returns:</span>
+<span class="sd">        trained models are saved to the disk</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    
+    <span class="c1"># This should be good for Faiss</span>
+    <span class="n">faiss</span><span class="o">.</span><span class="n">omp_set_num_threads</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">cpu_count</span><span class="p">()</span> <span class="o">//</span> <span class="mi">2</span><span class="p">)</span>
+    
+    <span class="c1"># Load per event data</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="kc">None</span><span class="p">]</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">event_range</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">event_range</span><span class="p">)):</span>
+        <span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">load_particle_data</span><span class="p">(</span><span class="n">event_range</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">event_loader</span><span class="p">,</span> <span class="n">node2node</span><span class="p">,</span> <span class="n">weighted</span><span class="p">)</span>
+    
+    <span class="c1"># Combine all event data</span>
+    <span class="n">data_x</span><span class="p">,</span> <span class="n">hit_weights</span><span class="p">,</span> <span class="n">A_track</span><span class="p">,</span> <span class="n">linear_list</span> <span class="o">=</span> <span class="n">combine_data</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="n">weighted</span><span class="o">=</span><span class="n">weighted</span><span class="p">)</span>
+    
+    <span class="c1"># Free memory !</span>
+    <span class="k">del</span> <span class="n">data</span>
+    <span class="n">gc</span><span class="o">.</span><span class="n">collect</span><span class="p">()</span>
+    
+    <span class="c1"># Make it C-contiguous for Faiss</span>
+    <span class="n">data_x</span> <span class="o">=</span> <span class="n">data_x</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+    <span class="n">data_x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ascontiguousarray</span><span class="p">(</span><span class="n">data_x</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">weighted</span><span class="p">:</span>
+        <span class="n">hit_weights</span> <span class="o">=</span> <span class="n">hit_weights</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+        <span class="n">hit_weights</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ascontiguousarray</span><span class="p">(</span><span class="n">hit_weights</span><span class="p">)</span>
+    
+    <span class="c1"># Produce statistics</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;- Total number of hits: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">data_x</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">data_x</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;- coord[</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s1">] (min,max,mean,std): </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">data_x</span><span class="p">[:,</span><span class="n">i</span><span class="p">])</span><span class="si">}</span><span class="s1"> | </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">data_x</span><span class="p">[:,</span><span class="n">i</span><span class="p">])</span><span class="si">}</span><span class="s1"> | </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">data_x</span><span class="p">[:,</span><span class="n">i</span><span class="p">])</span><span class="si">}</span><span class="s1"> | </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">data_x</span><span class="p">[:,</span><span class="n">i</span><span class="p">])</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+    
+    <span class="n">dim</span>   <span class="o">=</span> <span class="n">data_x</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">nhits</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">data_x</span><span class="p">)</span>
+    
+    <span class="c1"># 3-Point K-means [EXPERIMENTAL]</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    kmeans3 = faiss.Kmeans(d=dim, k=ncell3, niter=niter,</span>
+<span class="sd">        min_points_per_centroid=min_points_per_centroid, </span>
+<span class="sd">        max_points_per_centroid=max_points_per_centroid,</span>
+<span class="sd">        gpu=True if device != &#39;cpu&#39; else False, verbose=verbose)</span>
+
+<span class="sd">    if weighted:</span>
+<span class="sd">        kmeans3.train(x=data_x, weights=hit_weights)</span>
+<span class="sd">    else:</span>
+<span class="sd">        kmeans3.train(x=data_x)</span>
+<span class="sd">    </span>
+<span class="sd">    centroids3 = kmeans3.centroids</span>
+<span class="sd">    _, I3  = kmeans3.index.search(data_x, 1) # Find corresponding V-space position</span>
+<span class="sd">    </span>
+<span class="sd">    # Construct 3-point connectivity matrix</span>
+<span class="sd">    </span>
+<span class="sd">    print(&#39;Constructing C3-matrix ...&#39;)</span>
+<span class="sd">    C3 = np.zeros((ncell3, ncell3), dtype=np.bool_)</span>
+<span class="sd">    train_3pt_connectivity(C3=C3, linear_list=linear_list, I=I3, A_track=A_track)</span>
+<span class="sd">    </span>
+<span class="sd">    del I3</span>
+<span class="sd">    del kmeans3</span>
+<span class="sd">    gc.collect()</span>
+<span class="sd">    &quot;&quot;&quot;</span>        
+    
+    <span class="n">centroids3</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">C3</span>         <span class="o">=</span> <span class="kc">None</span>
+    
+    <span class="k">for</span> <span class="n">ncell</span> <span class="ow">in</span> <span class="n">ncell_list</span><span class="p">:</span>
+        
+        <span class="k">if</span> <span class="n">device</span> <span class="o">!=</span> <span class="s1">&#39;cpu&#39;</span><span class="p">:</span>
+            <span class="n">iotools</span><span class="o">.</span><span class="n">showmem_cuda</span><span class="p">(</span><span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">iotools</span><span class="o">.</span><span class="n">showmem</span><span class="p">()</span>
+        
+        <span class="c1"># --------------------------------------------------------------------</span>
+        <span class="c1"># Run Faiss K-means</span>
+        <span class="c1"># min(max)_points_per_centroid is important, otherwise subsampling can occur!</span>
+        <span class="c1"># https://github.com/facebookresearch/faiss/wiki/FAQ</span>
+        
+        <span class="n">kmeans</span> <span class="o">=</span> <span class="n">faiss</span><span class="o">.</span><span class="n">Kmeans</span><span class="p">(</span><span class="n">d</span><span class="o">=</span><span class="n">dim</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="n">ncell</span><span class="p">,</span> <span class="n">niter</span><span class="o">=</span><span class="n">niter</span><span class="p">,</span>
+            <span class="n">min_points_per_centroid</span><span class="o">=</span><span class="n">min_points_per_centroid</span><span class="p">,</span> 
+            <span class="n">max_points_per_centroid</span><span class="o">=</span><span class="n">max_points_per_centroid</span><span class="p">,</span>
+            <span class="n">gpu</span><span class="o">=</span><span class="kc">True</span> <span class="k">if</span> <span class="n">device</span> <span class="o">!=</span> <span class="s1">&#39;cpu&#39;</span> <span class="k">else</span> <span class="kc">False</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="n">verbose</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">weighted</span><span class="p">:</span>
+            <span class="n">kmeans</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">data_x</span><span class="p">,</span> <span class="n">weights</span><span class="o">=</span><span class="n">hit_weights</span><span class="p">)</span> <span class="c1"># Weighted can fail with large number of clusters</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">kmeans</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">data_x</span><span class="p">)</span>
+        
+        <span class="n">centroids</span> <span class="o">=</span> <span class="n">kmeans</span><span class="o">.</span><span class="n">centroids</span>
+        <span class="n">_</span><span class="p">,</span> <span class="n">I</span>  <span class="o">=</span> <span class="n">kmeans</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">data_x</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="c1"># Find corresponding V-space position</span>
+        
+        <span class="k">del</span> <span class="n">kmeans</span>
+        <span class="n">gc</span><span class="o">.</span><span class="n">collect</span><span class="p">()</span>
+        
+        <span class="c1"># --------------------------------------------------------------------</span>
+        <span class="c1"># Clear memory if only one under processing</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">ncell_list</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="k">del</span> <span class="n">data_x</span>
+            <span class="k">del</span> <span class="n">hit_weights</span>
+            <span class="n">gc</span><span class="o">.</span><span class="n">collect</span><span class="p">()</span>
+        
+        <span class="k">if</span> <span class="n">device</span> <span class="o">!=</span> <span class="s1">&#39;cpu&#39;</span><span class="p">:</span>
+            <span class="n">iotools</span><span class="o">.</span><span class="n">showmem_cuda</span><span class="p">(</span><span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">iotools</span><span class="o">.</span><span class="n">showmem</span><span class="p">()</span>
+        
+        <span class="c1"># --------------------------------------------------------------------</span>
+        <span class="c1"># Construct 2-point connectivity C-matrix</span>
+        
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Training 2-pt connectivity ...&#39;</span><span class="p">)</span>
+        
+        <span class="c1">## Dense version</span>
+        <span class="c1">#C_dense = np.zeros((ncell, ncell), dtype=np.bool_)</span>
+        <span class="c1">#train_2pt_connectivity(C=C_dense, linear_list=linear_list, I=I, A_track=A_track)</span>
+        
+        <span class="c1"># Sparse version</span>
+        <span class="n">row</span><span class="p">,</span> <span class="n">col</span> <span class="o">=</span> <span class="n">train_2pt_connectivity_sparse</span><span class="p">(</span><span class="n">maxbuffer</span><span class="o">=</span><span class="n">maxbuffer</span><span class="p">,</span> <span class="n">linear_list</span><span class="o">=</span><span class="n">linear_list</span><span class="p">,</span> <span class="n">I</span><span class="o">=</span><span class="n">I</span><span class="p">,</span> <span class="n">A_track</span><span class="o">=</span><span class="n">A_track</span><span class="p">)</span>
+        
+        <span class="nb">print</span><span class="p">(</span><span class="vm">__name__</span> <span class="o">+</span> <span class="sa">f</span><span class="s1">&#39;.train_voxdyn: Sparse C-matrix fills </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">row</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="nb">float</span><span class="p">(</span><span class="n">maxbuffer</span><span class="p">)</span><span class="si">:</span><span class="s1">0.3e</span><span class="si">}</span><span class="s1"> of maxbuffer (</span><span class="si">{</span><span class="n">maxbuffer</span><span class="si">:</span><span class="s1">0.1e</span><span class="si">}</span><span class="s1">) size&#39;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">device</span> <span class="o">!=</span> <span class="s1">&#39;cpu&#39;</span><span class="p">:</span>
+            <span class="n">iotools</span><span class="o">.</span><span class="n">showmem_cuda</span><span class="p">(</span><span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">iotools</span><span class="o">.</span><span class="n">showmem</span><span class="p">()</span>        
+        
+        <span class="c1"># --------------------------------------------------------------------</span>
+        <span class="c1"># Clear memory if only one under processing</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">ncell_list</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="k">del</span> <span class="n">linear_list</span>
+            <span class="k">del</span> <span class="n">A_track</span>
+            <span class="k">del</span> <span class="n">I</span>
+            <span class="n">gc</span><span class="o">.</span><span class="n">collect</span><span class="p">()</span>
+        
+        <span class="k">if</span> <span class="n">device</span> <span class="o">!=</span> <span class="s1">&#39;cpu&#39;</span><span class="p">:</span>
+            <span class="n">iotools</span><span class="o">.</span><span class="n">showmem_cuda</span><span class="p">(</span><span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">iotools</span><span class="o">.</span><span class="n">showmem</span><span class="p">()</span>
+        <span class="c1"># --------------------------------------------------------------------</span>
+        
+        <span class="c1">## Dense format into to sparse matrix</span>
+        <span class="c1">#C  = scipy.sparse.csr_matrix(C_dense, dtype=np.bool_)</span>
+        <span class="c1">#C3 = scipy.sparse.csr_matrix(C3_dense, dtype=np.bool_)</span>
+        
+        <span class="c1"># Row-col format into sparse matrix</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">row</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">bool_</span><span class="p">)</span>
+        <span class="n">C</span>    <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">sparse</span><span class="o">.</span><span class="n">csr_matrix</span><span class="p">((</span><span class="n">data</span><span class="p">,</span> <span class="p">(</span><span class="n">row</span><span class="p">,</span> <span class="n">col</span><span class="p">)),</span> <span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="n">ncell</span><span class="p">,</span> <span class="n">ncell</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">bool_</span><span class="p">)</span>
+        <span class="n">C</span><span class="o">.</span><span class="n">sum_duplicates</span><span class="p">()</span>
+        <span class="n">C</span><span class="o">.</span><span class="n">sort_indices</span><span class="p">()</span>
+        
+        <span class="c1">## Save to the disk</span>
+        <span class="n">CWD</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()</span>
+        <span class="n">filename</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">CWD</span><span class="si">}</span><span class="s2">/models/voxdyn_node2node_</span><span class="si">{</span><span class="n">node2node</span><span class="si">}</span><span class="s2">_ncell_</span><span class="si">{</span><span class="n">ncell</span><span class="si">}</span><span class="s2">.pkl&quot;</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s2">&quot;wb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">output_file</span><span class="p">:</span>
+            
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Saving voxdyn model information to: </span><span class="si">{</span><span class="n">filename</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;ncell&#39;</span><span class="p">:</span> <span class="n">ncell</span><span class="p">,</span> <span class="s1">&#39;ncell3&#39;</span><span class="p">:</span> <span class="n">ncell3</span><span class="p">,</span> <span class="s1">&#39;centroids&#39;</span><span class="p">:</span> <span class="n">centroids</span><span class="p">,</span> <span class="s1">&#39;centroids3&#39;</span><span class="p">:</span> <span class="n">centroids3</span><span class="p">,</span>
+                    <span class="s1">&#39;C&#39;</span><span class="p">:</span> <span class="n">C</span><span class="p">,</span> <span class="s1">&#39;C3&#39;</span><span class="p">:</span> <span class="n">C3</span><span class="p">,</span> <span class="s1">&#39;node2node&#39;</span><span class="p">:</span> <span class="n">node2node</span><span class="p">,</span> <span class="s1">&#39;nhits&#39;</span><span class="p">:</span> <span class="n">nhits</span><span class="p">}</span>
+            <span class="n">pickle</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">output_file</span><span class="p">,</span> <span class="n">pickle</span><span class="o">.</span><span class="n">HIGHEST_PROTOCOL</span><span class="p">)</span>
+        
+        <span class="c1">## Visualize</span>
+        <span class="k">if</span> <span class="n">ncell</span> <span class="o">&lt;=</span> <span class="mi">20000</span><span class="p">:</span>
+            <span class="n">visualize</span><span class="o">.</span><span class="n">plot_voronoi</span><span class="p">(</span><span class="n">centroids</span><span class="o">=</span><span class="n">centroids</span><span class="p">,</span> <span class="n">savename</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;ncell_</span><span class="si">{</span><span class="n">ncell</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+            <span class="n">visualize</span><span class="o">.</span><span class="n">plot_C_matrix</span><span class="p">(</span><span class="n">C</span><span class="o">=</span><span class="n">C</span><span class="o">.</span><span class="n">toarray</span><span class="p">(),</span> <span class="n">title</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;&quot;</span><span class="si">{</span><span class="n">node2node</span><span class="si">}</span><span class="s1">&quot;&#39;</span><span class="p">,</span> <span class="n">savename</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;ncell_</span><span class="si">{</span><span class="n">ncell</span><span class="si">}</span><span class="s1">_node2node_</span><span class="si">{</span><span class="n">node2node</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+        
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">ncell_list</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="k">del</span> <span class="n">centroids</span>
+            <span class="k">del</span> <span class="n">I</span>
+            <span class="k">del</span> <span class="n">C</span>
+            <span class="k">del</span> <span class="n">row</span>
+            <span class="k">del</span> <span class="n">col</span>
+            <span class="k">del</span> <span class="n">data</span>
+            <span class="n">gc</span><span class="o">.</span><span class="n">collect</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="voxdyn_predictor"><a class="viewcode-back" href="../../modules/hypertrack.html#hypertrack.voxdyn.voxdyn_predictor">[docs]</a><span class="k">def</span> <span class="nf">voxdyn_predictor</span><span class="p">(</span><span class="n">X</span><span class="p">:</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">,</span> <span class="n">node2node</span><span class="p">:</span><span class="nb">str</span><span class="o">=</span><span class="s1">&#39;hyper&#39;</span><span class="p">,</span> <span class="n">ncell</span><span class="p">:</span><span class="nb">int</span><span class="o">=</span><span class="mi">65536</span><span class="p">,</span> <span class="n">obj</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                     <span class="n">adj_algorithm</span><span class="o">=</span><span class="s1">&#39;reverse&#39;</span><span class="p">,</span> <span class="n">buffer</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span> <span class="n">device</span><span class="p">:</span><span class="nb">str</span><span class="o">=</span><span class="s1">&#39;cpu&#39;</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Predict connectivity based on Voxel-Dynamic estimator</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        X:              input data array (C-contiguous, float32)</span>
+<span class="sd">        node2node:      adjacency connectivity type</span>
+<span class="sd">        ncell:          number of cells</span>
+<span class="sd">        obj:            pre-loaded estimator object dictionary</span>
+<span class="sd">        adj_algorithm:  &#39;direct&#39; or &#39;reverse&#39; [identical result from both but latency may differ]</span>
+<span class="sd">        buffer:         Node count default buffer size per V-cell for the &#39;reverse&#39; algorithm</span>
+<span class="sd">                        (will be recursively increased by x 10 until no saturation)              </span>
+<span class="sd">        device:         computing device (&#39;cpu&#39; or &#39;cuda&#39;)</span>
+<span class="sd">    </span>
+<span class="sd">    Returns:</span>
+<span class="sd">        edge_index_hat: adjacency list</span>
+<span class="sd">        A_hat:          adjacency matrix</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    
+    <span class="c1"># This should be good for Faiss</span>
+    <span class="n">faiss</span><span class="o">.</span><span class="n">omp_set_num_threads</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">cpu_count</span><span class="p">()</span> <span class="o">//</span> <span class="mi">2</span><span class="p">)</span>
+    
+    <span class="c1"># Make sure it is float32 and C-contiguous (faiss requirements)</span>
+    <span class="n">X</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+    <span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ascontiguousarray</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+    
+    <span class="k">if</span> <span class="n">obj</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">CWD</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">CWD</span><span class="si">}</span><span class="s2">/models/voxdyn_node2node_</span><span class="si">{</span><span class="n">node2node</span><span class="si">}</span><span class="s2">_ncell_</span><span class="si">{</span><span class="n">ncell</span><span class="si">}</span><span class="s2">.pkl&quot;</span><span class="p">,</span> <span class="s2">&quot;rb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">input_file</span><span class="p">:</span>
+                <span class="n">obj</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">input_file</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="n">cprint</span><span class="p">(</span><span class="n">e</span><span class="p">,</span> <span class="s1">&#39;red&#39;</span><span class="p">)</span>
+    
+    <span class="n">cprint</span><span class="p">(</span><span class="vm">__name__</span> <span class="o">+</span> <span class="sa">f</span><span class="s2">&quot;.voxdyn_predictor: Using a model with ncell = </span><span class="si">{</span><span class="n">obj</span><span class="p">[</span><span class="s1">&#39;ncell&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2"> (2-pt) | node2node = </span><span class="si">{</span><span class="n">obj</span><span class="p">[</span><span class="s1">&#39;node2node&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="s1">&#39;green&#39;</span><span class="p">)</span>
+
+    <span class="c1"># Inverted File Index with product quantization [EXPERIMENTAL]</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    nlist = 1000</span>
+<span class="sd">    m     = 3</span>
+<span class="sd">    nbits = 8</span>
+<span class="sd">    quantizer = faiss_to_gpu(faiss.IndexFlatL2(dim), device)</span>
+<span class="sd">    quantizer = faiss_to_gpu(faiss.IndexHNSWFlat(dim, m), device)</span>
+<span class="sd">    index = faiss_to_gpu(faiss.IndexIVFPQ(quantizer, dim, nlist, m, nbits))</span>
+<span class="sd">    index.train(obj[&#39;centroids&#39;])</span>
+<span class="sd">    index.add(obj[&#39;centroids&#39;])</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1"># Inverted File Index [EXPERIMENTAL]</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    nlist = 1000</span>
+<span class="sd">    quantizer = faiss_to_gpu(faiss.IndexFlatL2(dim), device)</span>
+<span class="sd">    index = faiss_to_gpu(faiss.IndexIVFFlat(quantizer, dim, nlist, faiss.METRIC_L2), device)</span>
+<span class="sd">    index.add(obj[&#39;centroids&#39;])</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    
+    <span class="n">dim</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    
+    <span class="c1"># --------------------------------------</span>
+    <span class="c1">## 2-point discretization search</span>
+    
+    <span class="c1"># 0. Span exact L2-metric search (this could be done only once outside this function, but this is fast)</span>
+    <span class="n">time_L2</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+    <span class="n">index</span> <span class="o">=</span> <span class="n">faiss_to_gpu</span><span class="p">(</span><span class="n">faiss</span><span class="o">.</span><span class="n">IndexFlatL2</span><span class="p">(</span><span class="n">dim</span><span class="p">),</span> <span class="n">device</span><span class="p">)</span>
+    <span class="n">index</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">obj</span><span class="p">[</span><span class="s1">&#39;centroids&#39;</span><span class="p">])</span>
+    
+    <span class="c1">## 1. Do the index search</span>
+    <span class="n">_</span><span class="p">,</span> <span class="n">I_full</span> <span class="o">=</span> <span class="n">index</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">index</span><span class="o">.</span><span class="n">reset</span><span class="p">()</span> <span class="c1"># Free Faiss memory</span>
+    <span class="n">I_full</span> <span class="o">=</span> <span class="n">I_full</span><span class="o">.</span><span class="n">squeeze</span><span class="p">()</span>
+    <span class="k">del</span> <span class="n">index</span>
+    <span class="n">time_L2</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">time_L2</span>
+
+    <span class="c1"># --------------------------------------</span>
+    <span class="c1">## 3-point discretization search (experimental)</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    index3 = faiss_to_gpu(faiss.IndexFlatL2(dim), device)</span>
+<span class="sd">    index3.add(obj[&#39;centroids3&#39;])</span>
+<span class="sd">    </span>
+<span class="sd">    D3_full, I3_full = index3.search(X, 1)</span>
+<span class="sd">    index3.reset() # Free Faiss memory</span>
+<span class="sd">    I3_full = I3_full.squeeze()</span>
+<span class="sd">    del index3</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># --------------------------------------</span>
+    
+    <span class="c1"># --------------------------------------</span>
+    <span class="c1">## Construct adjacency</span>
+    
+    <span class="n">time_A</span>  <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+    
+    <span class="k">if</span>   <span class="n">adj_algorithm</span> <span class="o">==</span> <span class="s1">&#39;direct&#39;</span><span class="p">:</span>  <span class="c1"># Direct algo</span>
+        
+        <span class="n">edge_index_hat</span><span class="p">,</span> <span class="n">A_hat</span> <span class="o">=</span> <span class="n">compute_A_direct</span><span class="p">(</span><span class="n">I</span><span class="o">=</span><span class="n">I_full</span><span class="p">,</span> <span class="n">C</span><span class="o">=</span><span class="n">obj</span><span class="p">[</span><span class="s1">&#39;C&#39;</span><span class="p">])</span>
+    
+    <span class="k">elif</span> <span class="n">adj_algorithm</span> <span class="o">==</span> <span class="s1">&#39;reverse&#39;</span><span class="p">:</span> <span class="c1"># Reverse algo</span>
+        
+        <span class="c1"># ---------</span>
+        <span class="c1"># 2-pt version</span>
+        
+        <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+            
+            <span class="n">I_per_V</span><span class="p">,</span> <span class="n">H</span> <span class="o">=</span> <span class="n">compute_I_per_V</span><span class="p">(</span><span class="n">I</span><span class="o">=</span><span class="n">I_full</span><span class="p">,</span> <span class="n">ncell</span><span class="o">=</span><span class="n">obj</span><span class="p">[</span><span class="s1">&#39;ncell&#39;</span><span class="p">],</span> <span class="n">buffer</span><span class="o">=</span><span class="n">buffer</span><span class="p">)</span>
+            
+            <span class="c1"># Check that not no cell saturated the buffer</span>
+            <span class="n">max_occupancy</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">H</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="vm">__name__</span> <span class="o">+</span> <span class="sa">f</span><span class="s1">&#39;.voxdyn_predictor: Max index occupancy per cell: </span><span class="si">{</span><span class="n">max_occupancy</span><span class="si">}</span><span class="s1"> | Buffer size = </span><span class="si">{</span><span class="n">buffer</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+            
+            <span class="k">if</span> <span class="n">max_occupancy</span> <span class="o">==</span> <span class="n">buffer</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="vm">__name__</span> <span class="o">+</span> <span class="sa">f</span><span class="s1">&#39;.voxdyn_predictor: Increasing buffer size x 10 (set it higher manually)&#39;</span><span class="p">)</span>
+                <span class="n">buffer</span> <span class="o">=</span> <span class="n">buffer</span> <span class="o">*</span> <span class="mi">10</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">break</span>
+        
+        <span class="n">edge_index_hat</span><span class="p">,</span> <span class="n">A_hat</span> <span class="o">=</span> <span class="n">compute_A_reverse</span><span class="p">(</span><span class="n">I_per_V</span><span class="o">=</span><span class="n">I_per_V</span><span class="p">,</span> <span class="n">H</span><span class="o">=</span><span class="n">H</span><span class="p">,</span> <span class="n">C</span><span class="o">=</span><span class="n">obj</span><span class="p">[</span><span class="s1">&#39;C&#39;</span><span class="p">],</span> <span class="n">N</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">X</span><span class="p">))</span>
+<span class="w">        </span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        # ---------</span>
+<span class="sd">        # 3-pt version [EXPERIMENTAL]</span>
+<span class="sd">        </span>
+<span class="sd">        while True:</span>
+<span class="sd">            </span>
+<span class="sd">            I_per_V3, H3 = compute_I_per_V(I=I3_full, ncell=obj[&#39;ncell3&#39;], buffer=buffer)</span>
+<span class="sd">            </span>
+<span class="sd">            # Check that not no cell saturated the buffer</span>
+<span class="sd">            max_occupancy = np.max(H3)</span>
+<span class="sd">            print(__name__ + f&#39;.voxdyn_predictor: Max index occupancy per cell3: {max_occupancy} | Buffer size = {buffer}&#39;)</span>
+
+<span class="sd">            if max_occupancy == buffer:</span>
+<span class="sd">                print(__name__ + f&#39;.voxdyn_predictor: Increasing buffer size x 10 (set it higher manually)&#39;)</span>
+<span class="sd">                buffer = buffer * 10</span>
+<span class="sd">            else:</span>
+<span class="sd">                break</span>
+<span class="sd">        </span>
+<span class="sd">        edge_index_hat, A_hat = compute_A_reverse_3pt(I_per_V3=I_per_V3, H3=H3, C3=obj[&#39;C3&#39;], N=len(X))</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+    
+    <span class="n">time_A</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">time_A</span>
+    
+    <span class="nb">print</span><span class="p">(</span><span class="vm">__name__</span> <span class="o">+</span> <span class="sa">f</span><span class="s1">&#39;.voxdyn_predictor: Edges = </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">A_hat</span><span class="p">)</span><span class="si">:</span><span class="s1">0.1e</span><span class="si">}</span><span class="s1">, Avg. degree </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">A_hat</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span><span class="si">:</span><span class="s1">0.1f</span><span class="si">}</span><span class="s1"> | Geometric L2 search (</span><span class="si">{</span><span class="n">time_L2</span><span class="si">:</span><span class="s1">0.4</span><span class="si">}</span><span class="s1"> s) | C-matrix look-up (</span><span class="si">{</span><span class="n">time_A</span><span class="si">:</span><span class="s1">0.4</span><span class="si">}</span><span class="s1"> s)&#39;</span><span class="p">)</span>
+    
+    <span class="k">return</span> <span class="n">edge_index_hat</span><span class="p">,</span> <span class="n">A_hat</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;time_L2&#39;</span><span class="p">:</span> <span class="n">time_L2</span><span class="p">,</span> <span class="s1">&#39;time_A&#39;</span><span class="p">:</span> <span class="n">time_A</span><span class="p">}</span></div>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Mikael Mieskolainen, I-X and Blackett Laboratory, Imperial College London.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

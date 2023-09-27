@@ -1,0 +1,963 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Index &mdash; hypertrack alpha documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="#" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html">
+            
+          </a>
+              <div class="version">
+                0.0.1
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Notes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="notes/introduction.html">Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="notes/introduction.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notes/introduction.html#hugging-face-quick-start">Hugging Face Quick Start</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notes/introduction.html#folder-structure">Folder structure</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="notes/installation.html">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="notes/installation.html#required-conda-installation">Required: Conda installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notes/installation.html#install-environment">Install environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notes/installation.html#initialize-environment">Initialize environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notes/installation.html#gpu-support-commands">GPU-support commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notes/installation.html#conda-virtual-environment-commands">Conda virtual environment commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notes/installation.html#c-library-versions">C-library versions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="notes/training.html">Training</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="notes/training.html#train-voxel-dynamics-graph-constructor">Train Voxel-Dynamics graph constructor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notes/training.html#train-neural-gnn-transformer-model">Train neural GNN + Transformer model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notes/training.html#training-parameters">Training parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notes/training.html#model-hyperparameters">Model hyperparameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notes/training.html#ground-truth-graph-topology">Ground truth graph topology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notes/training.html#progressive-transfer-learning">Progressive transfer learning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notes/training.html#learning-rate">Learning rate</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="notes/inference.html">Inference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="notes/inference.html#main-parameters">Main parameters</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="notes/markup.html">Documentation</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Package Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="modules/hypertrack.html">hypertrack</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="modules/hypertrack.html#module-hypertrack.auxtrain">hypertrack.auxtrain</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="modules/hypertrack.html#hypertrack.auxtrain.backward"><code class="docutils literal notranslate"><span class="pre">backward()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/hypertrack.html#hypertrack.auxtrain.execute"><code class="docutils literal notranslate"><span class="pre">execute()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/hypertrack.html#hypertrack.auxtrain.load_models"><code class="docutils literal notranslate"><span class="pre">load_models()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/hypertrack.html#hypertrack.auxtrain.load_optimizers"><code class="docutils literal notranslate"><span class="pre">load_optimizers()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/hypertrack.html#hypertrack.auxtrain.plot_gradient_flow"><code class="docutils literal notranslate"><span class="pre">plot_gradient_flow()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/hypertrack.html#hypertrack.auxtrain.plot_metrics"><code class="docutils literal notranslate"><span class="pre">plot_metrics()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/hypertrack.html#hypertrack.auxtrain.save_models"><code class="docutils literal notranslate"><span class="pre">save_models()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/hypertrack.html#hypertrack.auxtrain.set_optimizer"><code class="docutils literal notranslate"><span class="pre">set_optimizer()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/hypertrack.html#hypertrack.auxtrain.set_scheduler"><code class="docutils literal notranslate"><span class="pre">set_scheduler()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="modules/hypertrack.html#module-hypertrack.dmlp">hypertrack.dmlp</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="modules/hypertrack.html#hypertrack.dmlp.MLP"><code class="docutils literal notranslate"><span class="pre">MLP()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/hypertrack.html#hypertrack.dmlp.get_act"><code class="docutils literal notranslate"><span class="pre">get_act()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="modules/hypertrack.html#module-hypertrack.faissknn">hypertrack.faissknn</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="modules/hypertrack.html#hypertrack.faissknn.faisskNN"><code class="docutils literal notranslate"><span class="pre">faisskNN</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="modules/hypertrack.html#module-hypertrack.flows">hypertrack.flows</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="modules/hypertrack.html#hypertrack.flows.ActNorm"><code class="docutils literal notranslate"><span class="pre">ActNorm</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/hypertrack.html#hypertrack.flows.BatchNormFlow"><code class="docutils literal notranslate"><span class="pre">BatchNormFlow</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/hypertrack.html#hypertrack.flows.CouplingLayer"><code class="docutils literal notranslate"><span class="pre">CouplingLayer</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/hypertrack.html#hypertrack.flows.FlowSequential"><code class="docutils literal notranslate"><span class="pre">FlowSequential</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/hypertrack.html#hypertrack.flows.InvertibleMM"><code class="docutils literal notranslate"><span class="pre">InvertibleMM</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/hypertrack.html#hypertrack.flows.LUInvertibleMM"><code class="docutils literal notranslate"><span class="pre">LUInvertibleMM</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/hypertrack.html#hypertrack.flows.Logit"><code class="docutils literal notranslate"><span class="pre">Logit</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/hypertrack.html#hypertrack.flows.MADE"><code class="docutils literal notranslate"><span class="pre">MADE</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/hypertrack.html#hypertrack.flows.MADESplit"><code class="docutils literal notranslate"><span class="pre">MADESplit</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/hypertrack.html#hypertrack.flows.MaskedLinear"><code class="docutils literal notranslate"><span class="pre">MaskedLinear</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/hypertrack.html#hypertrack.flows.Reverse"><code class="docutils literal notranslate"><span class="pre">Reverse</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/hypertrack.html#hypertrack.flows.Shuffle"><code class="docutils literal notranslate"><span class="pre">Shuffle</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/hypertrack.html#hypertrack.flows.Sigmoid"><code class="docutils literal notranslate"><span class="pre">Sigmoid</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/hypertrack.html#hypertrack.flows.get_mask"><code class="docutils literal notranslate"><span class="pre">get_mask()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="modules/hypertrack.html#module-hypertrack.hyper">hypertrack.hyper</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="modules/hypertrack.html#hypertrack.hyper.clusterize"><code class="docutils literal notranslate"><span class="pre">clusterize()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/hypertrack.html#hypertrack.hyper.hypertrack"><code class="docutils literal notranslate"><span class="pre">hypertrack()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/hypertrack.html#hypertrack.hyper.transformer_helper"><code class="docutils literal notranslate"><span class="pre">transformer_helper()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="modules/hypertrack.html#module-hypertrack.hyperaux">hypertrack.hyperaux</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="modules/hypertrack.html#hypertrack.hyperaux.cluster_loss"><code class="docutils literal notranslate"><span class="pre">cluster_loss()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/hypertrack.html#hypertrack.hyperaux.edge_loss"><code class="docutils literal notranslate"><span class="pre">edge_loss()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/hypertrack.html#hypertrack.hyperaux.loss_normalization"><code class="docutils literal notranslate"><span class="pre">loss_normalization()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="modules/hypertrack.html#module-hypertrack.iotools">hypertrack.iotools</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="modules/hypertrack.html#hypertrack.iotools.construct_event_range"><code class="docutils literal notranslate"><span class="pre">construct_event_range()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/hypertrack.html#hypertrack.iotools.get_gpu_memory_map"><code class="docutils literal notranslate"><span class="pre">get_gpu_memory_map()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/hypertrack.html#hypertrack.iotools.grab_torch_file"><code class="docutils literal notranslate"><span class="pre">grab_torch_file()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/hypertrack.html#hypertrack.iotools.load_models"><code class="docutils literal notranslate"><span class="pre">load_models()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/hypertrack.html#hypertrack.iotools.process_memory_use"><code class="docutils literal notranslate"><span class="pre">process_memory_use()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/hypertrack.html#hypertrack.iotools.showmem"><code class="docutils literal notranslate"><span class="pre">showmem()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/hypertrack.html#hypertrack.iotools.showmem_cuda"><code class="docutils literal notranslate"><span class="pre">showmem_cuda()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/hypertrack.html#hypertrack.iotools.sysinfo"><code class="docutils literal notranslate"><span class="pre">sysinfo()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/hypertrack.html#hypertrack.iotools.torch_cuda_total_memory"><code class="docutils literal notranslate"><span class="pre">torch_cuda_total_memory()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="modules/hypertrack.html#module-hypertrack.losses">hypertrack.losses</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="modules/hypertrack.html#hypertrack.losses.DiceLogitsLoss"><code class="docutils literal notranslate"><span class="pre">DiceLogitsLoss</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/hypertrack.html#hypertrack.losses.FocalWithLogitsLoss"><code class="docutils literal notranslate"><span class="pre">FocalWithLogitsLoss</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/hypertrack.html#hypertrack.losses.HingeLoss"><code class="docutils literal notranslate"><span class="pre">HingeLoss</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/hypertrack.html#hypertrack.losses.JaccardLogitsLoss"><code class="docutils literal notranslate"><span class="pre">JaccardLogitsLoss</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/hypertrack.html#hypertrack.losses.SmoothHingeLoss"><code class="docutils literal notranslate"><span class="pre">SmoothHingeLoss</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/hypertrack.html#hypertrack.losses.contrastive_edge_loss"><code class="docutils literal notranslate"><span class="pre">contrastive_edge_loss()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/hypertrack.html#hypertrack.losses.find_posneg_connections"><code class="docutils literal notranslate"><span class="pre">find_posneg_connections()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/hypertrack.html#hypertrack.losses.fisher_loss"><code class="docutils literal notranslate"><span class="pre">fisher_loss()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/hypertrack.html#hypertrack.losses.fisher_threshold"><code class="docutils literal notranslate"><span class="pre">fisher_threshold()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/hypertrack.html#hypertrack.losses.intersect_loss"><code class="docutils literal notranslate"><span class="pre">intersect_loss()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="modules/hypertrack.html#module-hypertrack.measures">hypertrack.measures</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="modules/hypertrack.html#hypertrack.measures.Metric"><code class="docutils literal notranslate"><span class="pre">Metric</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/hypertrack.html#hypertrack.measures.adjgraph_metrics"><code class="docutils literal notranslate"><span class="pre">adjgraph_metrics()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/hypertrack.html#hypertrack.measures.compute_adj_metrics"><code class="docutils literal notranslate"><span class="pre">compute_adj_metrics()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/hypertrack.html#hypertrack.measures.compute_metrics"><code class="docutils literal notranslate"><span class="pre">compute_metrics()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/hypertrack.html#hypertrack.measures.histedges_equal_N"><code class="docutils literal notranslate"><span class="pre">histedges_equal_N()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/hypertrack.html#hypertrack.measures.majority_score"><code class="docutils literal notranslate"><span class="pre">majority_score()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/hypertrack.html#hypertrack.measures.roc_curve"><code class="docutils literal notranslate"><span class="pre">roc_curve()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/hypertrack.html#hypertrack.measures.true_false_positive"><code class="docutils literal notranslate"><span class="pre">true_false_positive()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="modules/hypertrack.html#module-hypertrack.ratioplot">hypertrack.ratioplot</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="modules/hypertrack.html#hypertrack.ratioplot.create_axes"><code class="docutils literal notranslate"><span class="pre">create_axes()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/hypertrack.html#hypertrack.ratioplot.plot_horizontal_line"><code class="docutils literal notranslate"><span class="pre">plot_horizontal_line()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/hypertrack.html#hypertrack.ratioplot.set_axis_ticks"><code class="docutils literal notranslate"><span class="pre">set_axis_ticks()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/hypertrack.html#hypertrack.ratioplot.stepspace"><code class="docutils literal notranslate"><span class="pre">stepspace()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/hypertrack.html#hypertrack.ratioplot.tick_calc"><code class="docutils literal notranslate"><span class="pre">tick_calc()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/hypertrack.html#hypertrack.ratioplot.tick_creator"><code class="docutils literal notranslate"><span class="pre">tick_creator()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="modules/hypertrack.html#module-hypertrack.tools">hypertrack.tools</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="modules/hypertrack.html#hypertrack.tools.Graph"><code class="docutils literal notranslate"><span class="pre">Graph</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/hypertrack.html#hypertrack.tools.adj2edges"><code class="docutils literal notranslate"><span class="pre">adj2edges()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/hypertrack.html#hypertrack.tools.attach_fully_connected_node"><code class="docutils literal notranslate"><span class="pre">attach_fully_connected_node()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/hypertrack.html#hypertrack.tools.backtrack_linear_index"><code class="docutils literal notranslate"><span class="pre">backtrack_linear_index()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/hypertrack.html#hypertrack.tools.closure_test_adj"><code class="docutils literal notranslate"><span class="pre">closure_test_adj()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/hypertrack.html#hypertrack.tools.compute_ground_truth_A"><code class="docutils literal notranslate"><span class="pre">compute_ground_truth_A()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/hypertrack.html#hypertrack.tools.compute_hit_mixing"><code class="docutils literal notranslate"><span class="pre">compute_hit_mixing()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/hypertrack.html#hypertrack.tools.compute_hyper"><code class="docutils literal notranslate"><span class="pre">compute_hyper()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/hypertrack.html#hypertrack.tools.count_hit_multiplicity"><code class="docutils literal notranslate"><span class="pre">count_hit_multiplicity()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/hypertrack.html#hypertrack.tools.count_reco_cluster"><code class="docutils literal notranslate"><span class="pre">count_reco_cluster()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/hypertrack.html#hypertrack.tools.create_cluster_ind"><code class="docutils literal notranslate"><span class="pre">create_cluster_ind()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/hypertrack.html#hypertrack.tools.create_cluster_labels"><code class="docutils literal notranslate"><span class="pre">create_cluster_labels()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/hypertrack.html#hypertrack.tools.create_edge_label"><code class="docutils literal notranslate"><span class="pre">create_edge_label()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/hypertrack.html#hypertrack.tools.edges2adj"><code class="docutils literal notranslate"><span class="pre">edges2adj()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/hypertrack.html#hypertrack.tools.explicit_range"><code class="docutils literal notranslate"><span class="pre">explicit_range()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/hypertrack.html#hypertrack.tools.find_connected_components"><code class="docutils literal notranslate"><span class="pre">find_connected_components()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/hypertrack.html#hypertrack.tools.normalize_cols"><code class="docutils literal notranslate"><span class="pre">normalize_cols()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/hypertrack.html#hypertrack.tools.normalize_rows"><code class="docutils literal notranslate"><span class="pre">normalize_rows()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/hypertrack.html#hypertrack.tools.print_clusters"><code class="docutils literal notranslate"><span class="pre">print_clusters()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/hypertrack.html#hypertrack.tools.running_mean_uniform_filter1d"><code class="docutils literal notranslate"><span class="pre">running_mean_uniform_filter1d()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/hypertrack.html#hypertrack.tools.select_valid"><code class="docutils literal notranslate"><span class="pre">select_valid()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/hypertrack.html#hypertrack.tools.span_adj_mat"><code class="docutils literal notranslate"><span class="pre">span_adj_mat()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/hypertrack.html#hypertrack.tools.split"><code class="docutils literal notranslate"><span class="pre">split()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/hypertrack.html#hypertrack.tools.split_size"><code class="docutils literal notranslate"><span class="pre">split_size()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/hypertrack.html#hypertrack.tools.split_start_end"><code class="docutils literal notranslate"><span class="pre">split_start_end()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/hypertrack.html#hypertrack.tools.timing"><code class="docutils literal notranslate"><span class="pre">timing()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/hypertrack.html#hypertrack.tools.track_minimal_spanning_tree"><code class="docutils literal notranslate"><span class="pre">track_minimal_spanning_tree()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/hypertrack.html#hypertrack.tools.value_and_uncertainty_scientific"><code class="docutils literal notranslate"><span class="pre">value_and_uncertainty_scientific()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="modules/hypertrack.html#module-hypertrack.torchtools">hypertrack.torchtools</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="modules/hypertrack.html#hypertrack.torchtools.count_parameters_torch"><code class="docutils literal notranslate"><span class="pre">count_parameters_torch()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/hypertrack.html#hypertrack.torchtools.fastcat_rand"><code class="docutils literal notranslate"><span class="pre">fastcat_rand()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/hypertrack.html#hypertrack.torchtools.plot_grad_flow"><code class="docutils literal notranslate"><span class="pre">plot_grad_flow()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/hypertrack.html#hypertrack.torchtools.seperate_weight_param"><code class="docutils literal notranslate"><span class="pre">seperate_weight_param()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/hypertrack.html#hypertrack.torchtools.set_diff_1d"><code class="docutils literal notranslate"><span class="pre">set_diff_1d()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/hypertrack.html#hypertrack.torchtools.set_random_seed"><code class="docutils literal notranslate"><span class="pre">set_random_seed()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/hypertrack.html#hypertrack.torchtools.subgraph_mask"><code class="docutils literal notranslate"><span class="pre">subgraph_mask()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/hypertrack.html#hypertrack.torchtools.to_scipy_sparse_csr_matrix"><code class="docutils literal notranslate"><span class="pre">to_scipy_sparse_csr_matrix()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/hypertrack.html#hypertrack.torchtools.torch_intersect"><code class="docutils literal notranslate"><span class="pre">torch_intersect()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/hypertrack.html#hypertrack.torchtools.torch_to_scipy_scr"><code class="docutils literal notranslate"><span class="pre">torch_to_scipy_scr()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/hypertrack.html#hypertrack.torchtools.weighted_degree"><code class="docutils literal notranslate"><span class="pre">weighted_degree()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="modules/hypertrack.html#module-hypertrack.trackml">hypertrack.trackml</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="modules/hypertrack.html#hypertrack.trackml.generate_graph_data"><code class="docutils literal notranslate"><span class="pre">generate_graph_data()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/hypertrack.html#hypertrack.trackml.load_reduce_event"><code class="docutils literal notranslate"><span class="pre">load_reduce_event()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/hypertrack.html#hypertrack.trackml.process_data"><code class="docutils literal notranslate"><span class="pre">process_data()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/hypertrack.html#hypertrack.trackml.reduce_tracks"><code class="docutils literal notranslate"><span class="pre">reduce_tracks()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="modules/hypertrack.html#module-hypertrack.transforms">hypertrack.transforms</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="modules/hypertrack.html#hypertrack.transforms.transform_r_eta_phi"><code class="docutils literal notranslate"><span class="pre">transform_r_eta_phi()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="modules/hypertrack.html#module-hypertrack.visualize">hypertrack.visualize</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="modules/hypertrack.html#hypertrack.visualize.ROC_plot"><code class="docutils literal notranslate"><span class="pre">ROC_plot()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/hypertrack.html#hypertrack.visualize.annotate_heatmap"><code class="docutils literal notranslate"><span class="pre">annotate_heatmap()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/hypertrack.html#hypertrack.visualize.compare_cluster_multiplicity"><code class="docutils literal notranslate"><span class="pre">compare_cluster_multiplicity()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/hypertrack.html#hypertrack.visualize.compare_hit_multiplicity"><code class="docutils literal notranslate"><span class="pre">compare_hit_multiplicity()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/hypertrack.html#hypertrack.visualize.crf"><code class="docutils literal notranslate"><span class="pre">crf()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/hypertrack.html#hypertrack.visualize.density_MVA_wclass"><code class="docutils literal notranslate"><span class="pre">density_MVA_wclass()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/hypertrack.html#hypertrack.visualize.hist_filled_error"><code class="docutils literal notranslate"><span class="pre">hist_filled_error()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/hypertrack.html#hypertrack.visualize.imperial_brown"><code class="docutils literal notranslate"><span class="pre">imperial_brown</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/hypertrack.html#hypertrack.visualize.plot_C_matrix"><code class="docutils literal notranslate"><span class="pre">plot_C_matrix()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/hypertrack.html#hypertrack.visualize.plot_adj_matrices"><code class="docutils literal notranslate"><span class="pre">plot_adj_matrices()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/hypertrack.html#hypertrack.visualize.plot_mixing_matrix"><code class="docutils literal notranslate"><span class="pre">plot_mixing_matrix()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/hypertrack.html#hypertrack.visualize.plot_tracks"><code class="docutils literal notranslate"><span class="pre">plot_tracks()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/hypertrack.html#hypertrack.visualize.plot_voronoi"><code class="docutils literal notranslate"><span class="pre">plot_voronoi()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/hypertrack.html#hypertrack.visualize.ratioerr"><code class="docutils literal notranslate"><span class="pre">ratioerr()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/hypertrack.html#hypertrack.visualize.track_effiency_plots"><code class="docutils literal notranslate"><span class="pre">track_effiency_plots()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="modules/hypertrack.html#module-hypertrack.voxdyn">hypertrack.voxdyn</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="modules/hypertrack.html#hypertrack.voxdyn.combine_data"><code class="docutils literal notranslate"><span class="pre">combine_data()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/hypertrack.html#hypertrack.voxdyn.compute_A_direct"><code class="docutils literal notranslate"><span class="pre">compute_A_direct()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/hypertrack.html#hypertrack.voxdyn.compute_A_reverse"><code class="docutils literal notranslate"><span class="pre">compute_A_reverse()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/hypertrack.html#hypertrack.voxdyn.compute_A_reverse_3pt"><code class="docutils literal notranslate"><span class="pre">compute_A_reverse_3pt()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/hypertrack.html#hypertrack.voxdyn.compute_I_per_V"><code class="docutils literal notranslate"><span class="pre">compute_I_per_V()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/hypertrack.html#hypertrack.voxdyn.faiss_to_gpu"><code class="docutils literal notranslate"><span class="pre">faiss_to_gpu()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/hypertrack.html#hypertrack.voxdyn.load_particle_data"><code class="docutils literal notranslate"><span class="pre">load_particle_data()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/hypertrack.html#hypertrack.voxdyn.train_2pt_connectivity"><code class="docutils literal notranslate"><span class="pre">train_2pt_connectivity()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/hypertrack.html#hypertrack.voxdyn.train_2pt_connectivity_sparse"><code class="docutils literal notranslate"><span class="pre">train_2pt_connectivity_sparse()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/hypertrack.html#hypertrack.voxdyn.train_3pt_connectivity"><code class="docutils literal notranslate"><span class="pre">train_3pt_connectivity()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/hypertrack.html#hypertrack.voxdyn.train_voxdyn"><code class="docutils literal notranslate"><span class="pre">train_voxdyn()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/hypertrack.html#hypertrack.voxdyn.voxdyn_predictor"><code class="docutils literal notranslate"><span class="pre">voxdyn_predictor()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">hypertrack</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Index</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+
+<h1 id="index">Index</h1>
+
+<div class="genindex-jumpbox">
+ <a href="#A"><strong>A</strong></a>
+ | <a href="#B"><strong>B</strong></a>
+ | <a href="#C"><strong>C</strong></a>
+ | <a href="#D"><strong>D</strong></a>
+ | <a href="#E"><strong>E</strong></a>
+ | <a href="#F"><strong>F</strong></a>
+ | <a href="#G"><strong>G</strong></a>
+ | <a href="#H"><strong>H</strong></a>
+ | <a href="#I"><strong>I</strong></a>
+ | <a href="#J"><strong>J</strong></a>
+ | <a href="#L"><strong>L</strong></a>
+ | <a href="#M"><strong>M</strong></a>
+ | <a href="#N"><strong>N</strong></a>
+ | <a href="#P"><strong>P</strong></a>
+ | <a href="#R"><strong>R</strong></a>
+ | <a href="#S"><strong>S</strong></a>
+ | <a href="#T"><strong>T</strong></a>
+ | <a href="#V"><strong>V</strong></a>
+ | <a href="#W"><strong>W</strong></a>
+ 
+</div>
+<h2 id="A">A</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="modules/hypertrack.html#hypertrack.flows.ActNorm">ActNorm (class in hypertrack.flows)</a>
+</li>
+      <li><a href="modules/hypertrack.html#hypertrack.tools.Graph.addEdge">addEdge() (Graph method)</a>
+</li>
+      <li><a href="modules/hypertrack.html#hypertrack.tools.adj2edges">adj2edges() (in module hypertrack.tools)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="modules/hypertrack.html#hypertrack.measures.adjgraph_metrics">adjgraph_metrics() (in module hypertrack.measures)</a>
+</li>
+      <li><a href="modules/hypertrack.html#hypertrack.visualize.annotate_heatmap">annotate_heatmap() (in module hypertrack.visualize)</a>
+</li>
+      <li><a href="modules/hypertrack.html#hypertrack.tools.attach_fully_connected_node">attach_fully_connected_node() (in module hypertrack.tools)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="B">B</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="modules/hypertrack.html#hypertrack.tools.backtrack_linear_index">backtrack_linear_index() (in module hypertrack.tools)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="modules/hypertrack.html#hypertrack.auxtrain.backward">backward() (in module hypertrack.auxtrain)</a>
+</li>
+      <li><a href="modules/hypertrack.html#hypertrack.flows.BatchNormFlow">BatchNormFlow (class in hypertrack.flows)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="C">C</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="modules/hypertrack.html#hypertrack.tools.closure_test_adj">closure_test_adj() (in module hypertrack.tools)</a>
+</li>
+      <li><a href="modules/hypertrack.html#hypertrack.hyperaux.cluster_loss">cluster_loss() (in module hypertrack.hyperaux)</a>
+</li>
+      <li><a href="modules/hypertrack.html#hypertrack.hyper.clusterize">clusterize() (in module hypertrack.hyper)</a>
+</li>
+      <li><a href="modules/hypertrack.html#hypertrack.voxdyn.combine_data">combine_data() (in module hypertrack.voxdyn)</a>
+</li>
+      <li><a href="modules/hypertrack.html#hypertrack.visualize.compare_cluster_multiplicity">compare_cluster_multiplicity() (in module hypertrack.visualize)</a>
+</li>
+      <li><a href="modules/hypertrack.html#hypertrack.visualize.compare_hit_multiplicity">compare_hit_multiplicity() (in module hypertrack.visualize)</a>
+</li>
+      <li><a href="modules/hypertrack.html#hypertrack.voxdyn.compute_A_direct">compute_A_direct() (in module hypertrack.voxdyn)</a>
+</li>
+      <li><a href="modules/hypertrack.html#hypertrack.voxdyn.compute_A_reverse">compute_A_reverse() (in module hypertrack.voxdyn)</a>
+</li>
+      <li><a href="modules/hypertrack.html#hypertrack.voxdyn.compute_A_reverse_3pt">compute_A_reverse_3pt() (in module hypertrack.voxdyn)</a>
+</li>
+      <li><a href="modules/hypertrack.html#hypertrack.measures.compute_adj_metrics">compute_adj_metrics() (in module hypertrack.measures)</a>
+</li>
+      <li><a href="modules/hypertrack.html#hypertrack.tools.compute_ground_truth_A">compute_ground_truth_A() (in module hypertrack.tools)</a>
+</li>
+      <li><a href="modules/hypertrack.html#hypertrack.tools.compute_hit_mixing">compute_hit_mixing() (in module hypertrack.tools)</a>
+</li>
+      <li><a href="modules/hypertrack.html#hypertrack.tools.compute_hyper">compute_hyper() (in module hypertrack.tools)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="modules/hypertrack.html#hypertrack.voxdyn.compute_I_per_V">compute_I_per_V() (in module hypertrack.voxdyn)</a>
+</li>
+      <li><a href="modules/hypertrack.html#hypertrack.measures.compute_metrics">compute_metrics() (in module hypertrack.measures)</a>
+</li>
+      <li><a href="modules/hypertrack.html#hypertrack.tools.Graph.connectedComponents">connectedComponents() (Graph method)</a>
+</li>
+      <li><a href="modules/hypertrack.html#hypertrack.iotools.construct_event_range">construct_event_range() (in module hypertrack.iotools)</a>
+</li>
+      <li><a href="modules/hypertrack.html#hypertrack.losses.contrastive_edge_loss">contrastive_edge_loss() (in module hypertrack.losses)</a>
+</li>
+      <li><a href="modules/hypertrack.html#hypertrack.tools.count_hit_multiplicity">count_hit_multiplicity() (in module hypertrack.tools)</a>
+</li>
+      <li><a href="modules/hypertrack.html#hypertrack.torchtools.count_parameters_torch">count_parameters_torch() (in module hypertrack.torchtools)</a>
+</li>
+      <li><a href="modules/hypertrack.html#hypertrack.tools.count_reco_cluster">count_reco_cluster() (in module hypertrack.tools)</a>
+</li>
+      <li><a href="modules/hypertrack.html#hypertrack.flows.CouplingLayer">CouplingLayer (class in hypertrack.flows)</a>
+</li>
+      <li><a href="modules/hypertrack.html#hypertrack.ratioplot.create_axes">create_axes() (in module hypertrack.ratioplot)</a>
+</li>
+      <li><a href="modules/hypertrack.html#hypertrack.tools.create_cluster_ind">create_cluster_ind() (in module hypertrack.tools)</a>
+</li>
+      <li><a href="modules/hypertrack.html#hypertrack.tools.create_cluster_labels">create_cluster_labels() (in module hypertrack.tools)</a>
+</li>
+      <li><a href="modules/hypertrack.html#hypertrack.tools.create_edge_label">create_edge_label() (in module hypertrack.tools)</a>
+</li>
+      <li><a href="modules/hypertrack.html#hypertrack.visualize.crf">crf() (in module hypertrack.visualize)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="D">D</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="modules/hypertrack.html#hypertrack.visualize.density_MVA_wclass">density_MVA_wclass() (in module hypertrack.visualize)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="modules/hypertrack.html#hypertrack.tools.Graph.DFSUtil">DFSUtil() (Graph method)</a>
+</li>
+      <li><a href="modules/hypertrack.html#hypertrack.losses.DiceLogitsLoss">DiceLogitsLoss (class in hypertrack.losses)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="E">E</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="modules/hypertrack.html#hypertrack.hyperaux.edge_loss">edge_loss() (in module hypertrack.hyperaux)</a>
+</li>
+      <li><a href="modules/hypertrack.html#hypertrack.tools.edges2adj">edges2adj() (in module hypertrack.tools)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="modules/hypertrack.html#hypertrack.auxtrain.execute">execute() (in module hypertrack.auxtrain)</a>
+</li>
+      <li><a href="modules/hypertrack.html#hypertrack.tools.explicit_range">explicit_range() (in module hypertrack.tools)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="F">F</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="modules/hypertrack.html#hypertrack.voxdyn.faiss_to_gpu">faiss_to_gpu() (in module hypertrack.voxdyn)</a>
+</li>
+      <li><a href="modules/hypertrack.html#hypertrack.faissknn.faisskNN">faisskNN (class in hypertrack.faissknn)</a>
+</li>
+      <li><a href="modules/hypertrack.html#hypertrack.torchtools.fastcat_rand">fastcat_rand() (in module hypertrack.torchtools)</a>
+</li>
+      <li><a href="modules/hypertrack.html#hypertrack.tools.find_connected_components">find_connected_components() (in module hypertrack.tools)</a>
+</li>
+      <li><a href="modules/hypertrack.html#hypertrack.losses.find_posneg_connections">find_posneg_connections() (in module hypertrack.losses)</a>
+</li>
+      <li><a href="modules/hypertrack.html#hypertrack.losses.fisher_loss">fisher_loss() (in module hypertrack.losses)</a>
+</li>
+      <li><a href="modules/hypertrack.html#hypertrack.losses.fisher_threshold">fisher_threshold() (in module hypertrack.losses)</a>
+</li>
+      <li><a href="modules/hypertrack.html#hypertrack.faissknn.faisskNN.fit">fit() (faisskNN method)</a>
+</li>
+      <li><a href="modules/hypertrack.html#hypertrack.flows.FlowSequential">FlowSequential (class in hypertrack.flows)</a>
+</li>
+      <li><a href="modules/hypertrack.html#hypertrack.losses.FocalWithLogitsLoss">FocalWithLogitsLoss (class in hypertrack.losses)</a>
+</li>
+      <li><a href="modules/hypertrack.html#hypertrack.flows.ActNorm.forward">forward() (ActNorm method)</a>
+
+      <ul>
+        <li><a href="modules/hypertrack.html#hypertrack.flows.BatchNormFlow.forward">(BatchNormFlow method)</a>
+</li>
+        <li><a href="modules/hypertrack.html#hypertrack.flows.CouplingLayer.forward">(CouplingLayer method)</a>
+</li>
+        <li><a href="modules/hypertrack.html#hypertrack.losses.DiceLogitsLoss.forward">(DiceLogitsLoss method)</a>
+</li>
+        <li><a href="modules/hypertrack.html#hypertrack.flows.FlowSequential.forward">(FlowSequential method)</a>
+</li>
+        <li><a href="modules/hypertrack.html#hypertrack.losses.FocalWithLogitsLoss.forward">(FocalWithLogitsLoss method)</a>
+</li>
+        <li><a href="modules/hypertrack.html#hypertrack.losses.HingeLoss.forward">(HingeLoss method)</a>
+</li>
+        <li><a href="modules/hypertrack.html#hypertrack.flows.InvertibleMM.forward">(InvertibleMM method)</a>
+</li>
+        <li><a href="modules/hypertrack.html#hypertrack.losses.JaccardLogitsLoss.forward">(JaccardLogitsLoss method)</a>
+</li>
+        <li><a href="modules/hypertrack.html#hypertrack.flows.Logit.forward">(Logit method)</a>
+</li>
+        <li><a href="modules/hypertrack.html#hypertrack.flows.LUInvertibleMM.forward">(LUInvertibleMM method)</a>
+</li>
+        <li><a href="modules/hypertrack.html#hypertrack.flows.MADE.forward">(MADE method)</a>
+</li>
+        <li><a href="modules/hypertrack.html#hypertrack.flows.MADESplit.forward">(MADESplit method)</a>
+</li>
+        <li><a href="modules/hypertrack.html#hypertrack.flows.MaskedLinear.forward">(MaskedLinear method)</a>
+</li>
+        <li><a href="modules/hypertrack.html#hypertrack.flows.Reverse.forward">(Reverse method)</a>
+</li>
+        <li><a href="modules/hypertrack.html#hypertrack.flows.Shuffle.forward">(Shuffle method)</a>
+</li>
+        <li><a href="modules/hypertrack.html#hypertrack.flows.Sigmoid.forward">(Sigmoid method)</a>
+</li>
+        <li><a href="modules/hypertrack.html#hypertrack.losses.SmoothHingeLoss.forward">(SmoothHingeLoss method)</a>
+</li>
+      </ul></li>
+  </ul></td>
+</tr></table>
+
+<h2 id="G">G</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="modules/hypertrack.html#hypertrack.trackml.generate_graph_data">generate_graph_data() (in module hypertrack.trackml)</a>
+</li>
+      <li><a href="modules/hypertrack.html#hypertrack.dmlp.get_act">get_act() (in module hypertrack.dmlp)</a>
+</li>
+      <li><a href="modules/hypertrack.html#hypertrack.iotools.get_gpu_memory_map">get_gpu_memory_map() (in module hypertrack.iotools)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="modules/hypertrack.html#hypertrack.flows.get_mask">get_mask() (in module hypertrack.flows)</a>
+</li>
+      <li><a href="modules/hypertrack.html#hypertrack.iotools.grab_torch_file">grab_torch_file() (in module hypertrack.iotools)</a>
+</li>
+      <li><a href="modules/hypertrack.html#hypertrack.tools.Graph">Graph (class in hypertrack.tools)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="H">H</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="modules/hypertrack.html#hypertrack.losses.HingeLoss">HingeLoss (class in hypertrack.losses)</a>
+</li>
+      <li><a href="modules/hypertrack.html#hypertrack.visualize.hist_filled_error">hist_filled_error() (in module hypertrack.visualize)</a>
+</li>
+      <li><a href="modules/hypertrack.html#hypertrack.measures.histedges_equal_N">histedges_equal_N() (in module hypertrack.measures)</a>
+</li>
+      <li><a href="modules/hypertrack.html#hypertrack.hyper.hypertrack">hypertrack() (in module hypertrack.hyper)</a>
+</li>
+      <li>
+    hypertrack.auxtrain
+
+      <ul>
+        <li><a href="modules/hypertrack.html#module-hypertrack.auxtrain">module</a>
+</li>
+      </ul></li>
+      <li>
+    hypertrack.dmlp
+
+      <ul>
+        <li><a href="modules/hypertrack.html#module-hypertrack.dmlp">module</a>
+</li>
+      </ul></li>
+      <li>
+    hypertrack.faissknn
+
+      <ul>
+        <li><a href="modules/hypertrack.html#module-hypertrack.faissknn">module</a>
+</li>
+      </ul></li>
+      <li>
+    hypertrack.flows
+
+      <ul>
+        <li><a href="modules/hypertrack.html#module-hypertrack.flows">module</a>
+</li>
+      </ul></li>
+      <li>
+    hypertrack.hyper
+
+      <ul>
+        <li><a href="modules/hypertrack.html#module-hypertrack.hyper">module</a>
+</li>
+      </ul></li>
+      <li>
+    hypertrack.hyperaux
+
+      <ul>
+        <li><a href="modules/hypertrack.html#module-hypertrack.hyperaux">module</a>
+</li>
+      </ul></li>
+      <li>
+    hypertrack.iotools
+
+      <ul>
+        <li><a href="modules/hypertrack.html#module-hypertrack.iotools">module</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li>
+    hypertrack.losses
+
+      <ul>
+        <li><a href="modules/hypertrack.html#module-hypertrack.losses">module</a>
+</li>
+      </ul></li>
+      <li>
+    hypertrack.measures
+
+      <ul>
+        <li><a href="modules/hypertrack.html#module-hypertrack.measures">module</a>
+</li>
+      </ul></li>
+      <li>
+    hypertrack.ratioplot
+
+      <ul>
+        <li><a href="modules/hypertrack.html#module-hypertrack.ratioplot">module</a>
+</li>
+      </ul></li>
+      <li>
+    hypertrack.tools
+
+      <ul>
+        <li><a href="modules/hypertrack.html#module-hypertrack.tools">module</a>
+</li>
+      </ul></li>
+      <li>
+    hypertrack.torchtools
+
+      <ul>
+        <li><a href="modules/hypertrack.html#module-hypertrack.torchtools">module</a>
+</li>
+      </ul></li>
+      <li>
+    hypertrack.trackml
+
+      <ul>
+        <li><a href="modules/hypertrack.html#module-hypertrack.trackml">module</a>
+</li>
+      </ul></li>
+      <li>
+    hypertrack.transforms
+
+      <ul>
+        <li><a href="modules/hypertrack.html#module-hypertrack.transforms">module</a>
+</li>
+      </ul></li>
+      <li>
+    hypertrack.visualize
+
+      <ul>
+        <li><a href="modules/hypertrack.html#module-hypertrack.visualize">module</a>
+</li>
+      </ul></li>
+      <li>
+    hypertrack.voxdyn
+
+      <ul>
+        <li><a href="modules/hypertrack.html#module-hypertrack.voxdyn">module</a>
+</li>
+      </ul></li>
+  </ul></td>
+</tr></table>
+
+<h2 id="I">I</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="modules/hypertrack.html#hypertrack.visualize.imperial_brown">imperial_brown (in module hypertrack.visualize)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="modules/hypertrack.html#hypertrack.losses.intersect_loss">intersect_loss() (in module hypertrack.losses)</a>
+</li>
+      <li><a href="modules/hypertrack.html#hypertrack.flows.InvertibleMM">InvertibleMM (class in hypertrack.flows)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="J">J</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="modules/hypertrack.html#hypertrack.losses.JaccardLogitsLoss">JaccardLogitsLoss (class in hypertrack.losses)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="L">L</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="modules/hypertrack.html#hypertrack.auxtrain.load_models">load_models() (in module hypertrack.auxtrain)</a>
+
+      <ul>
+        <li><a href="modules/hypertrack.html#hypertrack.iotools.load_models">(in module hypertrack.iotools)</a>
+</li>
+      </ul></li>
+      <li><a href="modules/hypertrack.html#hypertrack.auxtrain.load_optimizers">load_optimizers() (in module hypertrack.auxtrain)</a>
+</li>
+      <li><a href="modules/hypertrack.html#hypertrack.voxdyn.load_particle_data">load_particle_data() (in module hypertrack.voxdyn)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="modules/hypertrack.html#hypertrack.trackml.load_reduce_event">load_reduce_event() (in module hypertrack.trackml)</a>
+</li>
+      <li><a href="modules/hypertrack.html#hypertrack.flows.FlowSequential.log_probs">log_probs() (FlowSequential method)</a>
+</li>
+      <li><a href="modules/hypertrack.html#hypertrack.flows.Logit">Logit (class in hypertrack.flows)</a>
+</li>
+      <li><a href="modules/hypertrack.html#hypertrack.hyperaux.loss_normalization">loss_normalization() (in module hypertrack.hyperaux)</a>
+</li>
+      <li><a href="modules/hypertrack.html#hypertrack.flows.LUInvertibleMM">LUInvertibleMM (class in hypertrack.flows)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="M">M</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="modules/hypertrack.html#hypertrack.flows.MADE">MADE (class in hypertrack.flows)</a>
+</li>
+      <li><a href="modules/hypertrack.html#hypertrack.flows.MADESplit">MADESplit (class in hypertrack.flows)</a>
+</li>
+      <li><a href="modules/hypertrack.html#hypertrack.measures.majority_score">majority_score() (in module hypertrack.measures)</a>
+</li>
+      <li><a href="modules/hypertrack.html#hypertrack.flows.MaskedLinear">MaskedLinear (class in hypertrack.flows)</a>
+</li>
+      <li><a href="modules/hypertrack.html#hypertrack.measures.Metric">Metric (class in hypertrack.measures)</a>
+</li>
+      <li><a href="modules/hypertrack.html#hypertrack.dmlp.MLP">MLP() (in module hypertrack.dmlp)</a>
+</li>
+      <li>
+    module
+
+      <ul>
+        <li><a href="modules/hypertrack.html#module-hypertrack.auxtrain">hypertrack.auxtrain</a>
+</li>
+        <li><a href="modules/hypertrack.html#module-hypertrack.dmlp">hypertrack.dmlp</a>
+</li>
+        <li><a href="modules/hypertrack.html#module-hypertrack.faissknn">hypertrack.faissknn</a>
+</li>
+        <li><a href="modules/hypertrack.html#module-hypertrack.flows">hypertrack.flows</a>
+</li>
+        <li><a href="modules/hypertrack.html#module-hypertrack.hyper">hypertrack.hyper</a>
+</li>
+        <li><a href="modules/hypertrack.html#module-hypertrack.hyperaux">hypertrack.hyperaux</a>
+</li>
+        <li><a href="modules/hypertrack.html#module-hypertrack.iotools">hypertrack.iotools</a>
+</li>
+        <li><a href="modules/hypertrack.html#module-hypertrack.losses">hypertrack.losses</a>
+</li>
+        <li><a href="modules/hypertrack.html#module-hypertrack.measures">hypertrack.measures</a>
+</li>
+        <li><a href="modules/hypertrack.html#module-hypertrack.ratioplot">hypertrack.ratioplot</a>
+</li>
+        <li><a href="modules/hypertrack.html#module-hypertrack.tools">hypertrack.tools</a>
+</li>
+        <li><a href="modules/hypertrack.html#module-hypertrack.torchtools">hypertrack.torchtools</a>
+</li>
+        <li><a href="modules/hypertrack.html#module-hypertrack.trackml">hypertrack.trackml</a>
+</li>
+        <li><a href="modules/hypertrack.html#module-hypertrack.transforms">hypertrack.transforms</a>
+</li>
+        <li><a href="modules/hypertrack.html#module-hypertrack.visualize">hypertrack.visualize</a>
+</li>
+        <li><a href="modules/hypertrack.html#module-hypertrack.voxdyn">hypertrack.voxdyn</a>
+</li>
+      </ul></li>
+  </ul></td>
+</tr></table>
+
+<h2 id="N">N</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="modules/hypertrack.html#hypertrack.tools.normalize_cols">normalize_cols() (in module hypertrack.tools)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="modules/hypertrack.html#hypertrack.tools.normalize_rows">normalize_rows() (in module hypertrack.tools)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="P">P</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="modules/hypertrack.html#hypertrack.visualize.plot_adj_matrices">plot_adj_matrices() (in module hypertrack.visualize)</a>
+</li>
+      <li><a href="modules/hypertrack.html#hypertrack.visualize.plot_C_matrix">plot_C_matrix() (in module hypertrack.visualize)</a>
+</li>
+      <li><a href="modules/hypertrack.html#hypertrack.torchtools.plot_grad_flow">plot_grad_flow() (in module hypertrack.torchtools)</a>
+</li>
+      <li><a href="modules/hypertrack.html#hypertrack.auxtrain.plot_gradient_flow">plot_gradient_flow() (in module hypertrack.auxtrain)</a>
+</li>
+      <li><a href="modules/hypertrack.html#hypertrack.ratioplot.plot_horizontal_line">plot_horizontal_line() (in module hypertrack.ratioplot)</a>
+</li>
+      <li><a href="modules/hypertrack.html#hypertrack.auxtrain.plot_metrics">plot_metrics() (in module hypertrack.auxtrain)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="modules/hypertrack.html#hypertrack.visualize.plot_mixing_matrix">plot_mixing_matrix() (in module hypertrack.visualize)</a>
+</li>
+      <li><a href="modules/hypertrack.html#hypertrack.visualize.plot_tracks">plot_tracks() (in module hypertrack.visualize)</a>
+</li>
+      <li><a href="modules/hypertrack.html#hypertrack.visualize.plot_voronoi">plot_voronoi() (in module hypertrack.visualize)</a>
+</li>
+      <li><a href="modules/hypertrack.html#hypertrack.tools.print_clusters">print_clusters() (in module hypertrack.tools)</a>
+</li>
+      <li><a href="modules/hypertrack.html#hypertrack.trackml.process_data">process_data() (in module hypertrack.trackml)</a>
+</li>
+      <li><a href="modules/hypertrack.html#hypertrack.iotools.process_memory_use">process_memory_use() (in module hypertrack.iotools)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="R">R</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="modules/hypertrack.html#hypertrack.visualize.ratioerr">ratioerr() (in module hypertrack.visualize)</a>
+</li>
+      <li><a href="modules/hypertrack.html#hypertrack.trackml.reduce_tracks">reduce_tracks() (in module hypertrack.trackml)</a>
+</li>
+      <li><a href="modules/hypertrack.html#hypertrack.flows.Reverse">Reverse (class in hypertrack.flows)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="modules/hypertrack.html#hypertrack.measures.roc_curve">roc_curve() (in module hypertrack.measures)</a>
+</li>
+      <li><a href="modules/hypertrack.html#hypertrack.visualize.ROC_plot">ROC_plot() (in module hypertrack.visualize)</a>
+</li>
+      <li><a href="modules/hypertrack.html#hypertrack.tools.running_mean_uniform_filter1d">running_mean_uniform_filter1d() (in module hypertrack.tools)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="S">S</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="modules/hypertrack.html#hypertrack.flows.FlowSequential.sample">sample() (FlowSequential method)</a>
+</li>
+      <li><a href="modules/hypertrack.html#hypertrack.auxtrain.save_models">save_models() (in module hypertrack.auxtrain)</a>
+</li>
+      <li><a href="modules/hypertrack.html#hypertrack.faissknn.faisskNN.search">search() (faisskNN method)</a>
+</li>
+      <li><a href="modules/hypertrack.html#hypertrack.tools.select_valid">select_valid() (in module hypertrack.tools)</a>
+</li>
+      <li><a href="modules/hypertrack.html#hypertrack.torchtools.seperate_weight_param">seperate_weight_param() (in module hypertrack.torchtools)</a>
+</li>
+      <li><a href="modules/hypertrack.html#hypertrack.ratioplot.set_axis_ticks">set_axis_ticks() (in module hypertrack.ratioplot)</a>
+</li>
+      <li><a href="modules/hypertrack.html#hypertrack.torchtools.set_diff_1d">set_diff_1d() (in module hypertrack.torchtools)</a>
+</li>
+      <li><a href="modules/hypertrack.html#hypertrack.auxtrain.set_optimizer">set_optimizer() (in module hypertrack.auxtrain)</a>
+</li>
+      <li><a href="modules/hypertrack.html#hypertrack.torchtools.set_random_seed">set_random_seed() (in module hypertrack.torchtools)</a>
+</li>
+      <li><a href="modules/hypertrack.html#hypertrack.auxtrain.set_scheduler">set_scheduler() (in module hypertrack.auxtrain)</a>
+</li>
+      <li><a href="modules/hypertrack.html#hypertrack.iotools.showmem">showmem() (in module hypertrack.iotools)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="modules/hypertrack.html#hypertrack.iotools.showmem_cuda">showmem_cuda() (in module hypertrack.iotools)</a>
+</li>
+      <li><a href="modules/hypertrack.html#hypertrack.flows.Shuffle">Shuffle (class in hypertrack.flows)</a>
+</li>
+      <li><a href="modules/hypertrack.html#hypertrack.flows.Sigmoid">Sigmoid (class in hypertrack.flows)</a>
+</li>
+      <li><a href="modules/hypertrack.html#hypertrack.losses.SmoothHingeLoss">SmoothHingeLoss (class in hypertrack.losses)</a>
+</li>
+      <li><a href="modules/hypertrack.html#hypertrack.tools.span_adj_mat">span_adj_mat() (in module hypertrack.tools)</a>
+</li>
+      <li><a href="modules/hypertrack.html#hypertrack.tools.split">split() (in module hypertrack.tools)</a>
+</li>
+      <li><a href="modules/hypertrack.html#hypertrack.tools.split_size">split_size() (in module hypertrack.tools)</a>
+</li>
+      <li><a href="modules/hypertrack.html#hypertrack.tools.split_start_end">split_start_end() (in module hypertrack.tools)</a>
+</li>
+      <li><a href="modules/hypertrack.html#hypertrack.ratioplot.stepspace">stepspace() (in module hypertrack.ratioplot)</a>
+</li>
+      <li><a href="modules/hypertrack.html#hypertrack.torchtools.subgraph_mask">subgraph_mask() (in module hypertrack.torchtools)</a>
+</li>
+      <li><a href="modules/hypertrack.html#hypertrack.iotools.sysinfo">sysinfo() (in module hypertrack.iotools)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="T">T</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="modules/hypertrack.html#hypertrack.ratioplot.tick_calc">tick_calc() (in module hypertrack.ratioplot)</a>
+</li>
+      <li><a href="modules/hypertrack.html#hypertrack.ratioplot.tick_creator">tick_creator() (in module hypertrack.ratioplot)</a>
+</li>
+      <li><a href="modules/hypertrack.html#hypertrack.tools.timing">timing() (in module hypertrack.tools)</a>
+</li>
+      <li><a href="modules/hypertrack.html#hypertrack.torchtools.to_scipy_sparse_csr_matrix">to_scipy_sparse_csr_matrix() (in module hypertrack.torchtools)</a>
+</li>
+      <li><a href="modules/hypertrack.html#hypertrack.iotools.torch_cuda_total_memory">torch_cuda_total_memory() (in module hypertrack.iotools)</a>
+</li>
+      <li><a href="modules/hypertrack.html#hypertrack.torchtools.torch_intersect">torch_intersect() (in module hypertrack.torchtools)</a>
+</li>
+      <li><a href="modules/hypertrack.html#hypertrack.torchtools.torch_to_scipy_scr">torch_to_scipy_scr() (in module hypertrack.torchtools)</a>
+</li>
+      <li><a href="modules/hypertrack.html#hypertrack.visualize.track_effiency_plots">track_effiency_plots() (in module hypertrack.visualize)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="modules/hypertrack.html#hypertrack.tools.track_minimal_spanning_tree">track_minimal_spanning_tree() (in module hypertrack.tools)</a>
+</li>
+      <li><a href="modules/hypertrack.html#hypertrack.voxdyn.train_2pt_connectivity">train_2pt_connectivity() (in module hypertrack.voxdyn)</a>
+</li>
+      <li><a href="modules/hypertrack.html#hypertrack.voxdyn.train_2pt_connectivity_sparse">train_2pt_connectivity_sparse() (in module hypertrack.voxdyn)</a>
+</li>
+      <li><a href="modules/hypertrack.html#hypertrack.voxdyn.train_3pt_connectivity">train_3pt_connectivity() (in module hypertrack.voxdyn)</a>
+</li>
+      <li><a href="modules/hypertrack.html#hypertrack.voxdyn.train_voxdyn">train_voxdyn() (in module hypertrack.voxdyn)</a>
+</li>
+      <li><a href="modules/hypertrack.html#hypertrack.transforms.transform_r_eta_phi">transform_r_eta_phi() (in module hypertrack.transforms)</a>
+</li>
+      <li><a href="modules/hypertrack.html#hypertrack.hyper.transformer_helper">transformer_helper() (in module hypertrack.hyper)</a>
+</li>
+      <li><a href="modules/hypertrack.html#hypertrack.measures.true_false_positive">true_false_positive() (in module hypertrack.measures)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="V">V</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="modules/hypertrack.html#hypertrack.tools.value_and_uncertainty_scientific">value_and_uncertainty_scientific() (in module hypertrack.tools)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="modules/hypertrack.html#hypertrack.voxdyn.voxdyn_predictor">voxdyn_predictor() (in module hypertrack.voxdyn)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="W">W</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="modules/hypertrack.html#hypertrack.torchtools.weighted_degree">weighted_degree() (in module hypertrack.torchtools)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Mikael Mieskolainen, I-X and Blackett Laboratory, Imperial College London.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

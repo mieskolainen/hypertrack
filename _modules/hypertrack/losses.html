@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>hypertrack.losses &mdash; hypertrack alpha documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html">
+            
+          </a>
+              <div class="version">
+                0.0.1
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Notes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../notes/introduction.html">Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../notes/introduction.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../notes/introduction.html#hugging-face-quick-start">Hugging Face Quick Start</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../notes/introduction.html#folder-structure">Folder structure</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../notes/installation.html">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../notes/installation.html#required-conda-installation">Required: Conda installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../notes/installation.html#install-environment">Install environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../notes/installation.html#initialize-environment">Initialize environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../notes/installation.html#gpu-support-commands">GPU-support commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../notes/installation.html#conda-virtual-environment-commands">Conda virtual environment commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../notes/installation.html#c-library-versions">C-library versions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../notes/training.html">Training</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../notes/training.html#train-voxel-dynamics-graph-constructor">Train Voxel-Dynamics graph constructor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../notes/training.html#train-neural-gnn-transformer-model">Train neural GNN + Transformer model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../notes/training.html#training-parameters">Training parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../notes/training.html#model-hyperparameters">Model hyperparameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../notes/training.html#ground-truth-graph-topology">Ground truth graph topology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../notes/training.html#progressive-transfer-learning">Progressive transfer learning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../notes/training.html#learning-rate">Learning rate</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../notes/inference.html">Inference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../notes/inference.html#main-parameters">Main parameters</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../notes/markup.html">Documentation</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Package Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../modules/hypertrack.html">hypertrack</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../modules/hypertrack.html#module-hypertrack.auxtrain">hypertrack.auxtrain</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.auxtrain.backward"><code class="docutils literal notranslate"><span class="pre">backward()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.auxtrain.execute"><code class="docutils literal notranslate"><span class="pre">execute()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.auxtrain.load_models"><code class="docutils literal notranslate"><span class="pre">load_models()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.auxtrain.load_optimizers"><code class="docutils literal notranslate"><span class="pre">load_optimizers()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.auxtrain.plot_gradient_flow"><code class="docutils literal notranslate"><span class="pre">plot_gradient_flow()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.auxtrain.plot_metrics"><code class="docutils literal notranslate"><span class="pre">plot_metrics()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.auxtrain.save_models"><code class="docutils literal notranslate"><span class="pre">save_models()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.auxtrain.set_optimizer"><code class="docutils literal notranslate"><span class="pre">set_optimizer()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.auxtrain.set_scheduler"><code class="docutils literal notranslate"><span class="pre">set_scheduler()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../modules/hypertrack.html#module-hypertrack.dmlp">hypertrack.dmlp</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.dmlp.MLP"><code class="docutils literal notranslate"><span class="pre">MLP()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.dmlp.get_act"><code class="docutils literal notranslate"><span class="pre">get_act()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../modules/hypertrack.html#module-hypertrack.faissknn">hypertrack.faissknn</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.faissknn.faisskNN"><code class="docutils literal notranslate"><span class="pre">faisskNN</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../modules/hypertrack.html#module-hypertrack.flows">hypertrack.flows</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.flows.ActNorm"><code class="docutils literal notranslate"><span class="pre">ActNorm</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.flows.BatchNormFlow"><code class="docutils literal notranslate"><span class="pre">BatchNormFlow</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.flows.CouplingLayer"><code class="docutils literal notranslate"><span class="pre">CouplingLayer</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.flows.FlowSequential"><code class="docutils literal notranslate"><span class="pre">FlowSequential</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.flows.InvertibleMM"><code class="docutils literal notranslate"><span class="pre">InvertibleMM</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.flows.LUInvertibleMM"><code class="docutils literal notranslate"><span class="pre">LUInvertibleMM</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.flows.Logit"><code class="docutils literal notranslate"><span class="pre">Logit</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.flows.MADE"><code class="docutils literal notranslate"><span class="pre">MADE</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.flows.MADESplit"><code class="docutils literal notranslate"><span class="pre">MADESplit</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.flows.MaskedLinear"><code class="docutils literal notranslate"><span class="pre">MaskedLinear</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.flows.Reverse"><code class="docutils literal notranslate"><span class="pre">Reverse</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.flows.Shuffle"><code class="docutils literal notranslate"><span class="pre">Shuffle</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.flows.Sigmoid"><code class="docutils literal notranslate"><span class="pre">Sigmoid</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.flows.get_mask"><code class="docutils literal notranslate"><span class="pre">get_mask()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../modules/hypertrack.html#module-hypertrack.hyper">hypertrack.hyper</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.hyper.clusterize"><code class="docutils literal notranslate"><span class="pre">clusterize()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.hyper.hypertrack"><code class="docutils literal notranslate"><span class="pre">hypertrack()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.hyper.transformer_helper"><code class="docutils literal notranslate"><span class="pre">transformer_helper()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../modules/hypertrack.html#module-hypertrack.hyperaux">hypertrack.hyperaux</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.hyperaux.cluster_loss"><code class="docutils literal notranslate"><span class="pre">cluster_loss()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.hyperaux.edge_loss"><code class="docutils literal notranslate"><span class="pre">edge_loss()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.hyperaux.loss_normalization"><code class="docutils literal notranslate"><span class="pre">loss_normalization()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../modules/hypertrack.html#module-hypertrack.iotools">hypertrack.iotools</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.iotools.construct_event_range"><code class="docutils literal notranslate"><span class="pre">construct_event_range()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.iotools.get_gpu_memory_map"><code class="docutils literal notranslate"><span class="pre">get_gpu_memory_map()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.iotools.grab_torch_file"><code class="docutils literal notranslate"><span class="pre">grab_torch_file()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.iotools.load_models"><code class="docutils literal notranslate"><span class="pre">load_models()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.iotools.process_memory_use"><code class="docutils literal notranslate"><span class="pre">process_memory_use()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.iotools.showmem"><code class="docutils literal notranslate"><span class="pre">showmem()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.iotools.showmem_cuda"><code class="docutils literal notranslate"><span class="pre">showmem_cuda()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.iotools.sysinfo"><code class="docutils literal notranslate"><span class="pre">sysinfo()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.iotools.torch_cuda_total_memory"><code class="docutils literal notranslate"><span class="pre">torch_cuda_total_memory()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../modules/hypertrack.html#module-hypertrack.losses">hypertrack.losses</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.losses.DiceLogitsLoss"><code class="docutils literal notranslate"><span class="pre">DiceLogitsLoss</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.losses.FocalWithLogitsLoss"><code class="docutils literal notranslate"><span class="pre">FocalWithLogitsLoss</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.losses.HingeLoss"><code class="docutils literal notranslate"><span class="pre">HingeLoss</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.losses.JaccardLogitsLoss"><code class="docutils literal notranslate"><span class="pre">JaccardLogitsLoss</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.losses.SmoothHingeLoss"><code class="docutils literal notranslate"><span class="pre">SmoothHingeLoss</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.losses.contrastive_edge_loss"><code class="docutils literal notranslate"><span class="pre">contrastive_edge_loss()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.losses.find_posneg_connections"><code class="docutils literal notranslate"><span class="pre">find_posneg_connections()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.losses.fisher_loss"><code class="docutils literal notranslate"><span class="pre">fisher_loss()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.losses.fisher_threshold"><code class="docutils literal notranslate"><span class="pre">fisher_threshold()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.losses.intersect_loss"><code class="docutils literal notranslate"><span class="pre">intersect_loss()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../modules/hypertrack.html#module-hypertrack.measures">hypertrack.measures</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.measures.Metric"><code class="docutils literal notranslate"><span class="pre">Metric</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.measures.adjgraph_metrics"><code class="docutils literal notranslate"><span class="pre">adjgraph_metrics()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.measures.compute_adj_metrics"><code class="docutils literal notranslate"><span class="pre">compute_adj_metrics()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.measures.compute_metrics"><code class="docutils literal notranslate"><span class="pre">compute_metrics()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.measures.histedges_equal_N"><code class="docutils literal notranslate"><span class="pre">histedges_equal_N()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.measures.majority_score"><code class="docutils literal notranslate"><span class="pre">majority_score()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.measures.roc_curve"><code class="docutils literal notranslate"><span class="pre">roc_curve()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.measures.true_false_positive"><code class="docutils literal notranslate"><span class="pre">true_false_positive()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../modules/hypertrack.html#module-hypertrack.ratioplot">hypertrack.ratioplot</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.ratioplot.create_axes"><code class="docutils literal notranslate"><span class="pre">create_axes()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.ratioplot.plot_horizontal_line"><code class="docutils literal notranslate"><span class="pre">plot_horizontal_line()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.ratioplot.set_axis_ticks"><code class="docutils literal notranslate"><span class="pre">set_axis_ticks()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.ratioplot.stepspace"><code class="docutils literal notranslate"><span class="pre">stepspace()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.ratioplot.tick_calc"><code class="docutils literal notranslate"><span class="pre">tick_calc()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.ratioplot.tick_creator"><code class="docutils literal notranslate"><span class="pre">tick_creator()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../modules/hypertrack.html#module-hypertrack.tools">hypertrack.tools</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.tools.Graph"><code class="docutils literal notranslate"><span class="pre">Graph</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.tools.adj2edges"><code class="docutils literal notranslate"><span class="pre">adj2edges()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.tools.attach_fully_connected_node"><code class="docutils literal notranslate"><span class="pre">attach_fully_connected_node()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.tools.backtrack_linear_index"><code class="docutils literal notranslate"><span class="pre">backtrack_linear_index()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.tools.closure_test_adj"><code class="docutils literal notranslate"><span class="pre">closure_test_adj()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.tools.compute_ground_truth_A"><code class="docutils literal notranslate"><span class="pre">compute_ground_truth_A()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.tools.compute_hit_mixing"><code class="docutils literal notranslate"><span class="pre">compute_hit_mixing()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.tools.compute_hyper"><code class="docutils literal notranslate"><span class="pre">compute_hyper()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.tools.count_hit_multiplicity"><code class="docutils literal notranslate"><span class="pre">count_hit_multiplicity()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.tools.count_reco_cluster"><code class="docutils literal notranslate"><span class="pre">count_reco_cluster()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.tools.create_cluster_ind"><code class="docutils literal notranslate"><span class="pre">create_cluster_ind()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.tools.create_cluster_labels"><code class="docutils literal notranslate"><span class="pre">create_cluster_labels()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.tools.create_edge_label"><code class="docutils literal notranslate"><span class="pre">create_edge_label()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.tools.edges2adj"><code class="docutils literal notranslate"><span class="pre">edges2adj()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.tools.explicit_range"><code class="docutils literal notranslate"><span class="pre">explicit_range()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.tools.find_connected_components"><code class="docutils literal notranslate"><span class="pre">find_connected_components()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.tools.normalize_cols"><code class="docutils literal notranslate"><span class="pre">normalize_cols()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.tools.normalize_rows"><code class="docutils literal notranslate"><span class="pre">normalize_rows()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.tools.print_clusters"><code class="docutils literal notranslate"><span class="pre">print_clusters()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.tools.running_mean_uniform_filter1d"><code class="docutils literal notranslate"><span class="pre">running_mean_uniform_filter1d()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.tools.select_valid"><code class="docutils literal notranslate"><span class="pre">select_valid()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.tools.span_adj_mat"><code class="docutils literal notranslate"><span class="pre">span_adj_mat()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.tools.split"><code class="docutils literal notranslate"><span class="pre">split()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.tools.split_size"><code class="docutils literal notranslate"><span class="pre">split_size()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.tools.split_start_end"><code class="docutils literal notranslate"><span class="pre">split_start_end()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.tools.timing"><code class="docutils literal notranslate"><span class="pre">timing()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.tools.track_minimal_spanning_tree"><code class="docutils literal notranslate"><span class="pre">track_minimal_spanning_tree()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.tools.value_and_uncertainty_scientific"><code class="docutils literal notranslate"><span class="pre">value_and_uncertainty_scientific()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../modules/hypertrack.html#module-hypertrack.torchtools">hypertrack.torchtools</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.torchtools.count_parameters_torch"><code class="docutils literal notranslate"><span class="pre">count_parameters_torch()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.torchtools.fastcat_rand"><code class="docutils literal notranslate"><span class="pre">fastcat_rand()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.torchtools.plot_grad_flow"><code class="docutils literal notranslate"><span class="pre">plot_grad_flow()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.torchtools.seperate_weight_param"><code class="docutils literal notranslate"><span class="pre">seperate_weight_param()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.torchtools.set_diff_1d"><code class="docutils literal notranslate"><span class="pre">set_diff_1d()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.torchtools.set_random_seed"><code class="docutils literal notranslate"><span class="pre">set_random_seed()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.torchtools.subgraph_mask"><code class="docutils literal notranslate"><span class="pre">subgraph_mask()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.torchtools.to_scipy_sparse_csr_matrix"><code class="docutils literal notranslate"><span class="pre">to_scipy_sparse_csr_matrix()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.torchtools.torch_intersect"><code class="docutils literal notranslate"><span class="pre">torch_intersect()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.torchtools.torch_to_scipy_scr"><code class="docutils literal notranslate"><span class="pre">torch_to_scipy_scr()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.torchtools.weighted_degree"><code class="docutils literal notranslate"><span class="pre">weighted_degree()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../modules/hypertrack.html#module-hypertrack.trackml">hypertrack.trackml</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.trackml.generate_graph_data"><code class="docutils literal notranslate"><span class="pre">generate_graph_data()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.trackml.load_reduce_event"><code class="docutils literal notranslate"><span class="pre">load_reduce_event()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.trackml.process_data"><code class="docutils literal notranslate"><span class="pre">process_data()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.trackml.reduce_tracks"><code class="docutils literal notranslate"><span class="pre">reduce_tracks()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../modules/hypertrack.html#module-hypertrack.transforms">hypertrack.transforms</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.transforms.transform_r_eta_phi"><code class="docutils literal notranslate"><span class="pre">transform_r_eta_phi()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../modules/hypertrack.html#module-hypertrack.visualize">hypertrack.visualize</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.visualize.ROC_plot"><code class="docutils literal notranslate"><span class="pre">ROC_plot()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.visualize.annotate_heatmap"><code class="docutils literal notranslate"><span class="pre">annotate_heatmap()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.visualize.compare_cluster_multiplicity"><code class="docutils literal notranslate"><span class="pre">compare_cluster_multiplicity()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.visualize.compare_hit_multiplicity"><code class="docutils literal notranslate"><span class="pre">compare_hit_multiplicity()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.visualize.crf"><code class="docutils literal notranslate"><span class="pre">crf()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.visualize.density_MVA_wclass"><code class="docutils literal notranslate"><span class="pre">density_MVA_wclass()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.visualize.hist_filled_error"><code class="docutils literal notranslate"><span class="pre">hist_filled_error()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.visualize.imperial_brown"><code class="docutils literal notranslate"><span class="pre">imperial_brown</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.visualize.plot_C_matrix"><code class="docutils literal notranslate"><span class="pre">plot_C_matrix()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.visualize.plot_adj_matrices"><code class="docutils literal notranslate"><span class="pre">plot_adj_matrices()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.visualize.plot_mixing_matrix"><code class="docutils literal notranslate"><span class="pre">plot_mixing_matrix()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.visualize.plot_tracks"><code class="docutils literal notranslate"><span class="pre">plot_tracks()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.visualize.plot_voronoi"><code class="docutils literal notranslate"><span class="pre">plot_voronoi()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.visualize.ratioerr"><code class="docutils literal notranslate"><span class="pre">ratioerr()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.visualize.track_effiency_plots"><code class="docutils literal notranslate"><span class="pre">track_effiency_plots()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../modules/hypertrack.html#module-hypertrack.voxdyn">hypertrack.voxdyn</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.voxdyn.combine_data"><code class="docutils literal notranslate"><span class="pre">combine_data()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.voxdyn.compute_A_direct"><code class="docutils literal notranslate"><span class="pre">compute_A_direct()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.voxdyn.compute_A_reverse"><code class="docutils literal notranslate"><span class="pre">compute_A_reverse()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.voxdyn.compute_A_reverse_3pt"><code class="docutils literal notranslate"><span class="pre">compute_A_reverse_3pt()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.voxdyn.compute_I_per_V"><code class="docutils literal notranslate"><span class="pre">compute_I_per_V()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.voxdyn.faiss_to_gpu"><code class="docutils literal notranslate"><span class="pre">faiss_to_gpu()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.voxdyn.load_particle_data"><code class="docutils literal notranslate"><span class="pre">load_particle_data()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.voxdyn.train_2pt_connectivity"><code class="docutils literal notranslate"><span class="pre">train_2pt_connectivity()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.voxdyn.train_2pt_connectivity_sparse"><code class="docutils literal notranslate"><span class="pre">train_2pt_connectivity_sparse()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.voxdyn.train_3pt_connectivity"><code class="docutils literal notranslate"><span class="pre">train_3pt_connectivity()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.voxdyn.train_voxdyn"><code class="docutils literal notranslate"><span class="pre">train_voxdyn()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.voxdyn.voxdyn_predictor"><code class="docutils literal notranslate"><span class="pre">voxdyn_predictor()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">hypertrack</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">hypertrack.losses</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for hypertrack.losses</h1><div class="highlight"><pre>
+<span></span><span class="c1"># Loss functions</span>
+<span class="c1">#</span>
+<span class="c1"># m.mieskolainen@imperial.ac.uk, 2023</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">numba</span>
+<span class="kn">import</span> <span class="nn">torch</span>
+<span class="kn">from</span> <span class="nn">torch</span> <span class="kn">import</span> <span class="n">nn</span>
+
+<span class="kn">from</span> <span class="nn">hypertrack</span> <span class="kn">import</span> <span class="n">tools</span>
+
+
+<div class="viewcode-block" id="intersect_loss"><a class="viewcode-back" href="../../modules/hypertrack.html#hypertrack.losses.intersect_loss">[docs]</a><span class="nd">@torch</span><span class="o">.</span><span class="n">compile</span><span class="p">()</span>
+<span class="k">def</span> <span class="nf">intersect_loss</span><span class="p">(</span><span class="n">prob</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">true_ind</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">chosen_ind</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span>
+                   <span class="n">micrograph_ind</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">weight</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Intersect set loss</span>
+<span class="sd">    </span>
+<span class="sd">    Args:</span>
+<span class="sd">        prob:           per node probability scores [0,1]</span>
+<span class="sd">        true_ind:       ground truth indices</span>
+<span class="sd">        chosen_ind:     chosen indices after the treshold cut</span>
+<span class="sd">        micrograph_ind: indices of the micrograph</span>
+<span class="sd">        weight:         weights per node</span>
+<span class="sd">    </span>
+<span class="sd">    Returns:</span>
+<span class="sd">        torch loss</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    
+    <span class="c1"># Compute the intersection set between the ground truth and the hard threshold chosen estimate</span>
+    <span class="n">set_true</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">true_ind</span><span class="o">.</span><span class="n">tolist</span><span class="p">())</span>
+    <span class="n">set_hat</span>  <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">chosen_ind</span><span class="o">.</span><span class="n">tolist</span><span class="p">())</span>
+    
+    <span class="n">IS_pos</span>   <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">set_true</span><span class="o">.</span><span class="n">intersection</span><span class="p">(</span><span class="n">set_hat</span><span class="p">))</span> <span class="c1"># Were chosen right</span>
+    <span class="n">IS_neg</span>   <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">set_hat</span> <span class="o">-</span> <span class="n">set_true</span><span class="p">)</span>             <span class="c1"># Were chosen wrong</span>
+    
+    <span class="c1"># Compute weights</span>
+    <span class="n">weight__</span>         <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">weight</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">weight</span><span class="o">.</span><span class="n">dtype</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">prob</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>
+    <span class="n">weight__</span><span class="p">[</span><span class="n">IS_pos</span><span class="p">]</span> <span class="o">=</span>  <span class="n">weight</span><span class="p">[</span><span class="n">IS_pos</span><span class="p">]</span>            <span class="c1"># Give positive weights for the true indices</span>
+    <span class="n">weight__</span><span class="p">[</span><span class="n">IS_neg</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="n">weight</span><span class="p">[</span><span class="n">IS_neg</span><span class="p">]</span>            <span class="c1"># Give negative (penalty) weights for not true</span>
+    <span class="n">weight__</span>         <span class="o">=</span> <span class="n">weight__</span><span class="p">[</span><span class="n">micrograph_ind</span><span class="p">]</span>   <span class="c1"># Finally evaluate within indices</span>
+    
+    <span class="c1"># Loss</span>
+    <span class="k">return</span> <span class="o">-</span> <span class="n">torch</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">weight__</span> <span class="o">*</span> <span class="n">prob</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="find_posneg_connections"><a class="viewcode-back" href="../../modules/hypertrack.html#hypertrack.losses.find_posneg_connections">[docs]</a><span class="nd">@numba</span><span class="o">.</span><span class="n">njit</span><span class="p">(</span><span class="n">parallel</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">fastmath</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">find_posneg_connections</span><span class="p">(</span><span class="n">i</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">N</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">x_ind</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">edge_index_hat</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">take_self_connections</span><span class="p">:</span> <span class="nb">bool</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Find all connections to ground truth particle</span>
+<span class="sd">    </span>
+<span class="sd">    Args:</span>
+<span class="sd">        i:              current row index in x_ind</span>
+<span class="sd">        N:              number of nodes (hits)</span>
+<span class="sd">        x_ind:          truth particle hit assigments</span>
+<span class="sd">        edge_index_hat: GNN input graph (hard) adjacency of the event</span>
+<span class="sd">    </span>
+<span class="sd">    Returns:</span>
+<span class="sd">        e_pos:   positive connections i.e. (i,j) both found in true_ind</span>
+<span class="sd">        e_neg:   negative (fake) connections i.e. i (but not j) or j (but not i) found in true_ind</span>
+<span class="sd">        hit_ind: ground truth hit indices</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    
+    <span class="n">true_ind_bool</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">bool_</span><span class="p">)</span>
+    
+    <span class="n">hit_ind</span> <span class="o">=</span> <span class="n">tools</span><span class="o">.</span><span class="n">select_valid</span><span class="p">(</span><span class="n">x_ind</span><span class="p">[</span><span class="n">i</span><span class="p">,:])</span>
+    <span class="n">true_ind_bool</span><span class="p">[</span><span class="n">hit_ind</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
+    
+    <span class="n">nedges</span> <span class="o">=</span> <span class="n">edge_index_hat</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>    
+    <span class="n">e_pos</span>  <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">nedges</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">bool_</span><span class="p">)</span>
+    <span class="n">e_neg</span>  <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">nedges</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">bool_</span><span class="p">)</span>
+    
+    <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">numba</span><span class="o">.</span><span class="n">prange</span><span class="p">(</span><span class="n">nedges</span><span class="p">):</span>
+        
+        <span class="n">i</span><span class="p">,</span><span class="n">j</span> <span class="o">=</span> <span class="n">edge_index_hat</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="n">n</span><span class="p">],</span> <span class="n">edge_index_hat</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="n">n</span><span class="p">]</span>
+        <span class="n">a</span><span class="p">,</span><span class="n">b</span> <span class="o">=</span> <span class="n">true_ind_bool</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">true_ind_bool</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
+        
+        <span class="c1"># No connection</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">a</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">b</span><span class="p">:</span>
+            <span class="k">continue</span>
+        
+        <span class="c1"># Positive connections</span>
+        <span class="k">elif</span>   <span class="n">a</span> <span class="ow">and</span> <span class="n">b</span><span class="p">:</span>
+            <span class="k">if</span>   <span class="n">i</span> <span class="o">!=</span> <span class="n">j</span><span class="p">:</span>
+                <span class="n">e_pos</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
+            <span class="k">elif</span> <span class="n">i</span> <span class="o">==</span> <span class="n">j</span> <span class="ow">and</span> <span class="n">take_self_connections</span><span class="p">:</span>
+                <span class="n">e_pos</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
+        
+        <span class="c1"># Negative connections (a and not b) or (not a and b)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">e_neg</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
+    
+    <span class="k">return</span> <span class="n">e_pos</span><span class="p">,</span> <span class="n">e_neg</span><span class="p">,</span> <span class="n">hit_ind</span></div>
+
+
+<div class="viewcode-block" id="contrastive_edge_loss"><a class="viewcode-back" href="../../modules/hypertrack.html#hypertrack.losses.contrastive_edge_loss">[docs]</a><span class="nd">@tools</span><span class="o">.</span><span class="n">timing</span>
+<span class="k">def</span> <span class="nf">contrastive_edge_loss</span><span class="p">(</span><span class="n">edge_score</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">edge_index_hat_np</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+                          <span class="n">x_ind</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">hit_weights</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">tau</span><span class="p">:</span><span class="nb">float</span> <span class="o">=</span> <span class="mf">0.1</span><span class="p">,</span> <span class="n">sub_sample</span><span class="p">:</span><span class="nb">int</span> <span class="o">=</span> <span class="mi">100000</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Supervised contrastive loss function based on ground truth objects and edges between hits</span>
+<span class="sd">    </span>
+<span class="sd">    Args:</span>
+<span class="sd">        edge_score:        GNN scores per edge</span>
+<span class="sd">        edge_index_hat_np: edge indices as a numpy array</span>
+<span class="sd">        x_ind:             cluster ground truth indices</span>
+<span class="sd">        hit_weights:       weights for each graph node</span>
+<span class="sd">        tau:               temperature hyperparameter</span>
+<span class="sd">        sub_sample:        maximum number of cluster objects to consider</span>
+<span class="sd">    </span>
+<span class="sd">    Returns:</span>
+<span class="sd">        torch loss</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    
+    <span class="n">loss</span>    <span class="o">=</span> <span class="mf">0.0</span>
+    <span class="n">N</span>       <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">hit_weights</span><span class="p">)</span>
+    <span class="n">inv_tau</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="n">tau</span>
+    <span class="n">total_weight</span> <span class="o">=</span> <span class="mf">0.0</span>
+    
+    <span class="n">rind</span>   <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">permutation</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="n">sub_sample</span><span class="p">,</span> <span class="n">x_ind</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+    <span class="n">hitsum</span> <span class="o">=</span> <span class="mf">0.0</span>
+    <span class="n">k</span>      <span class="o">=</span> <span class="mi">0</span>
+    
+    <span class="c1"># Loop over all the objects</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">rind</span><span class="p">:</span>
+        
+        <span class="c1"># Construct positive and negative connections</span>
+        <span class="n">e_pos</span><span class="p">,</span> <span class="n">e_neg</span><span class="p">,</span> <span class="n">hit_ind</span> <span class="o">=</span> <span class="n">find_posneg_connections</span><span class="p">(</span><span class="n">i</span><span class="o">=</span><span class="n">i</span><span class="p">,</span> <span class="n">N</span><span class="o">=</span><span class="n">N</span><span class="p">,</span> <span class="n">x_ind</span><span class="o">=</span><span class="n">x_ind</span><span class="p">,</span> <span class="n">edge_index_hat</span><span class="o">=</span><span class="n">edge_index_hat_np</span><span class="p">)</span>
+
+        <span class="c1"># ** Compute loss via softmax **</span>
+        <span class="c1"># One-by-one, each positive edge per object compared against all negative edges, then mean over</span>
+        <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">e_pos</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            
+            <span class="k">if</span> <span class="n">hit_weights</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">W</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">hit_weights</span><span class="p">[</span><span class="n">hit_ind</span><span class="p">])</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">W</span> <span class="o">=</span> <span class="mf">1.0</span>
+            
+            <span class="n">total_weight</span> <span class="o">+=</span> <span class="n">W</span>
+            
+            <span class="n">num</span>   <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">edge_score</span><span class="p">[</span><span class="n">e_pos</span><span class="p">]</span> <span class="o">*</span> <span class="n">inv_tau</span><span class="p">)</span>
+            <span class="n">denom</span> <span class="o">=</span> <span class="n">num</span> <span class="o">+</span> <span class="n">torch</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">edge_score</span><span class="p">[</span><span class="n">e_neg</span><span class="p">]</span> <span class="o">*</span> <span class="n">inv_tau</span><span class="p">))</span>
+            <span class="n">nll</span>   <span class="o">=</span> <span class="o">-</span> <span class="n">torch</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">num</span> <span class="o">/</span> <span class="n">denom</span><span class="p">))</span> <span class="c1"># i.e. 1 / num. of positive edges</span>
+            
+            <span class="c1"># Add to the total loss weighted by the importance of the object</span>
+            <span class="n">loss</span> <span class="o">=</span> <span class="n">loss</span> <span class="o">+</span> <span class="n">W</span> <span class="o">*</span> <span class="n">nll</span>
+
+            <span class="c1"># For the overall loss scale normalization</span>
+            <span class="c1"># (this can be a problem or e.g. vertex degree dependent issue)</span>
+            <span class="n">hitsum</span> <span class="o">+=</span> <span class="nb">len</span><span class="p">(</span><span class="n">hit_ind</span><span class="p">)</span>
+            <span class="n">k</span>      <span class="o">+=</span> <span class="mi">1</span>
+    
+    <span class="c1"># Mean hit multiplicity</span>
+    <span class="n">hitsum</span> <span class="o">/=</span> <span class="n">k</span>
+    
+    <span class="k">return</span> <span class="n">loss</span> <span class="o">/</span> <span class="n">total_weight</span> <span class="o">/</span> <span class="n">hitsum</span></div>
+
+
+<div class="viewcode-block" id="FocalWithLogitsLoss"><a class="viewcode-back" href="../../modules/hypertrack.html#hypertrack.losses.FocalWithLogitsLoss">[docs]</a><span class="k">class</span> <span class="nc">FocalWithLogitsLoss</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Focal Loss with logits as input</span>
+<span class="sd">    </span>
+<span class="sd">    https://arxiv.org/abs/1708.02002</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">gamma</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">reduction</span><span class="o">=</span><span class="s2">&quot;mean&quot;</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">FocalWithLogitsLoss</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">weight</span>    <span class="o">=</span> <span class="n">weight</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">bce</span>       <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">functional</span><span class="o">.</span><span class="n">binary_cross_entropy_with_logits</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">gamma</span>     <span class="o">=</span> <span class="n">gamma</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">reduction</span> <span class="o">=</span> <span class="n">reduction</span>
+    
+<div class="viewcode-block" id="FocalWithLogitsLoss.forward"><a class="viewcode-back" href="../../modules/hypertrack.html#hypertrack.losses.FocalWithLogitsLoss.forward">[docs]</a>    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">predicted</span><span class="p">,</span> <span class="n">target</span><span class="p">):</span>
+        <span class="n">pt</span>           <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">bce</span><span class="p">(</span><span class="n">predicted</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">reduction</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="p">))</span>
+        <span class="n">entropy_loss</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">bce</span><span class="p">(</span><span class="n">predicted</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">weight</span><span class="p">,</span> <span class="n">reduction</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="p">)</span>
+        <span class="n">focal_loss</span>   <span class="o">=</span> <span class="p">((</span><span class="mi">1</span><span class="o">-</span><span class="n">pt</span><span class="p">)</span><span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">gamma</span><span class="p">)</span><span class="o">*</span><span class="n">entropy_loss</span>
+        
+        <span class="k">if</span>   <span class="bp">self</span><span class="o">.</span><span class="n">reduction</span> <span class="o">==</span> <span class="s2">&quot;none&quot;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">focal_loss</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">reduction</span> <span class="o">==</span> <span class="s2">&quot;mean&quot;</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">weight</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">focal_loss</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">focal_loss</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">/</span> <span class="n">torch</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">weight</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">focal_loss</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span></div></div>
+
+<div class="viewcode-block" id="SmoothHingeLoss"><a class="viewcode-back" href="../../modules/hypertrack.html#hypertrack.losses.SmoothHingeLoss">[docs]</a><span class="k">class</span> <span class="nc">SmoothHingeLoss</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Smooth Hinge Loss (Neurocomputing 463 (2021) 379-387)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">reduction</span><span class="o">=</span><span class="s1">&#39;sum&#39;</span><span class="p">,</span> <span class="n">sigma</span><span class="o">=</span><span class="mf">0.1</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        In the limit sigma -&gt; 0, this recovers HingeLoss</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">SmoothHingeLoss</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">weight</span> <span class="o">=</span> <span class="n">weight</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">reduction</span> <span class="o">=</span> <span class="n">reduction</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sigma</span> <span class="o">=</span> <span class="n">sigma</span>
+
+<div class="viewcode-block" id="SmoothHingeLoss.forward"><a class="viewcode-back" href="../../modules/hypertrack.html#hypertrack.losses.SmoothHingeLoss.forward">[docs]</a>    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">output</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">target</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">):</span>
+        <span class="c1"># note this needs {-1,1} targets, i.e. multiply (0,1) targets by two and subtract 1</span>
+        
+        <span class="n">arg</span>  <span class="o">=</span> <span class="mf">1.0</span> <span class="o">-</span> <span class="n">torch</span><span class="o">.</span><span class="n">mul</span><span class="p">(</span><span class="n">output</span><span class="p">,</span> <span class="n">target</span><span class="p">)</span>
+        <span class="n">loss</span> <span class="o">=</span> <span class="mf">0.5</span><span class="o">*</span><span class="n">arg</span> <span class="o">+</span> <span class="mf">0.5</span><span class="o">*</span><span class="n">torch</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">arg</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">sigma</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+        
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">weight</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">loss</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">weight</span> <span class="o">*</span> <span class="n">loss</span>
+
+        <span class="k">if</span>   <span class="bp">self</span><span class="o">.</span><span class="n">reduction</span> <span class="o">==</span> <span class="s1">&#39;sum&#39;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">torch</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">loss</span><span class="p">)</span>
+        <span class="k">if</span>   <span class="bp">self</span><span class="o">.</span><span class="n">reduction</span> <span class="o">==</span> <span class="s1">&#39;mean&#39;</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">weight</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">torch</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">loss</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">torch</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">loss</span><span class="p">)</span> <span class="o">/</span> <span class="n">torch</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">weight</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">reduction</span> <span class="o">==</span> <span class="s1">&#39;none&#39;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">loss</span></div></div>
+
+
+<div class="viewcode-block" id="HingeLoss"><a class="viewcode-back" href="../../modules/hypertrack.html#hypertrack.losses.HingeLoss">[docs]</a><span class="k">class</span> <span class="nc">HingeLoss</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    https://en.wikipedia.org/wiki/Hinge_loss</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">reduction</span><span class="o">=</span><span class="s1">&#39;sum&#39;</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">HingeLoss</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">weight</span> <span class="o">=</span> <span class="n">weight</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">reduction</span> <span class="o">=</span> <span class="n">reduction</span>
+
+<div class="viewcode-block" id="HingeLoss.forward"><a class="viewcode-back" href="../../modules/hypertrack.html#hypertrack.losses.HingeLoss.forward">[docs]</a>    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">output</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">target</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">):</span>
+        <span class="c1"># note this needs {-1,1} targets, i.e. multiply (0,1) targets by two and subtract 1</span>
+        
+        <span class="n">loss</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">-</span> <span class="n">torch</span><span class="o">.</span><span class="n">mul</span><span class="p">(</span><span class="n">output</span><span class="p">,</span> <span class="n">target</span><span class="p">)</span>
+        <span class="n">loss</span><span class="p">[</span><span class="n">loss</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+        
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">weight</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">loss</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">weight</span> <span class="o">*</span> <span class="n">loss</span>
+
+        <span class="k">if</span>   <span class="bp">self</span><span class="o">.</span><span class="n">reduction</span> <span class="o">==</span> <span class="s1">&#39;sum&#39;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">torch</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">loss</span><span class="p">)</span>
+        <span class="k">if</span>   <span class="bp">self</span><span class="o">.</span><span class="n">reduction</span> <span class="o">==</span> <span class="s1">&#39;mean&#39;</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">weight</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">torch</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">loss</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">torch</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">loss</span><span class="p">)</span> <span class="o">/</span> <span class="n">torch</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">weight</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">reduction</span> <span class="o">==</span> <span class="s1">&#39;none&#39;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">loss</span></div></div>
+
+<div class="viewcode-block" id="fisher_threshold"><a class="viewcode-back" href="../../modules/hypertrack.html#hypertrack.losses.fisher_threshold">[docs]</a><span class="nd">@numba</span><span class="o">.</span><span class="n">njit</span><span class="p">(</span><span class="n">parallel</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">fastmath</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">fisher_threshold</span><span class="p">(</span><span class="n">prob</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">threshold_array</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Find Fisher variance criterion (Otsu&#39;s method) optimal bimodal threshold</span>
+<span class="sd">    </span>
+<span class="sd">    Args:</span>
+<span class="sd">        prob:  probabilities to threshold</span>
+<span class="sd">        threshold_array: threshold to test values between [0,1]</span>
+<span class="sd">    </span>
+<span class="sd">    Returns:</span>
+<span class="sd">        optimal threshold (float)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">loss</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">prob</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">numba</span><span class="o">.</span><span class="n">prange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">loss</span><span class="p">)):</span>
+        <span class="n">loss</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">fisher_loss</span><span class="p">(</span><span class="n">prob</span><span class="p">,</span> <span class="n">threshold_array</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+    <span class="n">k</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmin</span><span class="p">(</span><span class="n">loss</span><span class="p">)</span>
+    
+    <span class="k">if</span> <span class="n">threshold_array</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">==</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">:</span> <span class="c1"># Most likely unimodal input</span>
+        <span class="k">return</span> <span class="mf">0.5</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">threshold_array</span><span class="p">[</span><span class="n">k</span><span class="p">]</span></div>
+
+<div class="viewcode-block" id="fisher_loss"><a class="viewcode-back" href="../../modules/hypertrack.html#hypertrack.losses.fisher_loss">[docs]</a><span class="nd">@numba</span><span class="o">.</span><span class="n">njit</span><span class="p">(</span><span class="n">fastmath</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">fisher_loss</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">th</span><span class="p">:</span> <span class="nb">float</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Fisher variance criterion loss for bimodal classifier threshold optimization</span>
+<span class="sd">    </span>
+<span class="sd">    Args:</span>
+<span class="sd">        x:  array of data to be thresholded</span>
+<span class="sd">        th: threshold value</span>
+<span class="sd">    </span>
+<span class="sd">    Returns:</span>
+<span class="sd">        loss value (float)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">thresholded_x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+    <span class="n">thresholded_x</span><span class="p">[</span><span class="n">x</span> <span class="o">&gt;</span> <span class="n">th</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+    
+    <span class="c1"># Compute weights</span>
+    <span class="n">nb_pixels</span>  <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">nb_pixels1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">count_nonzero</span><span class="p">(</span><span class="n">thresholded_x</span><span class="p">)</span>
+    <span class="n">weight1</span>    <span class="o">=</span> <span class="n">nb_pixels1</span> <span class="o">/</span> <span class="n">nb_pixels</span>
+    <span class="n">weight0</span>    <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">weight1</span>
+
+    <span class="c1"># If one the classes is empty / all elements belong</span>
+    <span class="c1"># to the other class, do not consider the threshold value</span>
+    <span class="k">if</span> <span class="n">weight1</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">weight0</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span>
+
+    <span class="c1"># Find all elements belonging to each class</span>
+    <span class="n">val_pixels1</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="n">thresholded_x</span> <span class="o">==</span> <span class="mi">1</span><span class="p">]</span>
+    <span class="n">val_pixels0</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="n">thresholded_x</span> <span class="o">==</span> <span class="mi">0</span><span class="p">]</span>
+
+    <span class="c1"># Compute variance of the classes</span>
+    <span class="n">var0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">var</span><span class="p">(</span><span class="n">val_pixels0</span><span class="p">)</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">val_pixels0</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="mi">0</span>
+    <span class="n">var1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">var</span><span class="p">(</span><span class="n">val_pixels1</span><span class="p">)</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">val_pixels1</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="mi">0</span>
+
+    <span class="k">return</span> <span class="n">weight0</span><span class="o">*</span><span class="n">var0</span> <span class="o">+</span> <span class="n">weight1</span><span class="o">*</span><span class="n">var1</span></div>
+
+<div class="viewcode-block" id="JaccardLogitsLoss"><a class="viewcode-back" href="../../modules/hypertrack.html#hypertrack.losses.JaccardLogitsLoss">[docs]</a><span class="k">class</span> <span class="nc">JaccardLogitsLoss</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Intersect over Union set loss</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">reduction</span><span class="o">=</span><span class="s1">&#39;sum&#39;</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">JaccardLogitsLoss</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">weight</span> <span class="o">=</span> <span class="n">weight</span>
+        <span class="k">if</span>   <span class="n">reduction</span> <span class="o">==</span> <span class="s1">&#39;sum&#39;</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">sum</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">sum</span>
+        <span class="k">elif</span> <span class="n">reduction</span> <span class="o">==</span> <span class="s1">&#39;mean&#39;</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">sum</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">mean</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s1">&#39;IoULogitsLoss: Unknown reduction chosen&#39;</span><span class="p">)</span>
+
+<div class="viewcode-block" id="JaccardLogitsLoss.forward"><a class="viewcode-back" href="../../modules/hypertrack.html#hypertrack.losses.JaccardLogitsLoss.forward">[docs]</a>    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">inputs</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">targets</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">smooth</span><span class="p">:</span> <span class="nb">float</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+
+        <span class="n">inputs</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">sigmoid</span><span class="p">(</span><span class="n">inputs</span><span class="p">)</span>       
+        
+        <span class="c1"># Flatten label and prediction tensors</span>
+        <span class="n">inputs</span> <span class="o">=</span> <span class="n">inputs</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">targets</span> <span class="o">=</span> <span class="n">targets</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+        
+        <span class="c1"># Weights not implemented</span>
+        <span class="c1">#w = 1.0 if self.weight is None else self.weight.view(-1) / torch.sum(self.weight.view(-1))</span>
+
+        <span class="c1"># Intersection is equivalent to True Positive count</span>
+        <span class="c1"># union is the mutually inclusive area of all labels &amp; predictions </span>
+        <span class="n">intersection</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">inputs</span> <span class="o">*</span> <span class="n">targets</span><span class="p">)</span>
+        <span class="n">total</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">inputs</span> <span class="o">+</span> <span class="n">targets</span><span class="p">)</span>
+        <span class="n">union</span> <span class="o">=</span> <span class="n">total</span> <span class="o">-</span> <span class="n">intersection</span> 
+        
+        <span class="n">IoU</span> <span class="o">=</span> <span class="p">(</span><span class="n">intersection</span> <span class="o">+</span> <span class="n">smooth</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">union</span> <span class="o">+</span> <span class="n">smooth</span><span class="p">)</span>
+        
+        <span class="k">return</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">IoU</span></div></div>
+
+<div class="viewcode-block" id="DiceLogitsLoss"><a class="viewcode-back" href="../../modules/hypertrack.html#hypertrack.losses.DiceLogitsLoss">[docs]</a><span class="k">class</span> <span class="nc">DiceLogitsLoss</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Dice set loss</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">reduction</span><span class="o">=</span><span class="s1">&#39;sum&#39;</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">DiceLogitsLoss</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>    
+        
+        <span class="bp">self</span><span class="o">.</span><span class="n">weight</span> <span class="o">=</span> <span class="n">weight</span>
+        
+        <span class="k">if</span>   <span class="n">reduction</span> <span class="o">==</span> <span class="s1">&#39;sum&#39;</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">sum</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">sum</span>
+        <span class="k">elif</span> <span class="n">reduction</span> <span class="o">==</span> <span class="s1">&#39;mean&#39;</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">sum</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">mean</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s1">&#39;DiceLogitsLoss: Unknown reduction chosen&#39;</span><span class="p">)</span>
+
+<div class="viewcode-block" id="DiceLogitsLoss.forward"><a class="viewcode-back" href="../../modules/hypertrack.html#hypertrack.losses.DiceLogitsLoss.forward">[docs]</a>    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">inputs</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">targets</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">smooth</span><span class="p">:</span> <span class="nb">float</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+        
+        <span class="n">inputs</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">sigmoid</span><span class="p">(</span><span class="n">inputs</span><span class="p">)</span>       
+        
+        <span class="c1"># Flatten label and prediction tensors</span>
+        <span class="n">inputs</span>  <span class="o">=</span> <span class="n">inputs</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">targets</span> <span class="o">=</span> <span class="n">targets</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+        
+        <span class="c1"># Weights not implemented</span>
+        <span class="c1">#w = 1.0 if self.weight is None else self.weight.view(-1) / torch.sum(self.weight.view(-1))</span>
+
+        <span class="n">intersection</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">inputs</span> <span class="o">*</span> <span class="n">targets</span><span class="p">)</span>                            
+        <span class="n">dice</span> <span class="o">=</span> <span class="p">(</span><span class="mf">2.0</span><span class="o">*</span><span class="n">intersection</span> <span class="o">+</span> <span class="n">smooth</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">inputs</span><span class="p">)</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">targets</span><span class="p">)</span> <span class="o">+</span> <span class="n">smooth</span><span class="p">)</span>  
+        
+        <span class="k">return</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">dice</span></div></div>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Mikael Mieskolainen, I-X and Blackett Laboratory, Imperial College London.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

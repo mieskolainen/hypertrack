@@ -1,0 +1,39 @@
+Introduction
+=======================
+
+.. contents::
+    :local:
+
+
+Overview
+-----------------
+
+*HyperTrack* is a new hybrid algorithm for deep learned clustering based
+on a learned graph constructor called Voxel-Dynamics, Graph Neural Networks
+and Transformers. For more details, see the paper and the conference talk.
+
+This repository together with pre-trained torch models downloaded from Hugging
+Face can be used to reproduce the paper results on the charged particle
+track reconstruction problem.
+
+
+Hugging Face Quick Start
+------------------------------
+
+Install the framework, process TrackML files, download pre-trained torch models from
+Hugging Face https://huggingface.co/mieskolainen into ``/models`` and follow the documentation for inference.
+
+
+Folder structure
+-----------------------
+
+.. code-block:: none
+
+	- docs              : Documentation
+	- data              : Pickle files of input data
+	- figs              : Training and prediction figures
+	- models            : Trained torch models
+	- hypertrack        : Main source code
+	- hypertrack/models : Model definitions and hyperparameters
+	- src               : Training and inference steering code
+	- tests             : Launch and test scripts

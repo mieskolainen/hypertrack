@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Training &mdash; hypertrack alpha documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Inference" href="inference.html" />
+    <link rel="prev" title="Installation" href="installation.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html">
+            
+          </a>
+              <div class="version">
+                0.0.1
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Notes</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html#hugging-face-quick-start">Hugging Face Quick Start</a></li>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html#folder-structure">Folder structure</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#required-conda-installation">Required: Conda installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#install-environment">Install environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#initialize-environment">Initialize environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#gpu-support-commands">GPU-support commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#conda-virtual-environment-commands">Conda virtual environment commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#c-library-versions">C-library versions</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Training</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#train-voxel-dynamics-graph-constructor">Train Voxel-Dynamics graph constructor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#train-neural-gnn-transformer-model">Train neural GNN + Transformer model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#training-parameters">Training parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#model-hyperparameters">Model hyperparameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ground-truth-graph-topology">Ground truth graph topology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#progressive-transfer-learning">Progressive transfer learning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#learning-rate">Learning rate</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="inference.html">Inference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="inference.html#main-parameters">Main parameters</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="markup.html">Documentation</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Package Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../modules/hypertrack.html">hypertrack</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../modules/hypertrack.html#module-hypertrack.auxtrain">hypertrack.auxtrain</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../modules/hypertrack.html#hypertrack.auxtrain.backward"><code class="docutils literal notranslate"><span class="pre">backward()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules/hypertrack.html#hypertrack.auxtrain.execute"><code class="docutils literal notranslate"><span class="pre">execute()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules/hypertrack.html#hypertrack.auxtrain.load_models"><code class="docutils literal notranslate"><span class="pre">load_models()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules/hypertrack.html#hypertrack.auxtrain.load_optimizers"><code class="docutils literal notranslate"><span class="pre">load_optimizers()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules/hypertrack.html#hypertrack.auxtrain.plot_gradient_flow"><code class="docutils literal notranslate"><span class="pre">plot_gradient_flow()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules/hypertrack.html#hypertrack.auxtrain.plot_metrics"><code class="docutils literal notranslate"><span class="pre">plot_metrics()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules/hypertrack.html#hypertrack.auxtrain.save_models"><code class="docutils literal notranslate"><span class="pre">save_models()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules/hypertrack.html#hypertrack.auxtrain.set_optimizer"><code class="docutils literal notranslate"><span class="pre">set_optimizer()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules/hypertrack.html#hypertrack.auxtrain.set_scheduler"><code class="docutils literal notranslate"><span class="pre">set_scheduler()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../modules/hypertrack.html#module-hypertrack.dmlp">hypertrack.dmlp</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../modules/hypertrack.html#hypertrack.dmlp.MLP"><code class="docutils literal notranslate"><span class="pre">MLP()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules/hypertrack.html#hypertrack.dmlp.get_act"><code class="docutils literal notranslate"><span class="pre">get_act()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../modules/hypertrack.html#module-hypertrack.faissknn">hypertrack.faissknn</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../modules/hypertrack.html#hypertrack.faissknn.faisskNN"><code class="docutils literal notranslate"><span class="pre">faisskNN</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../modules/hypertrack.html#module-hypertrack.flows">hypertrack.flows</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../modules/hypertrack.html#hypertrack.flows.ActNorm"><code class="docutils literal notranslate"><span class="pre">ActNorm</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules/hypertrack.html#hypertrack.flows.BatchNormFlow"><code class="docutils literal notranslate"><span class="pre">BatchNormFlow</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules/hypertrack.html#hypertrack.flows.CouplingLayer"><code class="docutils literal notranslate"><span class="pre">CouplingLayer</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules/hypertrack.html#hypertrack.flows.FlowSequential"><code class="docutils literal notranslate"><span class="pre">FlowSequential</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules/hypertrack.html#hypertrack.flows.InvertibleMM"><code class="docutils literal notranslate"><span class="pre">InvertibleMM</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules/hypertrack.html#hypertrack.flows.LUInvertibleMM"><code class="docutils literal notranslate"><span class="pre">LUInvertibleMM</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules/hypertrack.html#hypertrack.flows.Logit"><code class="docutils literal notranslate"><span class="pre">Logit</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules/hypertrack.html#hypertrack.flows.MADE"><code class="docutils literal notranslate"><span class="pre">MADE</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules/hypertrack.html#hypertrack.flows.MADESplit"><code class="docutils literal notranslate"><span class="pre">MADESplit</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules/hypertrack.html#hypertrack.flows.MaskedLinear"><code class="docutils literal notranslate"><span class="pre">MaskedLinear</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules/hypertrack.html#hypertrack.flows.Reverse"><code class="docutils literal notranslate"><span class="pre">Reverse</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules/hypertrack.html#hypertrack.flows.Shuffle"><code class="docutils literal notranslate"><span class="pre">Shuffle</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules/hypertrack.html#hypertrack.flows.Sigmoid"><code class="docutils literal notranslate"><span class="pre">Sigmoid</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules/hypertrack.html#hypertrack.flows.get_mask"><code class="docutils literal notranslate"><span class="pre">get_mask()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../modules/hypertrack.html#module-hypertrack.hyper">hypertrack.hyper</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../modules/hypertrack.html#hypertrack.hyper.clusterize"><code class="docutils literal notranslate"><span class="pre">clusterize()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules/hypertrack.html#hypertrack.hyper.hypertrack"><code class="docutils literal notranslate"><span class="pre">hypertrack()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules/hypertrack.html#hypertrack.hyper.transformer_helper"><code class="docutils literal notranslate"><span class="pre">transformer_helper()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../modules/hypertrack.html#module-hypertrack.hyperaux">hypertrack.hyperaux</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../modules/hypertrack.html#hypertrack.hyperaux.cluster_loss"><code class="docutils literal notranslate"><span class="pre">cluster_loss()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules/hypertrack.html#hypertrack.hyperaux.edge_loss"><code class="docutils literal notranslate"><span class="pre">edge_loss()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules/hypertrack.html#hypertrack.hyperaux.loss_normalization"><code class="docutils literal notranslate"><span class="pre">loss_normalization()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../modules/hypertrack.html#module-hypertrack.iotools">hypertrack.iotools</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../modules/hypertrack.html#hypertrack.iotools.construct_event_range"><code class="docutils literal notranslate"><span class="pre">construct_event_range()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules/hypertrack.html#hypertrack.iotools.get_gpu_memory_map"><code class="docutils literal notranslate"><span class="pre">get_gpu_memory_map()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules/hypertrack.html#hypertrack.iotools.grab_torch_file"><code class="docutils literal notranslate"><span class="pre">grab_torch_file()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules/hypertrack.html#hypertrack.iotools.load_models"><code class="docutils literal notranslate"><span class="pre">load_models()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules/hypertrack.html#hypertrack.iotools.process_memory_use"><code class="docutils literal notranslate"><span class="pre">process_memory_use()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules/hypertrack.html#hypertrack.iotools.showmem"><code class="docutils literal notranslate"><span class="pre">showmem()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules/hypertrack.html#hypertrack.iotools.showmem_cuda"><code class="docutils literal notranslate"><span class="pre">showmem_cuda()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules/hypertrack.html#hypertrack.iotools.sysinfo"><code class="docutils literal notranslate"><span class="pre">sysinfo()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules/hypertrack.html#hypertrack.iotools.torch_cuda_total_memory"><code class="docutils literal notranslate"><span class="pre">torch_cuda_total_memory()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../modules/hypertrack.html#module-hypertrack.losses">hypertrack.losses</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../modules/hypertrack.html#hypertrack.losses.DiceLogitsLoss"><code class="docutils literal notranslate"><span class="pre">DiceLogitsLoss</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules/hypertrack.html#hypertrack.losses.FocalWithLogitsLoss"><code class="docutils literal notranslate"><span class="pre">FocalWithLogitsLoss</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules/hypertrack.html#hypertrack.losses.HingeLoss"><code class="docutils literal notranslate"><span class="pre">HingeLoss</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules/hypertrack.html#hypertrack.losses.JaccardLogitsLoss"><code class="docutils literal notranslate"><span class="pre">JaccardLogitsLoss</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules/hypertrack.html#hypertrack.losses.SmoothHingeLoss"><code class="docutils literal notranslate"><span class="pre">SmoothHingeLoss</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules/hypertrack.html#hypertrack.losses.contrastive_edge_loss"><code class="docutils literal notranslate"><span class="pre">contrastive_edge_loss()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules/hypertrack.html#hypertrack.losses.find_posneg_connections"><code class="docutils literal notranslate"><span class="pre">find_posneg_connections()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules/hypertrack.html#hypertrack.losses.fisher_loss"><code class="docutils literal notranslate"><span class="pre">fisher_loss()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules/hypertrack.html#hypertrack.losses.fisher_threshold"><code class="docutils literal notranslate"><span class="pre">fisher_threshold()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules/hypertrack.html#hypertrack.losses.intersect_loss"><code class="docutils literal notranslate"><span class="pre">intersect_loss()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../modules/hypertrack.html#module-hypertrack.measures">hypertrack.measures</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../modules/hypertrack.html#hypertrack.measures.Metric"><code class="docutils literal notranslate"><span class="pre">Metric</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules/hypertrack.html#hypertrack.measures.adjgraph_metrics"><code class="docutils literal notranslate"><span class="pre">adjgraph_metrics()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules/hypertrack.html#hypertrack.measures.compute_adj_metrics"><code class="docutils literal notranslate"><span class="pre">compute_adj_metrics()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules/hypertrack.html#hypertrack.measures.compute_metrics"><code class="docutils literal notranslate"><span class="pre">compute_metrics()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules/hypertrack.html#hypertrack.measures.histedges_equal_N"><code class="docutils literal notranslate"><span class="pre">histedges_equal_N()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules/hypertrack.html#hypertrack.measures.majority_score"><code class="docutils literal notranslate"><span class="pre">majority_score()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules/hypertrack.html#hypertrack.measures.roc_curve"><code class="docutils literal notranslate"><span class="pre">roc_curve()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules/hypertrack.html#hypertrack.measures.true_false_positive"><code class="docutils literal notranslate"><span class="pre">true_false_positive()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../modules/hypertrack.html#module-hypertrack.ratioplot">hypertrack.ratioplot</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../modules/hypertrack.html#hypertrack.ratioplot.create_axes"><code class="docutils literal notranslate"><span class="pre">create_axes()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules/hypertrack.html#hypertrack.ratioplot.plot_horizontal_line"><code class="docutils literal notranslate"><span class="pre">plot_horizontal_line()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules/hypertrack.html#hypertrack.ratioplot.set_axis_ticks"><code class="docutils literal notranslate"><span class="pre">set_axis_ticks()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules/hypertrack.html#hypertrack.ratioplot.stepspace"><code class="docutils literal notranslate"><span class="pre">stepspace()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules/hypertrack.html#hypertrack.ratioplot.tick_calc"><code class="docutils literal notranslate"><span class="pre">tick_calc()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules/hypertrack.html#hypertrack.ratioplot.tick_creator"><code class="docutils literal notranslate"><span class="pre">tick_creator()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../modules/hypertrack.html#module-hypertrack.tools">hypertrack.tools</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../modules/hypertrack.html#hypertrack.tools.Graph"><code class="docutils literal notranslate"><span class="pre">Graph</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules/hypertrack.html#hypertrack.tools.adj2edges"><code class="docutils literal notranslate"><span class="pre">adj2edges()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules/hypertrack.html#hypertrack.tools.attach_fully_connected_node"><code class="docutils literal notranslate"><span class="pre">attach_fully_connected_node()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules/hypertrack.html#hypertrack.tools.backtrack_linear_index"><code class="docutils literal notranslate"><span class="pre">backtrack_linear_index()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules/hypertrack.html#hypertrack.tools.closure_test_adj"><code class="docutils literal notranslate"><span class="pre">closure_test_adj()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules/hypertrack.html#hypertrack.tools.compute_ground_truth_A"><code class="docutils literal notranslate"><span class="pre">compute_ground_truth_A()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules/hypertrack.html#hypertrack.tools.compute_hit_mixing"><code class="docutils literal notranslate"><span class="pre">compute_hit_mixing()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules/hypertrack.html#hypertrack.tools.compute_hyper"><code class="docutils literal notranslate"><span class="pre">compute_hyper()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules/hypertrack.html#hypertrack.tools.count_hit_multiplicity"><code class="docutils literal notranslate"><span class="pre">count_hit_multiplicity()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules/hypertrack.html#hypertrack.tools.count_reco_cluster"><code class="docutils literal notranslate"><span class="pre">count_reco_cluster()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules/hypertrack.html#hypertrack.tools.create_cluster_ind"><code class="docutils literal notranslate"><span class="pre">create_cluster_ind()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules/hypertrack.html#hypertrack.tools.create_cluster_labels"><code class="docutils literal notranslate"><span class="pre">create_cluster_labels()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules/hypertrack.html#hypertrack.tools.create_edge_label"><code class="docutils literal notranslate"><span class="pre">create_edge_label()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules/hypertrack.html#hypertrack.tools.edges2adj"><code class="docutils literal notranslate"><span class="pre">edges2adj()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules/hypertrack.html#hypertrack.tools.explicit_range"><code class="docutils literal notranslate"><span class="pre">explicit_range()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules/hypertrack.html#hypertrack.tools.find_connected_components"><code class="docutils literal notranslate"><span class="pre">find_connected_components()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules/hypertrack.html#hypertrack.tools.normalize_cols"><code class="docutils literal notranslate"><span class="pre">normalize_cols()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules/hypertrack.html#hypertrack.tools.normalize_rows"><code class="docutils literal notranslate"><span class="pre">normalize_rows()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules/hypertrack.html#hypertrack.tools.print_clusters"><code class="docutils literal notranslate"><span class="pre">print_clusters()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules/hypertrack.html#hypertrack.tools.running_mean_uniform_filter1d"><code class="docutils literal notranslate"><span class="pre">running_mean_uniform_filter1d()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules/hypertrack.html#hypertrack.tools.select_valid"><code class="docutils literal notranslate"><span class="pre">select_valid()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules/hypertrack.html#hypertrack.tools.span_adj_mat"><code class="docutils literal notranslate"><span class="pre">span_adj_mat()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules/hypertrack.html#hypertrack.tools.split"><code class="docutils literal notranslate"><span class="pre">split()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules/hypertrack.html#hypertrack.tools.split_size"><code class="docutils literal notranslate"><span class="pre">split_size()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules/hypertrack.html#hypertrack.tools.split_start_end"><code class="docutils literal notranslate"><span class="pre">split_start_end()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules/hypertrack.html#hypertrack.tools.timing"><code class="docutils literal notranslate"><span class="pre">timing()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules/hypertrack.html#hypertrack.tools.track_minimal_spanning_tree"><code class="docutils literal notranslate"><span class="pre">track_minimal_spanning_tree()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules/hypertrack.html#hypertrack.tools.value_and_uncertainty_scientific"><code class="docutils literal notranslate"><span class="pre">value_and_uncertainty_scientific()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../modules/hypertrack.html#module-hypertrack.torchtools">hypertrack.torchtools</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../modules/hypertrack.html#hypertrack.torchtools.count_parameters_torch"><code class="docutils literal notranslate"><span class="pre">count_parameters_torch()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules/hypertrack.html#hypertrack.torchtools.fastcat_rand"><code class="docutils literal notranslate"><span class="pre">fastcat_rand()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules/hypertrack.html#hypertrack.torchtools.plot_grad_flow"><code class="docutils literal notranslate"><span class="pre">plot_grad_flow()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules/hypertrack.html#hypertrack.torchtools.seperate_weight_param"><code class="docutils literal notranslate"><span class="pre">seperate_weight_param()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules/hypertrack.html#hypertrack.torchtools.set_diff_1d"><code class="docutils literal notranslate"><span class="pre">set_diff_1d()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules/hypertrack.html#hypertrack.torchtools.set_random_seed"><code class="docutils literal notranslate"><span class="pre">set_random_seed()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules/hypertrack.html#hypertrack.torchtools.subgraph_mask"><code class="docutils literal notranslate"><span class="pre">subgraph_mask()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules/hypertrack.html#hypertrack.torchtools.to_scipy_sparse_csr_matrix"><code class="docutils literal notranslate"><span class="pre">to_scipy_sparse_csr_matrix()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules/hypertrack.html#hypertrack.torchtools.torch_intersect"><code class="docutils literal notranslate"><span class="pre">torch_intersect()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules/hypertrack.html#hypertrack.torchtools.torch_to_scipy_scr"><code class="docutils literal notranslate"><span class="pre">torch_to_scipy_scr()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules/hypertrack.html#hypertrack.torchtools.weighted_degree"><code class="docutils literal notranslate"><span class="pre">weighted_degree()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../modules/hypertrack.html#module-hypertrack.trackml">hypertrack.trackml</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../modules/hypertrack.html#hypertrack.trackml.generate_graph_data"><code class="docutils literal notranslate"><span class="pre">generate_graph_data()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules/hypertrack.html#hypertrack.trackml.load_reduce_event"><code class="docutils literal notranslate"><span class="pre">load_reduce_event()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules/hypertrack.html#hypertrack.trackml.process_data"><code class="docutils literal notranslate"><span class="pre">process_data()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules/hypertrack.html#hypertrack.trackml.reduce_tracks"><code class="docutils literal notranslate"><span class="pre">reduce_tracks()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../modules/hypertrack.html#module-hypertrack.transforms">hypertrack.transforms</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../modules/hypertrack.html#hypertrack.transforms.transform_r_eta_phi"><code class="docutils literal notranslate"><span class="pre">transform_r_eta_phi()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../modules/hypertrack.html#module-hypertrack.visualize">hypertrack.visualize</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../modules/hypertrack.html#hypertrack.visualize.ROC_plot"><code class="docutils literal notranslate"><span class="pre">ROC_plot()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules/hypertrack.html#hypertrack.visualize.annotate_heatmap"><code class="docutils literal notranslate"><span class="pre">annotate_heatmap()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules/hypertrack.html#hypertrack.visualize.compare_cluster_multiplicity"><code class="docutils literal notranslate"><span class="pre">compare_cluster_multiplicity()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules/hypertrack.html#hypertrack.visualize.compare_hit_multiplicity"><code class="docutils literal notranslate"><span class="pre">compare_hit_multiplicity()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules/hypertrack.html#hypertrack.visualize.crf"><code class="docutils literal notranslate"><span class="pre">crf()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules/hypertrack.html#hypertrack.visualize.density_MVA_wclass"><code class="docutils literal notranslate"><span class="pre">density_MVA_wclass()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules/hypertrack.html#hypertrack.visualize.hist_filled_error"><code class="docutils literal notranslate"><span class="pre">hist_filled_error()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules/hypertrack.html#hypertrack.visualize.imperial_brown"><code class="docutils literal notranslate"><span class="pre">imperial_brown</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules/hypertrack.html#hypertrack.visualize.plot_C_matrix"><code class="docutils literal notranslate"><span class="pre">plot_C_matrix()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules/hypertrack.html#hypertrack.visualize.plot_adj_matrices"><code class="docutils literal notranslate"><span class="pre">plot_adj_matrices()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules/hypertrack.html#hypertrack.visualize.plot_mixing_matrix"><code class="docutils literal notranslate"><span class="pre">plot_mixing_matrix()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules/hypertrack.html#hypertrack.visualize.plot_tracks"><code class="docutils literal notranslate"><span class="pre">plot_tracks()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules/hypertrack.html#hypertrack.visualize.plot_voronoi"><code class="docutils literal notranslate"><span class="pre">plot_voronoi()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules/hypertrack.html#hypertrack.visualize.ratioerr"><code class="docutils literal notranslate"><span class="pre">ratioerr()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules/hypertrack.html#hypertrack.visualize.track_effiency_plots"><code class="docutils literal notranslate"><span class="pre">track_effiency_plots()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../modules/hypertrack.html#module-hypertrack.voxdyn">hypertrack.voxdyn</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../modules/hypertrack.html#hypertrack.voxdyn.combine_data"><code class="docutils literal notranslate"><span class="pre">combine_data()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules/hypertrack.html#hypertrack.voxdyn.compute_A_direct"><code class="docutils literal notranslate"><span class="pre">compute_A_direct()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules/hypertrack.html#hypertrack.voxdyn.compute_A_reverse"><code class="docutils literal notranslate"><span class="pre">compute_A_reverse()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules/hypertrack.html#hypertrack.voxdyn.compute_A_reverse_3pt"><code class="docutils literal notranslate"><span class="pre">compute_A_reverse_3pt()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules/hypertrack.html#hypertrack.voxdyn.compute_I_per_V"><code class="docutils literal notranslate"><span class="pre">compute_I_per_V()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules/hypertrack.html#hypertrack.voxdyn.faiss_to_gpu"><code class="docutils literal notranslate"><span class="pre">faiss_to_gpu()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules/hypertrack.html#hypertrack.voxdyn.load_particle_data"><code class="docutils literal notranslate"><span class="pre">load_particle_data()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules/hypertrack.html#hypertrack.voxdyn.train_2pt_connectivity"><code class="docutils literal notranslate"><span class="pre">train_2pt_connectivity()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules/hypertrack.html#hypertrack.voxdyn.train_2pt_connectivity_sparse"><code class="docutils literal notranslate"><span class="pre">train_2pt_connectivity_sparse()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules/hypertrack.html#hypertrack.voxdyn.train_3pt_connectivity"><code class="docutils literal notranslate"><span class="pre">train_3pt_connectivity()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules/hypertrack.html#hypertrack.voxdyn.train_voxdyn"><code class="docutils literal notranslate"><span class="pre">train_voxdyn()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules/hypertrack.html#hypertrack.voxdyn.voxdyn_predictor"><code class="docutils literal notranslate"><span class="pre">voxdyn_predictor()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">hypertrack</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Training</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/notes/training.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="training">
+<h1>Training<a class="headerlink" href="#training" title="Permalink to this heading">¶</a></h1>
+<section id="train-voxel-dynamics-graph-constructor">
+<h2>Train Voxel-Dynamics graph constructor<a class="headerlink" href="#train-voxel-dynamics-graph-constructor" title="Permalink to this heading">¶</a></h2>
+<p>The voxelized space(-time) Voronoi division &amp; connectivity <code class="docutils literal notranslate"><span class="pre">C-matrix</span></code> estimator takes
+into account the dynamics of particle tracks (equations of motion) as described by the simulations (training data),
+where do they appear in space-time and also the detector geometry adaptively.</p>
+<p>For example:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>python src/trackml_pretrain_voxdyn.py --node2node hyper --ncell 65536 131072 --device cpu
+</pre></div>
+</div>
+<p>Once trained, the estimator’s true (false) edge efficiency is pile-up invariant (!) by construction, but the purity is not.</p>
+<p>The Voronoi division quality saturates quickly with the number of training sample size (number of tracks ~ hits),
+but the connectivity C-matrix is estimated with much higher accuracy with larger samples.</p>
+</section>
+<section id="train-neural-gnn-transformer-model">
+<h2>Train neural GNN + Transformer model<a class="headerlink" href="#train-neural-gnn-transformer-model" title="Permalink to this heading">¶</a></h2>
+<p>The training first proceeds only with the GNN edge predictor part of the network and once
+the AUC is over <code class="docutils literal notranslate"><span class="pre">--auc_threshold</span></code>, then the neural clustering transformer training is activated end-to-end.</p>
+<p>The training for the track reconstruction problem is executed with:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>python src/trackml_train.py \
+        --param tune-5 \
+        --cluster &quot;transformer&quot; \
+        --soft_reset 0 \
+        --learning_rate 5e-4 \
+        --scheduler_type &quot;warm-cos&quot; \
+        --optimizer &quot;AdamW&quot; \
+        --epoch -1 \
+        --save_tag f-0p1-hyper-5 \
+        --rfactor_start 0.1 --rfactor_end 0.1 --noise_ratio 0.05 \
+        --node2node hyper --ncell 262144 \
+        --validate 0 \
+        --batch_size 1 \
+        --fp_dtype &quot;float32&quot;
+</pre></div>
+</div>
+<p>See more examples under <code class="docutils literal notranslate"><span class="pre">/tests/train*</span></code> for different pile-up scenarios.</p>
+<p>Training will take days (weeks) on a single Nvidia V100 GPU, and VRAM memory requirements grow at
+least linearly as a function of the track density if <code class="docutils literal notranslate"><span class="pre">--ncell</span></code> is scaled up accordingly.</p>
+<p>A GPU with 32+ GB VRAM is recommended (a must), to be able to increase the pile-up scenario
+with <code class="docutils literal notranslate"><span class="pre">--rfactor_start</span></code> and <code class="docutils literal notranslate"><span class="pre">--rfactor_end</span></code>, use deeper models and possibly
+higher <code class="docutils literal notranslate"><span class="pre">--batch_size</span></code> parameter in the neural training.</p>
+</section>
+<section id="training-parameters">
+<h2>Training parameters<a class="headerlink" href="#training-parameters" title="Permalink to this heading">¶</a></h2>
+<p>The training steering program parameters, such as the starting learning rate, can be seen with the command <code class="docutils literal notranslate"><span class="pre">--help</span></code>
+and the rest are descibed under <code class="docutils literal notranslate"><span class="pre">/hypertrack/models/global_&lt;TAG&gt;.py</span></code>.</p>
+</section>
+<section id="model-hyperparameters">
+<h2>Model hyperparameters<a class="headerlink" href="#model-hyperparameters" title="Permalink to this heading">¶</a></h2>
+<p>The model hyperparameters are encoded in the file <code class="docutils literal notranslate"><span class="pre">/hypertrack/models/global_&lt;TAG&gt;.py</span></code>.
+One can create several different tunes or custom models, by choosing a <code class="docutils literal notranslate"><span class="pre">--save_tag</span> <span class="pre">&lt;TAG&gt;</span></code> name and
+by copying existing models files into a new pair:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>/hypertrack/models/global_&lt;TAG&gt;.py
+/hypertrack/models/models_&lt;TAG&gt;.py
+</pre></div>
+</div>
+<p>before starting the training.</p>
+</section>
+<section id="ground-truth-graph-topology">
+<h2>Ground truth graph topology<a class="headerlink" href="#ground-truth-graph-topology" title="Permalink to this heading">¶</a></h2>
+<p>The ground truth adjacency of graph nodes (hits) is controlled with the command line parameter <code class="docutils literal notranslate"><span class="pre">--node2node</span></code>.
+This needs to be consistent between <code class="docutils literal notranslate"><span class="pre">trackml_pretrain_voxdyn</span></code>, <code class="docutils literal notranslate"><span class="pre">trackml_train</span></code> and <code class="docutils literal notranslate"><span class="pre">trackml_inference</span></code>,
+but one can do mixed diagnostics.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>`hyper`   for a fully connected hyperedge like &#39;lasso&#39; over all nodes
+`eom`     for a minimal spanning tree (equations of motions helix trajectory)
+`cricket` for double hops included eom trajectory
+</pre></div>
+</div>
+<p>This impacts directly the Voxel-Dynamics estimator <code class="docutils literal notranslate"><span class="pre">C-matrix</span></code> construction and indirectly
+the neural estimator training, especially the edge predictor part, because it defines its
+label target goal. The <code class="docutils literal notranslate"><span class="pre">eom</span></code> will favor to train an edge predictor which
+is <em>space-time local</em> and the <code class="docutils literal notranslate"><span class="pre">hyper</span></code> mode a fully <em>space-time non-local</em> one.</p>
+<p>In general, only <code class="docutils literal notranslate"><span class="pre">hyper</span></code> mode is fully compatible with the overall neural
+clustering goal, but one can use <code class="docutils literal notranslate"><span class="pre">eom</span></code> mode, e.g., to train only a highly performing
+GNN edge predictor. Set also <code class="docutils literal notranslate"><span class="pre">--cluster</span> <span class="pre">none</span></code>, which inactivates the clustering transformer from training.</p>
+<p>The ground truth definition impacts also edge ROC/AUC (efficiency) between <code class="docutils literal notranslate"><span class="pre">A_hat</span></code> (estimate) and <code class="docutils literal notranslate"><span class="pre">A</span></code> (ground truth) adjacency.
+However, the final track clustering metrics such as <code class="docutils literal notranslate"><span class="pre">efficiency</span></code> or <code class="docutils literal notranslate"><span class="pre">purity</span></code> definition are topology independent,
+but naturally the chosen definition impacts the underlying model construction.</p>
+</section>
+<section id="progressive-transfer-learning">
+<h2>Progressive transfer learning<a class="headerlink" href="#progressive-transfer-learning" title="Permalink to this heading">¶</a></h2>
+<p>To reduce overall GPU time and improve convergence, it is beneficial to train the model using a low pile-up
+scenario and once converged, use that model as a starting point for the higher pile-up scenario.
+This can be done progressively in multiple steps, e.g. by setting <code class="docutils literal notranslate"><span class="pre">--rfactor_start</span></code> and
+<code class="docutils literal notranslate"><span class="pre">--rfactor_end</span></code> first to <code class="docutils literal notranslate"><span class="pre">0.01</span></code>, then both <code class="docutils literal notranslate"><span class="pre">0.1</span></code> and finally both to <code class="docutils literal notranslate"><span class="pre">0.2</span></code> (assuming you have enough VRAM).</p>
+<p>Similarly, one should increase the voxel space dimension <code class="docutils literal notranslate"><span class="pre">ncell</span></code> as a function of the mean pile-up.</p>
+<p>Starting the training using an existing model weights can be done simply by
+using <code class="docutils literal notranslate"><span class="pre">--transfer_tag</span></code> and <code class="docutils literal notranslate"><span class="pre">--save_tag</span></code> command line parameters when starting the new training.</p>
+<p>Remember to remove <code class="docutils literal notranslate"><span class="pre">--transfer_tag</span></code> afterwards.</p>
+</section>
+<section id="learning-rate">
+<h2>Learning rate<a class="headerlink" href="#learning-rate" title="Permalink to this heading">¶</a></h2>
+<p>Start with</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>--learning_rate 5e-4
+</pre></div>
+</div>
+<p>The learning rate can be crucial, e.g. with 1e-5 the GNN does not really enter learning phase.</p>
+<p>Then in the final stage, perhaps decrease to</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>--learning_rate 1e-4 (e.g. Transformer more stable)
+</pre></div>
+</div>
+<p>In general, larger models with more GNN and transformer layers and higher latent dimensions may require smaller learning rates.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="installation.html" class="btn btn-neutral float-left" title="Installation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="inference.html" class="btn btn-neutral float-right" title="Inference" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Mikael Mieskolainen, I-X and Blackett Laboratory, Imperial College London.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

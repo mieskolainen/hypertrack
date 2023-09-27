@@ -1,0 +1,1103 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>hypertrack.hyper &mdash; hypertrack alpha documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html">
+            
+          </a>
+              <div class="version">
+                0.0.1
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Notes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../notes/introduction.html">Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../notes/introduction.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../notes/introduction.html#hugging-face-quick-start">Hugging Face Quick Start</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../notes/introduction.html#folder-structure">Folder structure</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../notes/installation.html">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../notes/installation.html#required-conda-installation">Required: Conda installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../notes/installation.html#install-environment">Install environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../notes/installation.html#initialize-environment">Initialize environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../notes/installation.html#gpu-support-commands">GPU-support commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../notes/installation.html#conda-virtual-environment-commands">Conda virtual environment commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../notes/installation.html#c-library-versions">C-library versions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../notes/training.html">Training</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../notes/training.html#train-voxel-dynamics-graph-constructor">Train Voxel-Dynamics graph constructor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../notes/training.html#train-neural-gnn-transformer-model">Train neural GNN + Transformer model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../notes/training.html#training-parameters">Training parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../notes/training.html#model-hyperparameters">Model hyperparameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../notes/training.html#ground-truth-graph-topology">Ground truth graph topology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../notes/training.html#progressive-transfer-learning">Progressive transfer learning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../notes/training.html#learning-rate">Learning rate</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../notes/inference.html">Inference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../notes/inference.html#main-parameters">Main parameters</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../notes/markup.html">Documentation</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Package Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../modules/hypertrack.html">hypertrack</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../modules/hypertrack.html#module-hypertrack.auxtrain">hypertrack.auxtrain</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.auxtrain.backward"><code class="docutils literal notranslate"><span class="pre">backward()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.auxtrain.execute"><code class="docutils literal notranslate"><span class="pre">execute()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.auxtrain.load_models"><code class="docutils literal notranslate"><span class="pre">load_models()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.auxtrain.load_optimizers"><code class="docutils literal notranslate"><span class="pre">load_optimizers()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.auxtrain.plot_gradient_flow"><code class="docutils literal notranslate"><span class="pre">plot_gradient_flow()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.auxtrain.plot_metrics"><code class="docutils literal notranslate"><span class="pre">plot_metrics()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.auxtrain.save_models"><code class="docutils literal notranslate"><span class="pre">save_models()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.auxtrain.set_optimizer"><code class="docutils literal notranslate"><span class="pre">set_optimizer()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.auxtrain.set_scheduler"><code class="docutils literal notranslate"><span class="pre">set_scheduler()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../modules/hypertrack.html#module-hypertrack.dmlp">hypertrack.dmlp</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.dmlp.MLP"><code class="docutils literal notranslate"><span class="pre">MLP()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.dmlp.get_act"><code class="docutils literal notranslate"><span class="pre">get_act()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../modules/hypertrack.html#module-hypertrack.faissknn">hypertrack.faissknn</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.faissknn.faisskNN"><code class="docutils literal notranslate"><span class="pre">faisskNN</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../modules/hypertrack.html#module-hypertrack.flows">hypertrack.flows</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.flows.ActNorm"><code class="docutils literal notranslate"><span class="pre">ActNorm</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.flows.BatchNormFlow"><code class="docutils literal notranslate"><span class="pre">BatchNormFlow</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.flows.CouplingLayer"><code class="docutils literal notranslate"><span class="pre">CouplingLayer</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.flows.FlowSequential"><code class="docutils literal notranslate"><span class="pre">FlowSequential</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.flows.InvertibleMM"><code class="docutils literal notranslate"><span class="pre">InvertibleMM</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.flows.LUInvertibleMM"><code class="docutils literal notranslate"><span class="pre">LUInvertibleMM</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.flows.Logit"><code class="docutils literal notranslate"><span class="pre">Logit</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.flows.MADE"><code class="docutils literal notranslate"><span class="pre">MADE</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.flows.MADESplit"><code class="docutils literal notranslate"><span class="pre">MADESplit</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.flows.MaskedLinear"><code class="docutils literal notranslate"><span class="pre">MaskedLinear</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.flows.Reverse"><code class="docutils literal notranslate"><span class="pre">Reverse</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.flows.Shuffle"><code class="docutils literal notranslate"><span class="pre">Shuffle</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.flows.Sigmoid"><code class="docutils literal notranslate"><span class="pre">Sigmoid</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.flows.get_mask"><code class="docutils literal notranslate"><span class="pre">get_mask()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../modules/hypertrack.html#module-hypertrack.hyper">hypertrack.hyper</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.hyper.clusterize"><code class="docutils literal notranslate"><span class="pre">clusterize()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.hyper.hypertrack"><code class="docutils literal notranslate"><span class="pre">hypertrack()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.hyper.transformer_helper"><code class="docutils literal notranslate"><span class="pre">transformer_helper()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../modules/hypertrack.html#module-hypertrack.hyperaux">hypertrack.hyperaux</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.hyperaux.cluster_loss"><code class="docutils literal notranslate"><span class="pre">cluster_loss()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.hyperaux.edge_loss"><code class="docutils literal notranslate"><span class="pre">edge_loss()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.hyperaux.loss_normalization"><code class="docutils literal notranslate"><span class="pre">loss_normalization()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../modules/hypertrack.html#module-hypertrack.iotools">hypertrack.iotools</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.iotools.construct_event_range"><code class="docutils literal notranslate"><span class="pre">construct_event_range()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.iotools.get_gpu_memory_map"><code class="docutils literal notranslate"><span class="pre">get_gpu_memory_map()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.iotools.grab_torch_file"><code class="docutils literal notranslate"><span class="pre">grab_torch_file()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.iotools.load_models"><code class="docutils literal notranslate"><span class="pre">load_models()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.iotools.process_memory_use"><code class="docutils literal notranslate"><span class="pre">process_memory_use()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.iotools.showmem"><code class="docutils literal notranslate"><span class="pre">showmem()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.iotools.showmem_cuda"><code class="docutils literal notranslate"><span class="pre">showmem_cuda()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.iotools.sysinfo"><code class="docutils literal notranslate"><span class="pre">sysinfo()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.iotools.torch_cuda_total_memory"><code class="docutils literal notranslate"><span class="pre">torch_cuda_total_memory()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../modules/hypertrack.html#module-hypertrack.losses">hypertrack.losses</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.losses.DiceLogitsLoss"><code class="docutils literal notranslate"><span class="pre">DiceLogitsLoss</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.losses.FocalWithLogitsLoss"><code class="docutils literal notranslate"><span class="pre">FocalWithLogitsLoss</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.losses.HingeLoss"><code class="docutils literal notranslate"><span class="pre">HingeLoss</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.losses.JaccardLogitsLoss"><code class="docutils literal notranslate"><span class="pre">JaccardLogitsLoss</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.losses.SmoothHingeLoss"><code class="docutils literal notranslate"><span class="pre">SmoothHingeLoss</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.losses.contrastive_edge_loss"><code class="docutils literal notranslate"><span class="pre">contrastive_edge_loss()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.losses.find_posneg_connections"><code class="docutils literal notranslate"><span class="pre">find_posneg_connections()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.losses.fisher_loss"><code class="docutils literal notranslate"><span class="pre">fisher_loss()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.losses.fisher_threshold"><code class="docutils literal notranslate"><span class="pre">fisher_threshold()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.losses.intersect_loss"><code class="docutils literal notranslate"><span class="pre">intersect_loss()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../modules/hypertrack.html#module-hypertrack.measures">hypertrack.measures</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.measures.Metric"><code class="docutils literal notranslate"><span class="pre">Metric</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.measures.adjgraph_metrics"><code class="docutils literal notranslate"><span class="pre">adjgraph_metrics()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.measures.compute_adj_metrics"><code class="docutils literal notranslate"><span class="pre">compute_adj_metrics()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.measures.compute_metrics"><code class="docutils literal notranslate"><span class="pre">compute_metrics()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.measures.histedges_equal_N"><code class="docutils literal notranslate"><span class="pre">histedges_equal_N()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.measures.majority_score"><code class="docutils literal notranslate"><span class="pre">majority_score()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.measures.roc_curve"><code class="docutils literal notranslate"><span class="pre">roc_curve()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.measures.true_false_positive"><code class="docutils literal notranslate"><span class="pre">true_false_positive()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../modules/hypertrack.html#module-hypertrack.ratioplot">hypertrack.ratioplot</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.ratioplot.create_axes"><code class="docutils literal notranslate"><span class="pre">create_axes()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.ratioplot.plot_horizontal_line"><code class="docutils literal notranslate"><span class="pre">plot_horizontal_line()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.ratioplot.set_axis_ticks"><code class="docutils literal notranslate"><span class="pre">set_axis_ticks()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.ratioplot.stepspace"><code class="docutils literal notranslate"><span class="pre">stepspace()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.ratioplot.tick_calc"><code class="docutils literal notranslate"><span class="pre">tick_calc()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.ratioplot.tick_creator"><code class="docutils literal notranslate"><span class="pre">tick_creator()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../modules/hypertrack.html#module-hypertrack.tools">hypertrack.tools</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.tools.Graph"><code class="docutils literal notranslate"><span class="pre">Graph</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.tools.adj2edges"><code class="docutils literal notranslate"><span class="pre">adj2edges()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.tools.attach_fully_connected_node"><code class="docutils literal notranslate"><span class="pre">attach_fully_connected_node()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.tools.backtrack_linear_index"><code class="docutils literal notranslate"><span class="pre">backtrack_linear_index()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.tools.closure_test_adj"><code class="docutils literal notranslate"><span class="pre">closure_test_adj()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.tools.compute_ground_truth_A"><code class="docutils literal notranslate"><span class="pre">compute_ground_truth_A()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.tools.compute_hit_mixing"><code class="docutils literal notranslate"><span class="pre">compute_hit_mixing()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.tools.compute_hyper"><code class="docutils literal notranslate"><span class="pre">compute_hyper()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.tools.count_hit_multiplicity"><code class="docutils literal notranslate"><span class="pre">count_hit_multiplicity()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.tools.count_reco_cluster"><code class="docutils literal notranslate"><span class="pre">count_reco_cluster()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.tools.create_cluster_ind"><code class="docutils literal notranslate"><span class="pre">create_cluster_ind()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.tools.create_cluster_labels"><code class="docutils literal notranslate"><span class="pre">create_cluster_labels()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.tools.create_edge_label"><code class="docutils literal notranslate"><span class="pre">create_edge_label()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.tools.edges2adj"><code class="docutils literal notranslate"><span class="pre">edges2adj()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.tools.explicit_range"><code class="docutils literal notranslate"><span class="pre">explicit_range()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.tools.find_connected_components"><code class="docutils literal notranslate"><span class="pre">find_connected_components()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.tools.normalize_cols"><code class="docutils literal notranslate"><span class="pre">normalize_cols()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.tools.normalize_rows"><code class="docutils literal notranslate"><span class="pre">normalize_rows()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.tools.print_clusters"><code class="docutils literal notranslate"><span class="pre">print_clusters()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.tools.running_mean_uniform_filter1d"><code class="docutils literal notranslate"><span class="pre">running_mean_uniform_filter1d()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.tools.select_valid"><code class="docutils literal notranslate"><span class="pre">select_valid()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.tools.span_adj_mat"><code class="docutils literal notranslate"><span class="pre">span_adj_mat()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.tools.split"><code class="docutils literal notranslate"><span class="pre">split()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.tools.split_size"><code class="docutils literal notranslate"><span class="pre">split_size()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.tools.split_start_end"><code class="docutils literal notranslate"><span class="pre">split_start_end()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.tools.timing"><code class="docutils literal notranslate"><span class="pre">timing()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.tools.track_minimal_spanning_tree"><code class="docutils literal notranslate"><span class="pre">track_minimal_spanning_tree()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.tools.value_and_uncertainty_scientific"><code class="docutils literal notranslate"><span class="pre">value_and_uncertainty_scientific()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../modules/hypertrack.html#module-hypertrack.torchtools">hypertrack.torchtools</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.torchtools.count_parameters_torch"><code class="docutils literal notranslate"><span class="pre">count_parameters_torch()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.torchtools.fastcat_rand"><code class="docutils literal notranslate"><span class="pre">fastcat_rand()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.torchtools.plot_grad_flow"><code class="docutils literal notranslate"><span class="pre">plot_grad_flow()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.torchtools.seperate_weight_param"><code class="docutils literal notranslate"><span class="pre">seperate_weight_param()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.torchtools.set_diff_1d"><code class="docutils literal notranslate"><span class="pre">set_diff_1d()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.torchtools.set_random_seed"><code class="docutils literal notranslate"><span class="pre">set_random_seed()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.torchtools.subgraph_mask"><code class="docutils literal notranslate"><span class="pre">subgraph_mask()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.torchtools.to_scipy_sparse_csr_matrix"><code class="docutils literal notranslate"><span class="pre">to_scipy_sparse_csr_matrix()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.torchtools.torch_intersect"><code class="docutils literal notranslate"><span class="pre">torch_intersect()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.torchtools.torch_to_scipy_scr"><code class="docutils literal notranslate"><span class="pre">torch_to_scipy_scr()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.torchtools.weighted_degree"><code class="docutils literal notranslate"><span class="pre">weighted_degree()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../modules/hypertrack.html#module-hypertrack.trackml">hypertrack.trackml</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.trackml.generate_graph_data"><code class="docutils literal notranslate"><span class="pre">generate_graph_data()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.trackml.load_reduce_event"><code class="docutils literal notranslate"><span class="pre">load_reduce_event()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.trackml.process_data"><code class="docutils literal notranslate"><span class="pre">process_data()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.trackml.reduce_tracks"><code class="docutils literal notranslate"><span class="pre">reduce_tracks()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../modules/hypertrack.html#module-hypertrack.transforms">hypertrack.transforms</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.transforms.transform_r_eta_phi"><code class="docutils literal notranslate"><span class="pre">transform_r_eta_phi()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../modules/hypertrack.html#module-hypertrack.visualize">hypertrack.visualize</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.visualize.ROC_plot"><code class="docutils literal notranslate"><span class="pre">ROC_plot()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.visualize.annotate_heatmap"><code class="docutils literal notranslate"><span class="pre">annotate_heatmap()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.visualize.compare_cluster_multiplicity"><code class="docutils literal notranslate"><span class="pre">compare_cluster_multiplicity()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.visualize.compare_hit_multiplicity"><code class="docutils literal notranslate"><span class="pre">compare_hit_multiplicity()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.visualize.crf"><code class="docutils literal notranslate"><span class="pre">crf()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.visualize.density_MVA_wclass"><code class="docutils literal notranslate"><span class="pre">density_MVA_wclass()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.visualize.hist_filled_error"><code class="docutils literal notranslate"><span class="pre">hist_filled_error()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.visualize.imperial_brown"><code class="docutils literal notranslate"><span class="pre">imperial_brown</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.visualize.plot_C_matrix"><code class="docutils literal notranslate"><span class="pre">plot_C_matrix()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.visualize.plot_adj_matrices"><code class="docutils literal notranslate"><span class="pre">plot_adj_matrices()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.visualize.plot_mixing_matrix"><code class="docutils literal notranslate"><span class="pre">plot_mixing_matrix()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.visualize.plot_tracks"><code class="docutils literal notranslate"><span class="pre">plot_tracks()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.visualize.plot_voronoi"><code class="docutils literal notranslate"><span class="pre">plot_voronoi()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.visualize.ratioerr"><code class="docutils literal notranslate"><span class="pre">ratioerr()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.visualize.track_effiency_plots"><code class="docutils literal notranslate"><span class="pre">track_effiency_plots()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../modules/hypertrack.html#module-hypertrack.voxdyn">hypertrack.voxdyn</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.voxdyn.combine_data"><code class="docutils literal notranslate"><span class="pre">combine_data()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.voxdyn.compute_A_direct"><code class="docutils literal notranslate"><span class="pre">compute_A_direct()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.voxdyn.compute_A_reverse"><code class="docutils literal notranslate"><span class="pre">compute_A_reverse()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.voxdyn.compute_A_reverse_3pt"><code class="docutils literal notranslate"><span class="pre">compute_A_reverse_3pt()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.voxdyn.compute_I_per_V"><code class="docutils literal notranslate"><span class="pre">compute_I_per_V()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.voxdyn.faiss_to_gpu"><code class="docutils literal notranslate"><span class="pre">faiss_to_gpu()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.voxdyn.load_particle_data"><code class="docutils literal notranslate"><span class="pre">load_particle_data()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.voxdyn.train_2pt_connectivity"><code class="docutils literal notranslate"><span class="pre">train_2pt_connectivity()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.voxdyn.train_2pt_connectivity_sparse"><code class="docutils literal notranslate"><span class="pre">train_2pt_connectivity_sparse()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.voxdyn.train_3pt_connectivity"><code class="docutils literal notranslate"><span class="pre">train_3pt_connectivity()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.voxdyn.train_voxdyn"><code class="docutils literal notranslate"><span class="pre">train_voxdyn()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/hypertrack.html#hypertrack.voxdyn.voxdyn_predictor"><code class="docutils literal notranslate"><span class="pre">voxdyn_predictor()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">hypertrack</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">hypertrack.hyper</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for hypertrack.hyper</h1><div class="highlight"><pre>
+<span></span><span class="c1"># HyperTrack neural clustering model core-logic functions</span>
+<span class="c1"># </span>
+<span class="c1"># m.mieskolainen@imperial.ac.uk, 2023</span>
+
+<span class="kn">import</span> <span class="nn">networkx</span> <span class="k">as</span> <span class="nn">nx</span>
+<span class="kn">import</span> <span class="nn">torch</span>
+<span class="kn">import</span> <span class="nn">torch_geometric</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">gc</span>
+<span class="kn">from</span> <span class="nn">termcolor</span> <span class="kn">import</span> <span class="n">cprint</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Tuple</span><span class="p">,</span> <span class="n">List</span>
+
+<span class="c1">#import cugraph</span>
+<span class="kn">import</span> <span class="nn">hdbscan</span>
+<span class="kn">import</span> <span class="nn">sklearn</span>
+
+<span class="kn">from</span> <span class="nn">hypertrack</span> <span class="kn">import</span> <span class="n">hyperaux</span><span class="p">,</span> <span class="n">tools</span><span class="p">,</span> <span class="n">torchtools</span><span class="p">,</span> <span class="n">losses</span><span class="p">,</span> <span class="n">iotools</span>
+
+<div class="viewcode-block" id="hypertrack"><a class="viewcode-back" href="../../modules/hypertrack.html#hypertrack.hyper.hypertrack">[docs]</a><span class="k">def</span> <span class="nf">hypertrack</span><span class="p">(</span><span class="n">model</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span> <span class="n">X</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">edge_index_hat</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span>
+            <span class="n">x_ind</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">hit_weights</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+            <span class="n">edge_label</span><span class="p">:</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">true_clusters</span><span class="p">:</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+            <span class="n">objects</span><span class="p">:</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">do_pdf</span><span class="p">:</span><span class="nb">bool</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">do_clustering</span><span class="p">:</span><span class="nb">bool</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+            <span class="n">trainmode</span><span class="p">:</span><span class="nb">bool</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">cluster_param</span><span class="p">:</span><span class="nb">dict</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">train_param</span><span class="p">:</span><span class="nb">dict</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">device</span><span class="p">:</span><span class="n">torch</span><span class="o">.</span><span class="n">device</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">device</span><span class="p">(</span><span class="s1">&#39;cuda&#39;</span><span class="p">),</span>
+            <span class="n">DEBUG</span><span class="p">:</span><span class="nb">bool</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    HyperTrack model predictor function with embedded training losses</span>
+<span class="sd">    </span>
+<span class="sd">    Args:</span>
+<span class="sd">        model:              neural model dictionary</span>
+<span class="sd">        X:                  input graph node data</span>
+<span class="sd">        edge_index_hat:     input graph adjacency</span>
+<span class="sd">        x_ind:              hit to object associations array (training only)</span>
+<span class="sd">        hit_weights:        ground truth node weights (training only)</span>
+<span class="sd">        edge_label:         edge truth array (training only)</span>
+<span class="sd">        true_clusters:      ground truth cluster associations per node (hit) (training only)</span>
+<span class="sd">        objects:            ground truth object vector data (training only)</span>
+<span class="sd">        do_pdf:             run pdf module</span>
+<span class="sd">        do_clustering:      run clustering module</span>
+<span class="sd">        trainmode:          training mode turned on == True</span>
+<span class="sd">        cluster_param:      clustering parameters dictionary</span>
+<span class="sd">        train_param:        training parameters dictionary</span>
+<span class="sd">        device:             torch computing device</span>
+<span class="sd">    </span>
+<span class="sd">    Returns:</span>
+<span class="sd">        cluster_labels_hat: list of clusters</span>
+<span class="sd">        loss:               torch loss data</span>
+<span class="sd">        aux:                auxialary information</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    
+    <span class="n">loss</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s1">&#39;track_neglogpdf&#39;</span><span class="p">:</span>     <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">X</span><span class="o">.</span><span class="n">dtype</span><span class="p">),</span>
+        <span class="s1">&#39;edge_BCE&#39;</span><span class="p">:</span>            <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">X</span><span class="o">.</span><span class="n">dtype</span><span class="p">),</span>
+        <span class="s1">&#39;edge_contrastive&#39;</span><span class="p">:</span>    <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">X</span><span class="o">.</span><span class="n">dtype</span><span class="p">),</span>
+        <span class="s1">&#39;cluster_BCE&#39;</span><span class="p">:</span>         <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">X</span><span class="o">.</span><span class="n">dtype</span><span class="p">),</span>
+        <span class="s1">&#39;cluster_contrastive&#39;</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">X</span><span class="o">.</span><span class="n">dtype</span><span class="p">),</span>
+        <span class="s1">&#39;cluster_neglogpdf&#39;</span><span class="p">:</span>   <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">X</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
+    <span class="p">}</span>
+    
+    
+    <span class="c1"># ====================================================================</span>
+    <span class="c1"># GNN-Message Passing neural block</span>
+    <span class="n">time_GNN</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+    <span class="n">Z</span> <span class="o">=</span> <span class="n">model</span><span class="p">[</span><span class="s1">&#39;net&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">edge_index_hat</span><span class="p">)</span>
+    
+    <span class="c1"># ====================================================================</span>
+    <span class="c1"># 2-point correlations neural block: from the latent space --&gt; edge scores</span>
+
+    <span class="c1"># Predict</span>
+    <span class="n">edge_logits</span> <span class="o">=</span> <span class="n">model</span><span class="p">[</span><span class="s1">&#39;net&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="n">Z</span><span class="p">,</span> <span class="n">edge_index_hat</span><span class="p">)</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">edge_prob</span>   <span class="o">=</span> <span class="n">edge_logits</span><span class="o">.</span><span class="n">sigmoid</span><span class="p">()</span>
+    <span class="n">time_GNN</span>    <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">time_GNN</span>
+    
+    <span class="c1"># ====================================================================</span>
+    
+    <span class="k">if</span> <span class="n">trainmode</span><span class="p">:</span>
+        <span class="n">gc</span><span class="o">.</span><span class="n">collect</span><span class="p">()</span>
+        
+        <span class="n">loss</span><span class="p">[</span><span class="s1">&#39;edge_BCE&#39;</span><span class="p">],</span> <span class="n">loss</span><span class="p">[</span><span class="s1">&#39;edge_contrastive&#39;</span><span class="p">],</span> <span class="n">loss</span><span class="p">[</span><span class="s1">&#39;track_neglogpdf&#39;</span><span class="p">]</span> <span class="o">=</span> \
+            <span class="n">hyperaux</span><span class="o">.</span><span class="n">edge_loss</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="n">model</span><span class="p">,</span> <span class="n">Z</span><span class="o">=</span><span class="n">Z</span><span class="p">,</span> <span class="n">x_ind</span><span class="o">=</span><span class="n">x_ind</span><span class="p">,</span> <span class="n">edge_label</span><span class="o">=</span><span class="n">edge_label</span><span class="p">,</span>
+                      <span class="n">edge_index_hat</span><span class="o">=</span><span class="n">edge_index_hat</span><span class="p">,</span>
+                      <span class="n">objects</span><span class="o">=</span><span class="n">objects</span><span class="p">,</span> <span class="n">edge_logits</span><span class="o">=</span><span class="n">edge_logits</span><span class="p">,</span> <span class="n">edge_prob</span><span class="o">=</span><span class="n">edge_prob</span><span class="p">,</span>
+                      <span class="n">hit_weights</span><span class="o">=</span><span class="n">hit_weights</span><span class="p">,</span> <span class="n">do_pdf</span><span class="o">=</span><span class="n">do_pdf</span><span class="p">,</span> <span class="n">train_param</span><span class="o">=</span><span class="n">train_param</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">)</span>
+    
+    <span class="c1"># ----------------------------------------------------------------</span>
+    <span class="c1"># Before sparsification</span>
+    <span class="k">if</span> <span class="n">DEBUG</span><span class="p">:</span>
+        <span class="n">tic</span>  <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">torch_geometric</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">Data</span><span class="p">(</span><span class="n">edge_index</span><span class="o">=</span><span class="n">edge_index_hat</span><span class="p">,</span> <span class="n">num_nodes</span><span class="o">=</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+        <span class="n">G</span>    <span class="o">=</span> <span class="n">torch_geometric</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">to_networkx</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+        <span class="n">gg</span>   <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">nx</span><span class="o">.</span><span class="n">weakly_connected_components</span><span class="p">(</span><span class="n">G</span><span class="p">))</span>
+        <span class="n">toc</span>  <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">tic</span>
+        <span class="n">cprint</span><span class="p">(</span><span class="vm">__name__</span> <span class="o">+</span> <span class="sa">f</span><span class="s1">&#39;.hypertrack: Disconnected subgraphs before graph cut: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">gg</span><span class="p">)</span><span class="si">}</span><span class="s1"> (</span><span class="si">{</span><span class="n">toc</span><span class="si">:</span><span class="s1">0.3f</span><span class="si">}</span><span class="s1"> sec)&#39;</span><span class="p">,</span> <span class="s1">&#39;yellow&#39;</span><span class="p">)</span>
+    
+    <span class="k">if</span> <span class="n">device</span><span class="o">.</span><span class="n">type</span> <span class="o">!=</span> <span class="s1">&#39;cpu&#39;</span><span class="p">:</span>
+        <span class="n">iotools</span><span class="o">.</span><span class="n">showmem_cuda</span><span class="p">(</span><span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">iotools</span><span class="o">.</span><span class="n">showmem</span><span class="p">()</span>
+    
+    <span class="c1"># ================================================================</span>
+    <span class="c1"># Clustering step</span>
+    
+    <span class="n">time_CC</span>      <span class="o">=</span> <span class="mf">0.0</span>
+    <span class="n">time_cluster</span> <span class="o">=</span> <span class="mf">0.0</span>
+    
+    <span class="n">cluster_labels_hat</span> <span class="o">=</span> <span class="kc">None</span>
+    
+    <span class="k">if</span> <span class="n">do_clustering</span><span class="p">:</span>
+        
+        <span class="c1"># Sparsification</span>
+        <span class="n">sparse_ind</span>  <span class="o">=</span> <span class="p">(</span><span class="n">edge_prob</span> <span class="o">&gt;</span> <span class="n">cluster_param</span><span class="p">[</span><span class="s1">&#39;edge_threshold&#39;</span><span class="p">])</span>
+        <span class="n">sparse_ind</span>  <span class="o">=</span> <span class="n">sparse_ind</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">edge_index_hat</span><span class="p">[</span><span class="mi">0</span><span class="p">,:]</span> <span class="o">!=</span> <span class="n">edge_index_hat</span><span class="p">[</span><span class="mi">1</span><span class="p">,:])</span> <span class="c1"># non-self edges excluded by the second term</span>
+        
+        <span class="n">cprint</span><span class="p">(</span><span class="vm">__name__</span> <span class="o">+</span> <span class="sa">f</span><span class="s1">&#39;.hypertrack: Sparsification: </span><span class="si">{</span><span class="n">torch</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">sparse_ind</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="nb">len</span><span class="p">(</span><span class="n">edge_prob</span><span class="p">)</span><span class="si">:</span><span class="s1">0.3f</span><span class="si">}</span><span class="s1"> (fraction of all edges) [cut = </span><span class="si">{</span><span class="n">cluster_param</span><span class="p">[</span><span class="s2">&quot;edge_threshold&quot;</span><span class="p">]</span><span class="si">}</span><span class="s1">]&#39;</span><span class="p">,</span> <span class="s1">&#39;yellow&#39;</span><span class="p">)</span>
+        
+        <span class="n">algo</span> <span class="o">=</span> <span class="n">cluster_param</span><span class="p">[</span><span class="s1">&#39;algorithm&#39;</span><span class="p">]</span>
+            
+        <span class="n">cprint</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Clustering algorithm: &lt;</span><span class="si">{</span><span class="n">algo</span><span class="si">}</span><span class="s1">&gt;&#39;</span><span class="p">,</span> <span class="s1">&#39;green&#39;</span><span class="p">)</span>
+        
+        <span class="c1"># Cast to CPU, transformer pivot search seems faster on CPU    </span>
+        <span class="n">edge_index_hat</span> <span class="o">=</span> <span class="n">edge_index_hat</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="s1">&#39;cpu&#39;</span><span class="p">)</span>
+        <span class="n">edge_prob</span>      <span class="o">=</span> <span class="n">edge_prob</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="s1">&#39;cpu&#39;</span><span class="p">)</span>
+        <span class="n">sparse_ind</span>     <span class="o">=</span> <span class="n">sparse_ind</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="s1">&#39;cpu&#39;</span><span class="p">)</span>
+        
+        <span class="c1"># ------------------------------------------------------------------------</span>
+        <span class="c1"># Find disconnected subgraphs</span>
+        <span class="c1"># https://math.stackexchange.com/questions/277045/easiest-way-to-determine-all-disconnected-sets-from-a-graph</span>
+        <span class="k">if</span>  <span class="n">algo</span> <span class="o">==</span> <span class="s1">&#39;cut&#39;</span> <span class="ow">or</span> <span class="n">algo</span> <span class="o">==</span> <span class="s1">&#39;transformer&#39;</span><span class="p">:</span>
+            
+            <span class="n">time_CC</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+            
+            <span class="c1"># To Network-X object</span>
+            <span class="n">data</span>  <span class="o">=</span> <span class="n">torch_geometric</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">Data</span><span class="p">(</span><span class="n">edge_index</span><span class="o">=</span><span class="n">edge_index_hat</span><span class="p">[:,</span><span class="n">sparse_ind</span><span class="p">],</span> <span class="n">num_nodes</span><span class="o">=</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+            
+            <span class="c1"># Network-X CC search</span>
+            <span class="n">nxobj</span> <span class="o">=</span> <span class="n">torch_geometric</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">to_networkx</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+            <span class="n">gg_all</span>  <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">nx</span><span class="o">.</span><span class="n">weakly_connected_components</span><span class="p">(</span><span class="n">nxobj</span><span class="p">))</span>
+            
+            <span class="c1"># CUGraph CC search on GPU (reservation)</span>
+            <span class="c1">#G = cugraph.Graph()</span>
+            
+            <span class="c1"># Get size of each graph, sort (for transformer speed) and skip tiny (noise) graphs </span>
+            <span class="n">idx</span>     <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="nb">len</span><span class="p">(</span><span class="n">gg_all</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">gg_all</span><span class="p">))],</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">))</span>
+            <span class="n">gg</span>      <span class="o">=</span> <span class="p">[</span><span class="nb">list</span><span class="p">(</span><span class="n">gg_all</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">idx</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">gg_all</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">&gt;=</span> <span class="n">cluster_param</span><span class="p">[</span><span class="s1">&#39;min_graph&#39;</span><span class="p">]]</span>
+            
+            <span class="n">time_CC</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">time_CC</span>
+            <span class="nb">print</span><span class="p">(</span><span class="vm">__name__</span> <span class="o">+</span> <span class="sa">f</span><span class="s1">&#39;.hypertrack: Disconnected subgraphs after the edge cut and WCC search: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">gg</span><span class="p">)</span><span class="si">}</span><span class="s1"> (</span><span class="si">{</span><span class="n">time_CC</span><span class="si">:</span><span class="s1">0.3f</span><span class="si">}</span><span class="s1"> sec)&#39;</span><span class="p">)</span>
+        
+        <span class="k">elif</span> <span class="n">algo</span> <span class="o">==</span> <span class="s1">&#39;dbscan&#39;</span> <span class="ow">or</span> <span class="n">algo</span> <span class="o">==</span> <span class="s1">&#39;hdbscan&#39;</span><span class="p">:</span>
+            
+            <span class="c1"># To sparse CSR-matrix</span>
+            <span class="n">M</span> <span class="o">=</span> <span class="n">torchtools</span><span class="o">.</span><span class="n">to_scipy_sparse_csr_matrix</span><span class="p">(</span>
+                    <span class="n">edge_index</span> <span class="o">=</span> <span class="n">edge_index_hat</span><span class="p">[:,</span> <span class="n">sparse_ind</span><span class="p">],</span>
+                    <span class="n">edge_attr</span>  <span class="o">=</span> <span class="mf">1.0</span> <span class="o">-</span> <span class="n">edge_prob</span><span class="p">[</span><span class="n">sparse_ind</span><span class="p">]</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">float64</span><span class="p">),</span> <span class="c1"># distance metric as = 1 - p</span>
+                    <span class="n">num_nodes</span>  <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+            
+            <span class="c1"># A technical trick to add one node, needed by hdbscan due to (possible) zero connections</span>
+            <span class="n">M</span> <span class="o">=</span> <span class="n">tools</span><span class="o">.</span><span class="n">attach_fully_connected_node</span><span class="p">(</span><span class="n">A</span><span class="o">=</span><span class="n">M</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="mf">1.0</span><span class="p">)</span>
+            <span class="n">M</span> <span class="o">=</span> <span class="n">sklearn</span><span class="o">.</span><span class="n">neighbors</span><span class="o">.</span><span class="n">sort_graph_by_row_values</span><span class="p">(</span><span class="n">M</span><span class="p">,</span> <span class="n">warn_when_not_sorted</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        
+        <span class="c1"># ------------------------------------------------------------------------</span>
+        
+        <span class="n">time_cluster</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+        
+        <span class="c1">## ** 1. Cut based **</span>
+        <span class="k">if</span>   <span class="n">algo</span> <span class="o">==</span> <span class="s1">&#39;cut&#39;</span><span class="p">:</span>
+            <span class="n">output</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;trials&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;failures&#39;</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="mf">0.0</span><span class="p">)}</span>
+            
+            <span class="n">cluster_labels_hat</span><span class="p">,</span> <span class="n">K</span> <span class="o">=</span> <span class="n">torchtools</span><span class="o">.</span><span class="n">cluster_list_to_tensor</span><span class="p">(</span><span class="n">lst</span><span class="o">=</span><span class="n">gg</span><span class="p">,</span> <span class="n">N</span><span class="o">=</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>      
+        
+        <span class="c1">## ** 2. DBSCAN based **</span>
+        <span class="k">elif</span> <span class="n">algo</span> <span class="o">==</span> <span class="s1">&#39;dbscan&#39;</span><span class="p">:</span>
+            <span class="n">output</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;trials&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;failures&#39;</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="mf">0.0</span><span class="p">)}</span>
+
+            <span class="c1"># Cluster</span>
+            <span class="n">out</span> <span class="o">=</span> <span class="n">sklearn</span><span class="o">.</span><span class="n">cluster</span><span class="o">.</span><span class="n">DBSCAN</span><span class="p">(</span><span class="n">metric</span><span class="o">=</span><span class="s1">&#39;precomputed&#39;</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="o">**</span><span class="n">cluster_param</span><span class="p">[</span><span class="s1">&#39;dbscan&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">M</span><span class="p">)</span>
+            <span class="n">out</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">out</span><span class="o">.</span><span class="n">labels_</span><span class="p">)</span>
+            
+            <span class="n">K</span>   <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">out</span><span class="p">[</span><span class="n">out</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">]))</span>
+            <span class="n">cluster_labels_hat</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">out</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">long</span><span class="p">)</span>
+        
+        <span class="c1">## ** 3. HDBSCAN based **</span>
+        <span class="k">elif</span> <span class="n">algo</span> <span class="o">==</span> <span class="s1">&#39;hdbscan&#39;</span><span class="p">:</span>
+            <span class="n">output</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;trials&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;failures&#39;</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="mf">0.0</span><span class="p">)}</span>
+            
+            <span class="c1"># Cluster</span>
+            <span class="n">out</span> <span class="o">=</span> <span class="n">hdbscan</span><span class="o">.</span><span class="n">HDBSCAN</span><span class="p">(</span><span class="n">metric</span><span class="o">=</span><span class="s1">&#39;precomputed&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">cluster_param</span><span class="p">[</span><span class="s1">&#39;hdbscan&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">M</span><span class="p">)</span>
+            <span class="n">out</span> <span class="o">=</span> <span class="n">out</span><span class="o">.</span><span class="n">labels_</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="c1"># the last one is the virtual (extended) node</span>
+            
+            <span class="n">K</span>   <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">out</span><span class="p">[</span><span class="n">out</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">]))</span>
+            <span class="n">cluster_labels_hat</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">out</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">long</span><span class="p">)</span>
+        
+        <span class="c1">## ** 4. Transformer based **</span>
+        <span class="k">elif</span> <span class="n">algo</span> <span class="o">==</span> <span class="s1">&#39;transformer&#39;</span><span class="p">:</span>
+            
+            <span class="k">if</span> <span class="n">cluster_param</span><span class="p">[</span><span class="s1">&#39;transformer&#39;</span><span class="p">][</span><span class="s1">&#39;threshold_algo&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;soft&#39;</span><span class="p">:</span>
+                <span class="n">cprint</span><span class="p">(</span><span class="vm">__name__</span> <span class="o">+</span> <span class="sa">f</span><span class="s1">&#39;.hypertrack: Learnable node mask threshold: </span><span class="si">{</span><span class="nb">float</span><span class="p">(</span><span class="n">model</span><span class="p">[</span><span class="s2">&quot;net&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">thr</span><span class="o">.</span><span class="n">data</span><span class="p">)</span><span class="si">:</span><span class="s1">0.6f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="s1">&#39;yellow&#39;</span><span class="p">)</span>
+            
+            <span class="n">output</span> <span class="o">=</span> <span class="n">transformer_helper</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="n">model</span><span class="p">,</span> <span class="n">gg</span><span class="o">=</span><span class="n">gg</span><span class="p">,</span> <span class="n">Z</span><span class="o">=</span><span class="n">Z</span><span class="p">,</span> <span class="n">edge_prob</span><span class="o">=</span><span class="n">edge_prob</span><span class="p">,</span> <span class="n">sparse_ind</span><span class="o">=</span><span class="n">sparse_ind</span><span class="p">,</span>
+                       <span class="n">edge_index_hat</span><span class="o">=</span><span class="n">edge_index_hat</span><span class="p">,</span> <span class="n">objects</span><span class="o">=</span><span class="n">objects</span><span class="p">,</span> <span class="n">X</span><span class="o">=</span><span class="n">X</span><span class="p">,</span> <span class="n">hit_weights</span><span class="o">=</span><span class="n">hit_weights</span><span class="p">,</span> <span class="n">true_clusters</span><span class="o">=</span><span class="n">true_clusters</span><span class="p">,</span>
+                       <span class="n">x_ind</span><span class="o">=</span><span class="n">x_ind</span><span class="p">,</span> <span class="n">cluster_param</span><span class="o">=</span><span class="n">cluster_param</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">,</span>
+                       <span class="n">train_param</span><span class="o">=</span><span class="n">train_param</span><span class="p">,</span> <span class="n">trainmode</span><span class="o">=</span><span class="n">trainmode</span><span class="p">,</span> <span class="n">do_pdf</span><span class="o">=</span><span class="n">do_pdf</span><span class="p">)</span>
+
+            <span class="n">cluster_labels_hat</span><span class="p">,</span> <span class="n">K</span> <span class="o">=</span> <span class="n">torchtools</span><span class="o">.</span><span class="n">cluster_list_to_tensor</span><span class="p">(</span><span class="n">lst</span><span class="o">=</span><span class="n">output</span><span class="p">[</span><span class="s1">&#39;cluster_hat&#39;</span><span class="p">],</span> <span class="n">N</span><span class="o">=</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="vm">__name__</span> <span class="o">+</span> <span class="sa">f</span><span class="s1">&#39;.hypertrack: Unknown clustering algorithm chosen&#39;</span><span class="p">)</span>
+    
+        <span class="n">time_cluster</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">time_cluster</span>
+    
+    <span class="k">if</span> <span class="n">do_clustering</span><span class="p">:</span>
+        
+        <span class="k">if</span> <span class="n">trainmode</span> <span class="ow">and</span> <span class="n">cluster_param</span><span class="p">[</span><span class="s1">&#39;algorithm&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;transformer&#39;</span><span class="p">:</span>
+            
+            <span class="c1"># Collect losses</span>
+            <span class="n">loss</span> <span class="o">=</span> <span class="n">hyperaux</span><span class="o">.</span><span class="n">loss_normalization</span><span class="p">(</span><span class="n">loss</span><span class="o">=</span><span class="n">loss</span><span class="p">,</span> <span class="n">output</span><span class="o">=</span><span class="n">output</span><span class="p">,</span> <span class="n">K</span><span class="o">=</span><span class="n">K</span><span class="p">,</span> <span class="n">train_param</span><span class="o">=</span><span class="n">train_param</span><span class="p">)</span>
+        
+        <span class="n">aux</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s1">&#39;K&#39;</span><span class="p">:</span> <span class="n">K</span><span class="p">,</span>
+            <span class="s1">&#39;failures&#39;</span><span class="p">:</span>     <span class="nb">int</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">output</span><span class="p">[</span><span class="s1">&#39;failures&#39;</span><span class="p">])),</span>
+            <span class="s1">&#39;trials&#39;</span><span class="p">:</span>       <span class="n">output</span><span class="p">[</span><span class="s1">&#39;trials&#39;</span><span class="p">],</span>  
+            <span class="s1">&#39;time_GNN&#39;</span><span class="p">:</span>     <span class="n">time_GNN</span><span class="p">,</span>
+            <span class="s1">&#39;time_CC&#39;</span><span class="p">:</span>      <span class="n">time_CC</span><span class="p">,</span>
+            <span class="s1">&#39;time_cluster&#39;</span><span class="p">:</span> <span class="n">time_cluster</span>
+        <span class="p">}</span>
+    <span class="k">else</span><span class="p">:</span>
+         <span class="n">aux</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s1">&#39;K&#39;</span><span class="p">:</span>            <span class="mi">0</span><span class="p">,</span>
+            <span class="s1">&#39;failures&#39;</span><span class="p">:</span>     <span class="mi">0</span><span class="p">,</span>
+            <span class="s1">&#39;trials&#39;</span><span class="p">:</span>       <span class="mi">0</span><span class="p">,</span>
+            <span class="s1">&#39;time_GNN&#39;</span><span class="p">:</span>     <span class="n">time_GNN</span><span class="p">,</span>
+            <span class="s1">&#39;time_CC&#39;</span><span class="p">:</span>      <span class="n">time_CC</span><span class="p">,</span>
+            <span class="s1">&#39;time_cluster&#39;</span><span class="p">:</span> <span class="n">time_cluster</span> 
+        <span class="p">}</span>
+
+    <span class="c1"># Other predictions</span>
+    <span class="n">aux</span><span class="p">[</span><span class="s1">&#39;edge_prob&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">edge_prob</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span>
+    
+    <span class="k">return</span> <span class="n">cluster_labels_hat</span><span class="p">,</span> <span class="n">loss</span><span class="p">,</span> <span class="n">aux</span></div>
+
+<div class="viewcode-block" id="transformer_helper"><a class="viewcode-back" href="../../modules/hypertrack.html#hypertrack.hyper.transformer_helper">[docs]</a><span class="k">def</span> <span class="nf">transformer_helper</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">gg</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]],</span> <span class="n">Z</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">edge_prob</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">sparse_ind</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span>
+                       <span class="n">edge_index_hat</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">objects</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span>
+                       <span class="n">X</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">hit_weights</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">true_clusters</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">x_ind</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+                       <span class="n">cluster_param</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span> <span class="n">train_param</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span> <span class="n">trainmode</span><span class="p">:</span> <span class="nb">bool</span><span class="p">,</span> <span class="n">do_pdf</span><span class="p">:</span> <span class="nb">bool</span><span class="p">,</span> <span class="n">device</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">device</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Transformer clustering helper function</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    
+    <span class="n">shared_obj</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s1">&#39;model&#39;</span><span class="p">:</span>  <span class="n">model</span><span class="p">,</span>
+        <span class="s1">&#39;X&#39;</span><span class="p">:</span>      <span class="n">X</span><span class="p">,</span>
+        <span class="s1">&#39;X_norm&#39;</span><span class="p">:</span>   <span class="n">torch</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">dim</span><span class="o">=-</span><span class="mi">1</span><span class="p">),</span>           <span class="c1"># L2-norm</span>
+        <span class="s1">&#39;X_norm_T&#39;</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">X</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">],</span> <span class="n">dim</span><span class="o">=-</span><span class="mi">1</span><span class="p">),</span>   <span class="c1"># L2-transverse norm</span>
+        <span class="s1">&#39;Z&#39;</span><span class="p">:</span>      <span class="n">Z</span><span class="p">,</span>
+        <span class="s1">&#39;hit_weights&#39;</span><span class="p">:</span>    <span class="n">hit_weights</span><span class="p">,</span>
+        <span class="s1">&#39;true_clusters&#39;</span><span class="p">:</span>  <span class="n">true_clusters</span><span class="p">,</span>
+        <span class="s1">&#39;objects&#39;</span><span class="p">:</span>        <span class="n">objects</span><span class="p">,</span>
+        <span class="s1">&#39;x_ind&#39;</span><span class="p">:</span>          <span class="n">x_ind</span><span class="p">}</span>
+    
+    <span class="n">num_workers</span> <span class="o">=</span> <span class="n">cluster_param</span><span class="p">[</span><span class="s1">&#39;worker_split&#39;</span><span class="p">]</span>
+    <span class="n">chunk_ind</span>   <span class="o">=</span> <span class="n">tools</span><span class="o">.</span><span class="n">split_start_end</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">gg</span><span class="p">)),</span> <span class="n">num_workers</span><span class="p">)</span>
+    
+    <span class="nb">print</span><span class="p">(</span><span class="n">chunk_ind</span><span class="p">)</span>
+    
+    <span class="n">output</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">adjmat</span> <span class="o">=</span> <span class="n">torch_geometric</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">to_dense_adj</span><span class="p">(</span>
+        <span class="n">edge_index</span><span class="o">=</span><span class="n">edge_index_hat</span><span class="p">[:,</span><span class="n">sparse_ind</span><span class="p">],</span> <span class="n">edge_attr</span><span class="o">=</span><span class="n">edge_prob</span><span class="p">[</span><span class="n">sparse_ind</span><span class="p">],</span> <span class="n">max_num_nodes</span><span class="o">=</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])[</span><span class="mi">0</span><span class="p">]</span>
+    
+    <span class="n">aux_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+    
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">chunk_ind</span><span class="p">)):</span>
+
+        <span class="n">active_node_mask</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">adjmat_local</span>     <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">global_ind</span>       <span class="o">=</span> <span class="p">[]</span>
+        
+        <span class="n">tic</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+            
+        <span class="k">for</span> <span class="n">graph_index</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">chunk_ind</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">chunk_ind</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">1</span><span class="p">]):</span>
+            
+            <span class="c1"># Sort is necessary because we index linearly the (local) adjacency matrix</span>
+            <span class="n">global_ind__</span>       <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">gg</span><span class="p">[</span><span class="n">graph_index</span><span class="p">]),</span>
+                                                         <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">long</span><span class="p">,</span> <span class="n">requires_grad</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">adjmat</span><span class="o">.</span><span class="n">device</span><span class="p">))[</span><span class="mi">0</span><span class="p">]</span>
+            
+            <span class="n">active_node_mask__</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">global_ind__</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">bool</span><span class="p">,</span> <span class="n">requires_grad</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">adjmat</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>
+            <span class="n">adjmat_local__</span>     <span class="o">=</span> <span class="n">adjmat</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">global_ind__</span><span class="p">,</span> <span class="n">global_ind__</span><span class="p">,</span> <span class="n">indexing</span><span class="o">=</span><span class="s1">&#39;ij&#39;</span><span class="p">)]</span>
+            
+            <span class="c1"># =========================================</span>
+            <span class="c1"># Create subgraph objects</span>
+            
+            <span class="n">global_ind</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">global_ind__</span><span class="p">)</span>
+            <span class="n">active_node_mask</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">active_node_mask__</span><span class="p">)</span>
+            <span class="n">adjmat_local</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">adjmat_local__</span><span class="p">)</span>
+            <span class="c1"># =========================================</span>
+
+        <span class="n">aux_time</span> <span class="o">=</span> <span class="n">aux_time</span> <span class="o">+</span> <span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">tic</span><span class="p">)</span>
+            
+        <span class="c1"># Cluster this (set of) subgraph(s)</span>
+        <span class="k">if</span> <span class="n">active_node_mask</span> <span class="o">!=</span> <span class="p">[]:</span>
+            
+            <span class="n">output__</span> <span class="o">=</span> <span class="n">clusterize</span><span class="p">(</span>
+                <span class="n">shared_obj</span><span class="p">,</span> <span class="n">active_node_mask</span><span class="p">,</span> <span class="n">adjmat_local</span><span class="p">,</span> <span class="n">global_ind</span><span class="p">,</span> <span class="n">train_param</span><span class="p">,</span>
+                <span class="n">cluster_param</span><span class="p">[</span><span class="s1">&#39;transformer&#39;</span><span class="p">],</span> <span class="n">do_pdf</span><span class="p">,</span> <span class="n">trainmode</span><span class="p">,</span> <span class="n">device</span><span class="p">)</span>
+            
+            <span class="k">if</span> <span class="n">output</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">output</span> <span class="o">=</span> <span class="p">{}</span>
+                <span class="n">output</span><span class="p">[</span><span class="s1">&#39;cluster_hat&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">output__</span><span class="p">[</span><span class="s1">&#39;cluster_hat&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+                
+                <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">output__</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+                    <span class="k">if</span> <span class="n">key</span> <span class="o">!=</span> <span class="s1">&#39;cluster_hat&#39;</span><span class="p">:</span>
+                        <span class="n">output</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">output__</span><span class="p">[</span><span class="n">key</span><span class="p">]</span><span class="o">.</span><span class="n">clone</span><span class="p">()</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">output</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+                    <span class="n">output</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">+=</span> <span class="n">output__</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
+
+    <span class="n">output</span><span class="p">[</span><span class="s1">&#39;time_subgraphs&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">aux_time</span>
+    
+    <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">output</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+        <span class="k">if</span> <span class="s1">&#39;time&#39;</span> <span class="ow">in</span> <span class="n">key</span><span class="p">:</span>
+            <span class="n">output</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">output</span><span class="p">[</span><span class="n">key</span><span class="p">])</span>
+    
+    <span class="k">return</span> <span class="n">output</span></div>
+
+<span class="nd">@torch</span><span class="o">.</span><span class="n">no_grad</span><span class="p">()</span>
+<span class="nd">@torch</span><span class="o">.</span><span class="n">jit</span><span class="o">.</span><span class="n">script</span>
+<span class="k">def</span> <span class="nf">compute_topind</span><span class="p">(</span><span class="n">X_norm</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">X_norm_T</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span>
+                   <span class="n">nonzero</span><span class="p">:</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">seed_ktop_max</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">seed_strategy</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Step 1. Compute seeding array of hits for pivotal search</span>
+<span class="sd">    </span>
+<span class="sd">    Args:</span>
+<span class="sd">        X_norm:              3D-norm for each point</span>
+<span class="sd">        X_norm_T:            2D-transverse norm for each point</span>
+<span class="sd">        active_node_mask:    active nodes indices</span>
+<span class="sd">        nonzero:             nonzero (active) indices</span>
+<span class="sd">        seed_ktop_max:       maximum number of indices to pick in k-top</span>
+<span class="sd">        seed_strategy:       seeding strategy</span>
+<span class="sd">    </span>
+<span class="sd">    Returns:</span>
+<span class="sd">        seeding points</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">device</span> <span class="o">=</span> <span class="n">nonzero</span><span class="o">.</span><span class="n">device</span>
+    <span class="n">k</span>      <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">seed_ktop_max</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">nonzero</span><span class="p">))</span>
+    <span class="n">ind</span>    <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">int</span><span class="p">)</span>
+    
+    <span class="k">if</span>   <span class="n">seed_strategy</span> <span class="o">==</span> <span class="s1">&#39;random&#39;</span><span class="p">:</span>    <span class="c1"># Random</span>
+        <span class="n">ind</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">randperm</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">nonzero</span><span class="p">))[:</span><span class="n">k</span><span class="p">]</span>
+
+    <span class="k">elif</span> <span class="n">seed_strategy</span> <span class="o">==</span> <span class="s1">&#39;max&#39;</span><span class="p">:</span>       <span class="c1"># Max norm</span>
+        <span class="n">XX</span> <span class="o">=</span> <span class="n">X_norm</span><span class="p">[</span><span class="n">nonzero</span><span class="p">]</span><span class="o">.</span><span class="n">squeeze</span><span class="p">()</span>
+        <span class="n">_</span><span class="p">,</span> <span class="n">ind</span>  <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">topk</span><span class="p">(</span><span class="n">XX</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="n">k</span><span class="p">,</span> <span class="n">largest</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    
+    <span class="k">elif</span> <span class="n">seed_strategy</span> <span class="o">==</span> <span class="s1">&#39;min&#39;</span><span class="p">:</span>       <span class="c1"># Min norm</span>
+        <span class="n">XX</span> <span class="o">=</span> <span class="n">X_norm</span><span class="p">[</span><span class="n">nonzero</span><span class="p">]</span><span class="o">.</span><span class="n">squeeze</span><span class="p">()</span>
+        <span class="n">_</span><span class="p">,</span> <span class="n">ind</span>  <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">topk</span><span class="p">(</span><span class="n">XX</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="n">k</span><span class="p">,</span> <span class="n">largest</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    
+    <span class="k">elif</span> <span class="n">seed_strategy</span> <span class="o">==</span> <span class="s1">&#39;max_T&#39;</span><span class="p">:</span>     <span class="c1"># Max transverse norm</span>
+        <span class="n">XX</span> <span class="o">=</span> <span class="n">X_norm_T</span><span class="p">[</span><span class="n">nonzero</span><span class="p">]</span><span class="o">.</span><span class="n">squeeze</span><span class="p">()</span>
+        <span class="n">_</span><span class="p">,</span> <span class="n">ind</span>  <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">topk</span><span class="p">(</span><span class="n">XX</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="n">k</span><span class="p">,</span> <span class="n">largest</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        
+    <span class="k">elif</span> <span class="n">seed_strategy</span> <span class="o">==</span> <span class="s1">&#39;min_T&#39;</span><span class="p">:</span>     <span class="c1"># Min transverse norm</span>
+        <span class="n">XX</span> <span class="o">=</span> <span class="n">X_norm_T</span><span class="p">[</span><span class="n">nonzero</span><span class="p">]</span><span class="o">.</span><span class="n">squeeze</span><span class="p">()</span>
+        <span class="n">_</span><span class="p">,</span> <span class="n">ind</span>  <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">topk</span><span class="p">(</span><span class="n">XX</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="n">k</span><span class="p">,</span> <span class="n">largest</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    
+    <span class="k">return</span> <span class="n">nonzero</span><span class="p">[</span><span class="n">ind</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)]</span><span class="o">.</span><span class="n">squeeze</span><span class="p">()</span>
+
+<span class="nd">@torch</span><span class="o">.</span><span class="n">no_grad</span><span class="p">()</span>
+<span class="nd">@torch</span><span class="o">.</span><span class="n">jit</span><span class="o">.</span><span class="n">script</span>
+<span class="k">def</span> <span class="nf">diffuse_pivots_MC</span><span class="p">(</span><span class="n">topind</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">active_node_mask</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span>
+                          <span class="n">adjmat</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">N_pivots</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">threshold</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">random_paths</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">EPS</span><span class="p">:</span><span class="nb">float</span><span class="o">=</span><span class="mf">1E-3</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Step 2. Choose pivotal hit points based on seeding array (Monte Carlo Walk)</span>
+<span class="sd">    </span>
+<span class="sd">    Args:</span>
+<span class="sd">        topind:             seed index candidate list</span>
+<span class="sd">        active_node_mask:   active nodes</span>
+<span class="sd">        adjmat:             adjacency matrix</span>
+<span class="sd">        N_pivots:           number of pivots to be found</span>
+<span class="sd">        threshold:          quality threshold</span>
+<span class="sd">        random_paths:       number of MC random paths</span>
+<span class="sd">        EPS:                denominator regularization</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    
+    <span class="n">device</span>      <span class="o">=</span> <span class="n">adjmat</span><span class="o">.</span><span class="n">device</span>
+    <span class="n">best_pivots</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">best_weight</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="o">-</span><span class="mf">1E9</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">)</span>
+
+    <span class="c1"># MC repeat different paths</span>
+    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">random_paths</span><span class="p">):</span>
+        
+        <span class="c1"># Choose one of the pivots randomly</span>
+        <span class="n">ind</span>    <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="n">low</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">high</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">topind</span><span class="p">),</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,))</span>
+        <span class="n">pivots</span> <span class="o">=</span> <span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">topind</span><span class="p">[</span><span class="n">ind</span><span class="p">])]</span>
+        <span class="n">weight</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">)</span>
+
+        <span class="c1"># Compute the path</span>
+        <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">N_pivots</span><span class="p">):</span>
+            
+            <span class="n">row</span> <span class="o">=</span> <span class="n">active_node_mask</span> <span class="o">*</span> <span class="n">adjmat</span><span class="p">[</span><span class="n">pivots</span><span class="p">[</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">],:]</span>
+            <span class="n">row</span><span class="p">[</span><span class="n">pivots</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1"># previous-pivots excluded</span>
+
+            <span class="c1"># --------------------------------------------------------</span>
+            <span class="c1"># Random sample according to the edge probabilities</span>
+            <span class="n">ii</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">row</span> <span class="o">&gt;</span> <span class="n">threshold</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="n">p</span>  <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="n">ii</span><span class="p">]</span> <span class="o">/</span> <span class="n">torch</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="n">ii</span><span class="p">])</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">p</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="k">break</span> <span class="c1"># No further connections</span>
+            
+            <span class="c1">#j = p.multinomial(1)[0] # Pick one according to probabilities ~ p (slow)</span>
+            <span class="n">j</span> <span class="o">=</span> <span class="n">torchtools</span><span class="o">.</span><span class="n">fastcat_rand</span><span class="p">(</span><span class="n">p</span><span class="o">=</span><span class="n">p</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="s1">&#39;cpu&#39;</span><span class="p">))</span> <span class="c1"># Faster implementation</span>
+            <span class="n">action</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">ii</span><span class="p">[</span><span class="n">j</span><span class="p">])</span>
+            <span class="c1"># --------------------------------------------------------</span>
+            
+            <span class="n">pivots</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">action</span><span class="p">)</span>
+            <span class="n">weight</span> <span class="o">+=</span> <span class="n">torch</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="n">action</span><span class="p">]</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">row</span><span class="p">[</span><span class="n">action</span><span class="p">]</span> <span class="o">+</span> <span class="n">EPS</span><span class="p">))</span> <span class="c1"># Use logits</span>
+        
+        <span class="k">if</span> <span class="n">weight</span> <span class="o">&gt;</span> <span class="n">best_weight</span><span class="p">:</span>
+            <span class="n">best_weight</span> <span class="o">=</span> <span class="n">weight</span>
+            <span class="n">best_pivots</span> <span class="o">=</span> <span class="n">pivots</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+    <span class="c1"># ** Find the weakest (negative) connection **</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    if len(best_pivots) != 1:</span>
+<span class="sd">        row = active_node_mask * adjmat[best_pivots[0],:]</span>
+<span class="sd">        row[best_pivots] = 1E9 # positive-pivots excluded</span>
+<span class="sd">        negative_pivot   = [int(torch.argmin(row))]</span>
+<span class="sd">    else:</span>
+<span class="sd">        negative_pivot = [-1]</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">negative_pivot</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    
+    <span class="k">return</span> <span class="n">best_pivots</span><span class="p">,</span> <span class="n">negative_pivot</span>
+
+
+<span class="nd">@torch</span><span class="o">.</span><span class="n">no_grad</span><span class="p">()</span>
+<span class="nd">@torch</span><span class="o">.</span><span class="n">jit</span><span class="o">.</span><span class="n">script</span>
+<span class="k">def</span> <span class="nf">diffuse_pivots</span><span class="p">(</span><span class="n">topind</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">active_node_mask</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span>
+                   <span class="n">adjmat</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">N_pivots</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">threshold</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">EPS</span><span class="p">:</span><span class="nb">float</span><span class="o">=</span><span class="mf">1E-3</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Step 2. Choose pivotal hit points based on seeding array (Greedy Walk)</span>
+<span class="sd">    </span>
+<span class="sd">    Args:</span>
+<span class="sd">        topind:             seed index candidate list</span>
+<span class="sd">        active_node_mask:   active nodes</span>
+<span class="sd">        adjmat:             adjacency matrix</span>
+<span class="sd">        N_pivots:           number of pivots to be found</span>
+<span class="sd">        threshold:          quality threshold</span>
+<span class="sd">        EPS:                denominator regularization</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">device</span>      <span class="o">=</span> <span class="n">adjmat</span><span class="o">.</span><span class="n">device</span>
+    <span class="n">best_pivots</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">best_weight</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="o">-</span><span class="mf">1E9</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">)</span>
+    
+    <span class="c1"># Start with each topind as the first pivot</span>
+    <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">topind</span><span class="p">)):</span>
+        
+        <span class="c1"># Choose the pivot</span>
+        <span class="n">pivots</span> <span class="o">=</span> <span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">topind</span><span class="p">[</span><span class="n">s</span><span class="p">])]</span>
+        <span class="n">weight</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">)</span>
+        
+        <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">N_pivots</span><span class="p">):</span>
+            
+            <span class="n">row</span> <span class="o">=</span> <span class="n">active_node_mask</span> <span class="o">*</span> <span class="n">adjmat</span><span class="p">[</span><span class="n">pivots</span><span class="p">[</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">],:]</span>
+            <span class="n">row</span><span class="p">[</span><span class="n">pivots</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>  <span class="c1"># previous-pivots excluded</span>
+            <span class="n">k</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
+            
+            <span class="k">if</span> <span class="n">row</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">threshold</span><span class="p">:</span>
+                <span class="n">pivots</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">k</span><span class="p">))</span>
+                <span class="n">weight</span> <span class="o">+=</span> <span class="n">torch</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">row</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">+</span> <span class="n">EPS</span><span class="p">))</span> <span class="c1"># Use log-odds</span>
+                
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">break</span>
+        
+        <span class="c1"># Check solution quality</span>
+        <span class="k">if</span> <span class="n">weight</span> <span class="o">&gt;</span> <span class="n">best_weight</span><span class="p">:</span>
+            <span class="n">best_weight</span> <span class="o">=</span> <span class="n">weight</span>
+            <span class="n">best_pivots</span> <span class="o">=</span> <span class="n">pivots</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+    
+    <span class="c1"># ** Find the weakest (negative) connection **</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    if len(best_pivots) != 1:</span>
+<span class="sd">        row = active_node_mask * adjmat[best_pivots[0],:]</span>
+<span class="sd">        row[best_pivots] = 1E9 # positive-pivots excluded</span>
+<span class="sd">        negative_pivot   = [int(torch.argmin(row))]</span>
+<span class="sd">    else:</span>
+<span class="sd">        negative_pivot = [-1]</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">negative_pivot</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    
+    <span class="k">return</span> <span class="n">best_pivots</span><span class="p">,</span> <span class="n">negative_pivot</span>
+
+<span class="nd">@torch</span><span class="o">.</span><span class="n">no_grad</span><span class="p">()</span>
+<span class="nd">@torch</span><span class="o">.</span><span class="n">jit</span><span class="o">.</span><span class="n">script</span>
+<span class="k">def</span> <span class="nf">extend_micrograph</span><span class="p">(</span><span class="n">adjmat</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">active_node_mask</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span>
+                      <span class="n">pivots</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span> <span class="n">mode</span><span class="p">:</span> <span class="nb">str</span><span class="o">=</span><span class="s1">&#39;pivot-spanned&#39;</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Micrograph extension by picking all nodes which are connected to the pivots </span>
+<span class="sd">    </span>
+<span class="sd">    Args:</span>
+<span class="sd">        adjmat:           full adjacency matrix</span>
+<span class="sd">        active_node_mask: active node array</span>
+<span class="sd">        pivots:           pivotal node array</span>
+<span class="sd">        mode:             &#39;pivot-spanned&#39; or &#39;full&#39;</span>
+<span class="sd">    </span>
+<span class="sd">    Returns:</span>
+<span class="sd">        connectivity mask</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">mode</span> <span class="o">==</span> <span class="s1">&#39;full&#39;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">active_node_mask</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">squeeze</span><span class="p">()</span>
+    
+    <span class="n">connect_mask</span> <span class="o">=</span> <span class="p">(</span><span class="n">adjmat</span><span class="p">[</span><span class="n">pivots</span><span class="p">[</span><span class="mi">0</span><span class="p">],:]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="o">&amp;</span> <span class="n">active_node_mask</span>
+    
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">pivots</span><span class="p">)):</span>
+        <span class="n">mask</span> <span class="o">=</span> <span class="p">(</span><span class="n">adjmat</span><span class="p">[</span><span class="n">pivots</span><span class="p">[</span><span class="n">i</span><span class="p">],:]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="o">&amp;</span> <span class="n">active_node_mask</span>
+        <span class="n">connect_mask</span> <span class="o">=</span> <span class="n">mask</span> <span class="o">|</span> <span class="n">connect_mask</span> <span class="c1"># take OR</span>
+    
+    <span class="k">return</span> <span class="n">connect_mask</span><span class="o">.</span><span class="n">squeeze</span><span class="p">()</span>
+
+<span class="nd">@torch</span><span class="o">.</span><span class="n">no_grad</span><span class="p">()</span>
+<span class="nd">@torch</span><span class="o">.</span><span class="n">jit</span><span class="o">.</span><span class="n">script</span>
+<span class="k">def</span> <span class="nf">update_failures</span><span class="p">(</span><span class="n">pivots</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span> <span class="n">active_node_mask</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">failures</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">max_failures</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Mask out graph nodes</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        pivots:             pivotal index list</span>
+<span class="sd">        active_node_mask:   node mask</span>
+<span class="sd">        failures:           number of failures tensor</span>
+<span class="sd">        max_failures:       parameter for the maximum number of failures</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">failures</span><span class="p">[</span><span class="n">pivots</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">pivots</span><span class="p">)):</span>    
+        <span class="k">if</span> <span class="n">failures</span><span class="p">[</span><span class="n">pivots</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span> <span class="o">&gt;=</span> <span class="n">max_failures</span><span class="p">:</span>
+            <span class="n">active_node_mask</span><span class="p">[</span><span class="n">pivots</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span> <span class="o">=</span> <span class="mi">0</span>
+
+<div class="viewcode-block" id="clusterize"><a class="viewcode-back" href="../../modules/hypertrack.html#hypertrack.hyper.clusterize">[docs]</a><span class="k">def</span> <span class="nf">clusterize</span><span class="p">(</span><span class="n">shared_obj</span><span class="p">:</span><span class="nb">dict</span><span class="p">,</span> <span class="n">active_node_mask</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">],</span> <span class="n">adjmat_local</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">],</span>
+    <span class="n">global_ind</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">],</span> <span class="n">train_param</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span> <span class="n">cluster_param</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span> <span class="n">do_pdf</span><span class="p">:</span> <span class="nb">bool</span><span class="p">,</span> <span class="n">trainmode</span><span class="p">:</span> <span class="nb">bool</span><span class="p">,</span> <span class="n">device</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">device</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Multi-Pivotal seeding and Set Transformer based clustering</span>
+<span class="sd">    </span>
+<span class="sd">    Args:</span>
+<span class="sd">        shared_obj:        main data dictionary</span>
+<span class="sd">        active_node_mask:  node mask</span>
+<span class="sd">        adjmat_local:      local adjacency matrix</span>
+<span class="sd">        global_ind:        global index list</span>
+<span class="sd">        train_param:       training parameter dictionary</span>
+<span class="sd">        cluster_param:     clustering parameter dictionary</span>
+<span class="sd">        do_pdf:            evaluate normalizing flow</span>
+<span class="sd">        trainmode:         training or inference mode</span>
+<span class="sd">        device:            torch device</span>
+<span class="sd">    </span>
+<span class="sd">    Returns:</span>
+<span class="sd">        clustering results and aux information in a dictionary</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">model</span>          <span class="o">=</span> <span class="n">shared_obj</span><span class="p">[</span><span class="s1">&#39;model&#39;</span><span class="p">]</span>
+    <span class="n">X</span>              <span class="o">=</span> <span class="n">shared_obj</span><span class="p">[</span><span class="s1">&#39;X&#39;</span><span class="p">]</span>
+    <span class="n">X_norm</span>         <span class="o">=</span> <span class="n">shared_obj</span><span class="p">[</span><span class="s1">&#39;X_norm&#39;</span><span class="p">]</span>
+    <span class="n">X_norm_T</span>       <span class="o">=</span> <span class="n">shared_obj</span><span class="p">[</span><span class="s1">&#39;X_norm_T&#39;</span><span class="p">]</span>
+    <span class="n">objects</span>        <span class="o">=</span> <span class="n">shared_obj</span><span class="p">[</span><span class="s1">&#39;objects&#39;</span><span class="p">]</span>
+    
+    <span class="n">Z</span>              <span class="o">=</span> <span class="n">shared_obj</span><span class="p">[</span><span class="s1">&#39;Z&#39;</span><span class="p">]</span>
+    <span class="n">hit_weights</span>    <span class="o">=</span> <span class="n">shared_obj</span><span class="p">[</span><span class="s1">&#39;hit_weights&#39;</span><span class="p">]</span>
+    <span class="n">true_clusters</span>  <span class="o">=</span> <span class="n">shared_obj</span><span class="p">[</span><span class="s1">&#39;true_clusters&#39;</span><span class="p">]</span>
+    <span class="n">x_ind</span>          <span class="o">=</span> <span class="n">shared_obj</span><span class="p">[</span><span class="s1">&#39;x_ind&#39;</span><span class="p">]</span>
+
+    <span class="c1"># -----------------------------------------</span>
+    <span class="c1"># Output</span>
+    <span class="n">output</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;cluster_hat&#39;</span><span class="p">:</span>         <span class="p">[],</span>
+              <span class="s1">&#39;trials&#39;</span><span class="p">:</span>              <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">int</span><span class="p">),</span>
+              <span class="s1">&#39;failures&#39;</span><span class="p">:</span>            <span class="n">torch</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">long</span><span class="p">),</span>
+              <span class="s1">&#39;cluster_BCE&#39;</span><span class="p">:</span>         <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">X</span><span class="o">.</span><span class="n">dtype</span><span class="p">),</span>
+              <span class="s1">&#39;cluster_contrastive&#39;</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">X</span><span class="o">.</span><span class="n">dtype</span><span class="p">),</span>
+              <span class="s1">&#39;cluster_neglogpdf&#39;</span><span class="p">:</span>   <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">X</span><span class="o">.</span><span class="n">dtype</span><span class="p">)}</span>
+    
+    <span class="c1"># Which active_node_masks are not yet exhausted</span>
+    <span class="n">exhausted</span>  <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">active_node_mask</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">bool</span><span class="p">)</span>
+    
+    <span class="n">pivot_seed_time</span>    <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">pivot_diffuse_time</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">trf_time</span>           <span class="o">=</span> <span class="mi">0</span>
+    
+    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+        
+        <span class="c1"># ==========================================================</span>
+        <span class="c1"># ** Break the infinite loop -- we have exhausted every single active_node_mask **</span>
+        
+        <span class="k">if</span> <span class="n">torch</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">exhausted</span><span class="p">)</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">exhausted</span><span class="p">):</span>
+            <span class="k">break</span>
+        
+        <span class="c1"># ==========================================================</span>
+        <span class="c1"># Find pivots per graph</span>
+        
+        <span class="n">all_pivots</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">active_node_mask</span><span class="p">)</span><span class="o">*</span><span class="p">[</span><span class="kc">None</span><span class="p">]</span>
+        
+        <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">active_node_mask</span><span class="p">)):</span>
+            <span class="k">if</span> <span class="n">exhausted</span><span class="p">[</span><span class="n">b</span><span class="p">]</span> <span class="o">==</span> <span class="kc">True</span><span class="p">:</span>
+                <span class="k">continue</span>
+            
+            <span class="c1"># ----------------</span>
+            <span class="n">tic</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+        
+            <span class="c1"># Return non-zero node indices</span>
+            <span class="n">nonzero</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">nonzero</span><span class="p">(</span><span class="n">active_node_mask</span><span class="p">[</span><span class="n">b</span><span class="p">])</span>
+
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">nonzero</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">cluster_param</span><span class="p">[</span><span class="s1">&#39;N_pivots&#39;</span><span class="p">]:</span> <span class="c1"># Not enough data</span>
+                <span class="n">exhausted</span><span class="p">[</span><span class="n">b</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
+                <span class="k">continue</span>
+            
+            <span class="c1"># Pick index candidate array</span>
+            <span class="n">topind</span> <span class="o">=</span> <span class="n">compute_topind</span><span class="p">(</span><span class="n">X_norm</span><span class="o">=</span><span class="n">X_norm</span><span class="p">,</span> <span class="n">X_norm_T</span><span class="o">=</span><span class="n">X_norm_T</span><span class="p">,</span> <span class="n">nonzero</span><span class="o">=</span><span class="n">nonzero</span><span class="p">,</span>
+                <span class="n">seed_ktop_max</span><span class="o">=</span><span class="n">cluster_param</span><span class="p">[</span><span class="s1">&#39;seed_ktop_max&#39;</span><span class="p">],</span>
+                <span class="n">seed_strategy</span><span class="o">=</span><span class="n">cluster_param</span><span class="p">[</span><span class="s1">&#39;seed_strategy&#39;</span><span class="p">])</span>
+            
+            <span class="n">pivot_seed_time</span> <span class="o">+=</span> <span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">tic</span><span class="p">)</span>
+
+            <span class="c1"># ----------------</span>
+            <span class="n">tic</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+            
+            <span class="c1"># Diffuse pivots</span>
+            <span class="k">if</span> <span class="n">cluster_param</span><span class="p">[</span><span class="s1">&#39;random_paths&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+                
+                <span class="n">pos_piv</span><span class="p">,</span> <span class="n">neg_piv</span> <span class="o">=</span> <span class="n">diffuse_pivots_MC</span><span class="p">(</span><span class="n">topind</span><span class="o">=</span><span class="n">topind</span><span class="p">,</span> <span class="n">active_node_mask</span><span class="o">=</span><span class="n">active_node_mask</span><span class="p">[</span><span class="n">b</span><span class="p">],</span> <span class="n">adjmat</span><span class="o">=</span><span class="n">adjmat_local</span><span class="p">[</span><span class="n">b</span><span class="p">],</span>
+                    <span class="n">N_pivots</span><span class="o">=</span><span class="n">cluster_param</span><span class="p">[</span><span class="s1">&#39;N_pivots&#39;</span><span class="p">],</span>
+                    <span class="n">threshold</span><span class="o">=</span><span class="n">cluster_param</span><span class="p">[</span><span class="s1">&#39;diffuse_threshold&#39;</span><span class="p">],</span>
+                    <span class="n">random_paths</span><span class="o">=</span><span class="n">cluster_param</span><span class="p">[</span><span class="s1">&#39;random_paths&#39;</span><span class="p">])</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">pos_piv</span><span class="p">,</span> <span class="n">neg_piv</span> <span class="o">=</span> <span class="n">diffuse_pivots</span><span class="p">(</span><span class="n">topind</span><span class="o">=</span><span class="n">topind</span><span class="p">,</span> <span class="n">active_node_mask</span><span class="o">=</span><span class="n">active_node_mask</span><span class="p">[</span><span class="n">b</span><span class="p">],</span> <span class="n">adjmat</span><span class="o">=</span><span class="n">adjmat_local</span><span class="p">[</span><span class="n">b</span><span class="p">],</span>
+                    <span class="n">N_pivots</span><span class="o">=</span><span class="n">cluster_param</span><span class="p">[</span><span class="s1">&#39;N_pivots&#39;</span><span class="p">],</span>
+                    <span class="n">threshold</span><span class="o">=</span><span class="n">cluster_param</span><span class="p">[</span><span class="s1">&#39;diffuse_threshold&#39;</span><span class="p">])</span>            
+            
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">pos_piv</span><span class="p">)</span> <span class="o">!=</span> <span class="n">cluster_param</span><span class="p">[</span><span class="s1">&#39;N_pivots&#39;</span><span class="p">]:</span>
+                <span class="n">update_failures</span><span class="p">(</span><span class="n">pivots</span><span class="o">=</span><span class="n">pos_piv</span><span class="p">,</span> <span class="n">active_node_mask</span><span class="o">=</span><span class="n">active_node_mask</span><span class="p">[</span><span class="n">b</span><span class="p">],</span>
+                        <span class="n">failures</span><span class="o">=</span><span class="n">output</span><span class="p">[</span><span class="s1">&#39;failures&#39;</span><span class="p">],</span> <span class="n">max_failures</span><span class="o">=</span><span class="n">cluster_param</span><span class="p">[</span><span class="s1">&#39;max_failures&#39;</span><span class="p">])</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">all_pivots</span><span class="p">[</span><span class="n">b</span><span class="p">]</span> <span class="o">=</span> <span class="n">pos_piv</span>
+
+            <span class="n">pivot_diffuse_time</span> <span class="o">+=</span> <span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">tic</span><span class="p">)</span>
+        
+        <span class="c1"># ==========================================================</span>
+        <span class="c1"># Create inclusive micrograph spanned by pivots (inclusive OR)</span>
+        
+        <span class="n">tic</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+        
+        <span class="n">N</span>              <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">active_node_mask</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int64</span><span class="p">)</span>
+        <span class="n">micrograph_ind</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">active_node_mask</span><span class="p">)</span> <span class="o">*</span> <span class="p">[</span><span class="kc">None</span><span class="p">]</span>
+        <span class="n">num_batch</span>      <span class="o">=</span> <span class="mi">0</span>
+        
+        <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">active_node_mask</span><span class="p">)):</span>
+            <span class="k">if</span> <span class="n">all_pivots</span><span class="p">[</span><span class="n">b</span><span class="p">]</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                
+                <span class="c1"># Get micrograph mask</span>
+                <span class="n">connect_mask</span> <span class="o">=</span> <span class="n">extend_micrograph</span><span class="p">(</span><span class="n">adjmat</span><span class="o">=</span><span class="n">adjmat_local</span><span class="p">[</span><span class="n">b</span><span class="p">],</span>
+                                                    <span class="n">active_node_mask</span><span class="o">=</span><span class="n">active_node_mask</span><span class="p">[</span><span class="n">b</span><span class="p">],</span>
+                                                    <span class="n">pivots</span><span class="o">=</span><span class="n">all_pivots</span><span class="p">[</span><span class="n">b</span><span class="p">],</span>
+                                                    <span class="n">mode</span><span class="o">=</span><span class="n">cluster_param</span><span class="p">[</span><span class="s1">&#39;micrograph_mode&#39;</span><span class="p">])</span>
+
+                <span class="c1"># List down active &amp; connected indices in the global index space (!)</span>
+                <span class="n">micrograph_ind</span><span class="p">[</span><span class="n">b</span><span class="p">]</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">nonzero</span><span class="p">(</span><span class="n">connect_mask</span><span class="p">)</span><span class="o">.</span><span class="n">squeeze</span><span class="p">()</span>
+                <span class="n">N</span><span class="p">[</span><span class="n">b</span><span class="p">]</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">micrograph_ind</span><span class="p">[</span><span class="n">b</span><span class="p">])</span>
+                
+                <span class="n">num_batch</span> <span class="o">+=</span> <span class="mi">1</span>
+
+        <span class="k">if</span> <span class="n">num_batch</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span> <span class="k">continue</span> <span class="c1"># Nothing found</span>
+
+        <span class="c1"># ==========================================================</span>
+        <span class="c1"># Create batched data for the transformer (all independent batches in parallel)</span>
+        <span class="c1"># with gradients passing through from Z</span>
+        
+        <span class="n">X_list</span>       <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">X_pivot_list</span> <span class="o">=</span> <span class="p">[]</span>
+        
+        <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">active_node_mask</span><span class="p">)):</span>
+            <span class="k">if</span> <span class="n">all_pivots</span><span class="p">[</span><span class="n">b</span><span class="p">]</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                
+                <span class="n">X_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">cat</span><span class="p">((</span><span class="n">Z</span><span class="p">[</span><span class="n">global_ind</span><span class="p">[</span><span class="n">b</span><span class="p">][</span><span class="n">micrograph_ind</span><span class="p">[</span><span class="n">b</span><span class="p">]],:],</span>
+                                         <span class="n">X</span><span class="p">[</span><span class="n">global_ind</span><span class="p">[</span><span class="n">b</span><span class="p">][</span><span class="n">micrograph_ind</span><span class="p">[</span><span class="n">b</span><span class="p">]],:]),</span> <span class="o">-</span><span class="mi">1</span><span class="p">))</span>
+                
+                <span class="n">X_pivot_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">cat</span><span class="p">((</span><span class="n">Z</span><span class="p">[</span><span class="n">global_ind</span><span class="p">[</span><span class="n">b</span><span class="p">][</span><span class="n">all_pivots</span><span class="p">[</span><span class="n">b</span><span class="p">]],:],</span>
+                                               <span class="n">X</span><span class="p">[</span><span class="n">global_ind</span><span class="p">[</span><span class="n">b</span><span class="p">][</span><span class="n">all_pivots</span><span class="p">[</span><span class="n">b</span><span class="p">]],:]),</span> <span class="o">-</span><span class="mi">1</span><span class="p">))</span>
+        
+        <span class="n">X_fused</span><span class="p">,</span> <span class="n">X_mask</span>       <span class="o">=</span> <span class="n">torchtools</span><span class="o">.</span><span class="n">batch_and_pad</span><span class="p">(</span><span class="n">sequences</span><span class="o">=</span><span class="n">X_list</span><span class="p">)</span>
+        <span class="n">X_pivot</span><span class="p">,</span> <span class="n">X_pivot_mask</span> <span class="o">=</span> <span class="n">torchtools</span><span class="o">.</span><span class="n">batch_and_pad</span><span class="p">(</span><span class="n">sequences</span><span class="o">=</span><span class="n">X_pivot_list</span><span class="p">)</span>
+        
+        <span class="c1"># ==========================================================</span>
+        <span class="c1"># Apply Transformer</span>
+        
+        <span class="n">cluster_logits_all</span> <span class="o">=</span> <span class="n">model</span><span class="p">[</span><span class="s1">&#39;net&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">decode_cc_ind</span><span class="p">(</span><span class="n">X</span><span class="o">=</span><span class="n">X_fused</span><span class="p">,</span> <span class="n">X_pivot</span><span class="o">=</span><span class="n">X_pivot</span><span class="p">,</span> <span class="n">X_mask</span><span class="o">=</span><span class="n">X_mask</span><span class="p">,</span> <span class="n">X_pivot_mask</span><span class="o">=</span><span class="n">X_pivot_mask</span><span class="p">)</span>
+        <span class="n">cluster_prob_all</span>   <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">sigmoid</span><span class="p">(</span><span class="n">cluster_logits_all</span><span class="p">)</span>
+        
+        <span class="n">trf_time</span> <span class="o">+=</span> <span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">tic</span><span class="p">)</span>
+        
+        <span class="n">output</span><span class="p">[</span><span class="s1">&#39;trials&#39;</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+        
+        <span class="c1"># ==========================================================</span>
+        <span class="c1"># Clustering per batch</span>
+        <span class="n">k</span> <span class="o">=</span> <span class="mi">0</span>
+
+        <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">active_node_mask</span><span class="p">)):</span>
+            <span class="k">if</span> <span class="n">all_pivots</span><span class="p">[</span><span class="n">b</span><span class="p">]</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                
+                <span class="c1"># ** Take batch result **</span>
+                <span class="n">cluster_logits</span>  <span class="o">=</span> <span class="n">cluster_logits_all</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="mi">0</span><span class="p">:</span><span class="n">N</span><span class="p">[</span><span class="n">b</span><span class="p">]]</span>
+                <span class="n">cluster_prob</span>    <span class="o">=</span> <span class="n">cluster_prob_all</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="mi">0</span><span class="p">:</span><span class="n">N</span><span class="p">[</span><span class="n">b</span><span class="p">]]</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+                
+                <span class="c1"># -------------------------</span>
+                <span class="c1"># Hard thresholding</span>
+                <span class="k">if</span> <span class="n">cluster_param</span><span class="p">[</span><span class="s1">&#39;threshold_algo&#39;</span><span class="p">]</span> <span class="o">!=</span> <span class="s1">&#39;soft&#39;</span><span class="p">:</span>
+                    
+                    <span class="c1"># A. Adaptive Fisher (otsu) threshold</span>
+                    <span class="k">if</span> <span class="n">cluster_param</span><span class="p">[</span><span class="s1">&#39;threshold_algo&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;fisher&#39;</span><span class="p">:</span>
+                        
+                        <span class="c1"># Filter out (at maximum) top k candidates</span>
+                        <span class="n">param_k</span>         <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">cluster_prob</span><span class="p">),</span> <span class="n">cluster_param</span><span class="p">[</span><span class="s1">&#39;ktop_max&#39;</span><span class="p">])</span>
+                        <span class="n">toprob</span><span class="p">,</span> <span class="n">topind</span>  <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">topk</span><span class="p">(</span><span class="n">cluster_prob</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="n">param_k</span><span class="p">,</span> <span class="n">largest</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="nb">sorted</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+                        <span class="n">toprob</span>          <span class="o">=</span> <span class="n">toprob</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span>
+                        <span class="n">topind</span>          <span class="o">=</span> <span class="n">topind</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span>    
+                        
+                        <span class="n">threshold</span>  <span class="o">=</span> <span class="n">losses</span><span class="o">.</span><span class="n">fisher_threshold</span><span class="p">(</span><span class="n">toprob</span><span class="p">,</span> <span class="n">cluster_param</span><span class="p">[</span><span class="s1">&#39;fisher_threshold&#39;</span><span class="p">])</span>
+                        <span class="n">chosen_ind</span> <span class="o">=</span> <span class="n">micrograph_ind</span><span class="p">[</span><span class="n">b</span><span class="p">][</span><span class="n">topind</span><span class="p">[</span><span class="n">toprob</span> <span class="o">&gt;</span> <span class="n">threshold</span><span class="p">]]</span>
+                        
+                    <span class="c1"># B. Fixed threshold (hyperparameter)</span>
+                    <span class="k">elif</span> <span class="n">cluster_param</span><span class="p">[</span><span class="s1">&#39;threshold_algo&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;fixed&#39;</span><span class="p">:</span>
+                        
+                        <span class="n">threshold</span>  <span class="o">=</span> <span class="n">cluster_param</span><span class="p">[</span><span class="s1">&#39;fixed_threshold&#39;</span><span class="p">]</span>
+                        <span class="n">chosen_ind</span> <span class="o">=</span> <span class="n">micrograph_ind</span><span class="p">[</span><span class="n">b</span><span class="p">][</span><span class="n">cluster_prob</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">micrograph_ind</span><span class="p">[</span><span class="n">b</span><span class="p">]</span><span class="o">.</span><span class="n">device</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">threshold</span><span class="p">]</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="vm">__name__</span> <span class="o">+</span> <span class="s1">&#39;.hypertrack: Unknown threshold_algo chosen&#39;</span><span class="p">)</span>
+                    
+                    <span class="n">chosen_ind_global</span> <span class="o">=</span> <span class="n">global_ind</span><span class="p">[</span><span class="n">b</span><span class="p">][</span><span class="n">chosen_ind</span><span class="p">]</span>
+                    
+                <span class="c1"># -------------------------</span>
+                <span class="c1"># Learnable &quot;soft&quot; threshold via sigmoid relaxation</span>
+                <span class="c1"># (gradients of cluster_prob are propagated through node set intersection loss)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    
+                    <span class="n">cluster_prob</span>      <span class="o">=</span> <span class="n">cluster_prob</span> <span class="o">*</span> <span class="n">torch</span><span class="o">.</span><span class="n">sigmoid</span><span class="p">((</span><span class="n">cluster_prob</span> <span class="o">-</span> <span class="n">model</span><span class="p">[</span><span class="s1">&#39;net&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">thr</span><span class="p">)</span> <span class="o">/</span> <span class="n">cluster_param</span><span class="p">[</span><span class="s1">&#39;tau&#39;</span><span class="p">])</span>
+                    <span class="n">chosen_ind</span>        <span class="o">=</span> <span class="n">micrograph_ind</span><span class="p">[</span><span class="n">b</span><span class="p">][</span><span class="n">cluster_prob</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span> <span class="o">&gt;</span> <span class="nb">float</span><span class="p">(</span><span class="n">model</span><span class="p">[</span><span class="s1">&#39;net&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">thr</span><span class="o">.</span><span class="n">data</span><span class="p">)]</span>
+                    <span class="n">chosen_ind_global</span> <span class="o">=</span> <span class="n">global_ind</span><span class="p">[</span><span class="n">b</span><span class="p">][</span><span class="n">chosen_ind</span><span class="p">]</span>
+                
+                <span class="c1"># =====================================================</span>
+                <span class="c1"># Check feasibility</span>
+                <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">chosen_ind_global</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">cluster_param</span><span class="p">[</span><span class="s1">&#39;min_cluster_size&#39;</span><span class="p">]:</span>
+                    <span class="n">update_failures</span><span class="p">(</span><span class="n">pivots</span><span class="o">=</span><span class="n">all_pivots</span><span class="p">[</span><span class="n">b</span><span class="p">],</span> <span class="n">active_node_mask</span><span class="o">=</span><span class="n">active_node_mask</span><span class="p">[</span><span class="n">b</span><span class="p">],</span>
+                                <span class="n">failures</span><span class="o">=</span><span class="n">output</span><span class="p">[</span><span class="s1">&#39;failures&#39;</span><span class="p">],</span> <span class="n">max_failures</span><span class="o">=</span><span class="n">cluster_param</span><span class="p">[</span><span class="s1">&#39;max_failures&#39;</span><span class="p">])</span>
+                    <span class="k">continue</span>
+                
+                <span class="c1"># -----------------------------------------------------</span>
+                <span class="c1">### Now update the mask</span>
+                <span class="n">active_node_mask</span><span class="p">[</span><span class="n">b</span><span class="p">][</span><span class="n">chosen_ind</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span>
+                <span class="k">if</span> <span class="n">torch</span><span class="o">.</span><span class="n">count_nonzero</span><span class="p">(</span><span class="n">active_node_mask</span><span class="p">[</span><span class="n">b</span><span class="p">])</span> <span class="o">&lt;</span> <span class="n">cluster_param</span><span class="p">[</span><span class="s1">&#39;N_pivots&#39;</span><span class="p">]:</span> <span class="n">exhausted</span><span class="p">[</span><span class="n">b</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
+                
+                <span class="c1"># Clustering output result</span>
+                <span class="n">output</span><span class="p">[</span><span class="s1">&#39;cluster_hat&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">chosen_ind_global</span><span class="o">.</span><span class="n">tolist</span><span class="p">())</span>
+                <span class="c1"># -----------------------------------------------------</span>
+
+                <span class="c1"># -----------------------------------------------------</span>
+                <span class="c1"># TRAINING ONLY</span>
+                <span class="k">if</span> <span class="n">trainmode</span><span class="p">:</span>
+                    
+                    <span class="n">this_cluster_BCE</span><span class="p">,</span> <span class="n">this_cluster_contrastive</span><span class="p">,</span> <span class="n">this_cluster_neglogpdf</span> <span class="o">=</span> \
+                        <span class="n">hyperaux</span><span class="o">.</span><span class="n">cluster_loss</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="n">model</span><span class="p">,</span> <span class="n">Z</span><span class="o">=</span><span class="n">Z</span><span class="p">,</span> <span class="n">global_ind</span><span class="o">=</span><span class="n">global_ind</span><span class="p">[</span><span class="n">b</span><span class="p">],</span> <span class="n">chosen_ind</span><span class="o">=</span><span class="n">chosen_ind</span><span class="p">,</span> <span class="n">pivots</span><span class="o">=</span><span class="n">all_pivots</span><span class="p">[</span><span class="n">b</span><span class="p">],</span> \
+                            <span class="n">micrograph_ind</span><span class="o">=</span><span class="n">micrograph_ind</span><span class="p">[</span><span class="n">b</span><span class="p">],</span> <span class="n">cluster_logits</span><span class="o">=</span><span class="n">cluster_logits</span><span class="p">,</span> <span class="n">cluster_prob</span><span class="o">=</span><span class="n">cluster_prob</span><span class="p">,</span> \
+                            <span class="n">x_ind</span><span class="o">=</span><span class="n">x_ind</span><span class="p">,</span> <span class="n">true_clusters</span><span class="o">=</span><span class="n">true_clusters</span><span class="p">,</span> <span class="n">hit_weights</span><span class="o">=</span><span class="n">hit_weights</span><span class="p">,</span> <span class="n">train_param</span><span class="o">=</span><span class="n">train_param</span><span class="p">,</span> \
+                            <span class="n">objects</span><span class="o">=</span><span class="n">objects</span><span class="p">,</span> <span class="n">do_pdf</span><span class="o">=</span><span class="n">do_pdf</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">)</span>
+
+                    <span class="n">output</span><span class="p">[</span><span class="s1">&#39;cluster_BCE&#39;</span><span class="p">]</span>         <span class="o">=</span> <span class="n">output</span><span class="p">[</span><span class="s1">&#39;cluster_BCE&#39;</span><span class="p">]</span>         <span class="o">+</span> <span class="n">this_cluster_BCE</span>
+                    <span class="n">output</span><span class="p">[</span><span class="s1">&#39;cluster_contrastive&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">output</span><span class="p">[</span><span class="s1">&#39;cluster_contrastive&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">this_cluster_contrastive</span>
+                    <span class="n">output</span><span class="p">[</span><span class="s1">&#39;cluster_neglogpdf&#39;</span><span class="p">]</span>   <span class="o">=</span> <span class="n">output</span><span class="p">[</span><span class="s1">&#39;cluster_neglogpdf&#39;</span><span class="p">]</span>   <span class="o">+</span> <span class="n">this_cluster_neglogpdf</span>
+                <span class="c1"># ==================================================</span>
+                
+                <span class="n">k</span> <span class="o">+=</span> <span class="mi">1</span> <span class="c1"># !</span>
+    
+    <span class="n">output</span><span class="p">[</span><span class="s1">&#39;time_seed&#39;</span><span class="p">]</span>    <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">pivot_seed_time</span><span class="p">)</span>
+    <span class="n">output</span><span class="p">[</span><span class="s1">&#39;time_diffuse&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">pivot_diffuse_time</span><span class="p">)</span>
+    <span class="n">output</span><span class="p">[</span><span class="s1">&#39;time_trf&#39;</span><span class="p">]</span>     <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">trf_time</span><span class="p">)</span>
+    
+    <span class="nb">print</span><span class="p">(</span><span class="vm">__name__</span> <span class="o">+</span> <span class="sa">f</span><span class="s2">&quot;.clusterize: Input graphs = </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">active_node_mask</span><span class="p">)</span><span class="si">:</span><span class="s2">4d</span><span class="si">}</span><span class="s2"> | Transformer trials = </span><span class="si">{</span><span class="n">output</span><span class="p">[</span><span class="s1">&#39;trials&#39;</span><span class="p">]</span><span class="si">:</span><span class="s2">4d</span><span class="si">}</span><span class="s2"> | Clusters = </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">output</span><span class="p">[</span><span class="s1">&#39;cluster_hat&#39;</span><span class="p">])</span><span class="si">:</span><span class="s2">4d</span><span class="si">}</span><span class="s2"> | pivot time = (</span><span class="si">{</span><span class="n">pivot_seed_time</span><span class="si">:</span><span class="s2">0.3f</span><span class="si">}</span><span class="s2">,</span><span class="si">{</span><span class="n">pivot_diffuse_time</span><span class="si">:</span><span class="s2">0.3f</span><span class="si">}</span><span class="s2">) s | transformer time = </span><span class="si">{</span><span class="n">trf_time</span><span class="si">:</span><span class="s2">0.3f</span><span class="si">}</span><span class="s2"> s&quot;</span><span class="p">)</span>
+    
+    <span class="k">return</span> <span class="n">output</span></div>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Mikael Mieskolainen, I-X and Blackett Laboratory, Imperial College London.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
