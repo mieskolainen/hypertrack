@@ -1,8 +1,6 @@
 Inference
 =======================
 
-.. contents::
-    :local:
 
 The inference for the track reconstruction problem is executed with:
 

@@ -1,9 +1,6 @@
 Introduction
 =======================
 
-.. contents::
-    :local:
-
 
 Overview
 -----------------
@@ -20,8 +17,39 @@ track reconstruction problem.
 Hugging Face Quick Start
 ------------------------------
 
-Install the framework, process TrackML files, download pre-trained torch models from
-Hugging Face https://huggingface.co/mieskolainen into ``/models`` and follow the documentation for inference.
+Install the framework, process TrackML dataset files, download the pre-trained models
+from Hugging Face https://huggingface.co/mieskolainen and follow the documentation for inference.
+
+
+TrackML dataset
+------------------------------
+
+Install first the Kaggle API as instructed in https://www.kaggle.com/docs/api and download TrackML challenge data:
+
+.. code-block:: none
+
+	cd .. && mkdir trackml && cd trackml
+	kaggle competitions download -c trackml-particle-identification -f train_1.zip
+	kaggle competitions download -c trackml-particle-identification -f train_2.zip
+	kaggle competitions download -c trackml-particle-identification -f train_3.zip
+	kaggle competitions download -c trackml-particle-identification -f train_4.zip
+	kaggle competitions download -c trackml-particle-identification -f train_5.zip
+
+	kaggle competitions download -c trackml-particle-identification -f test.zip
+
+	unzip train_1.zip
+	unzip train_2.zip
+	unzip train_3.zip
+	unzip train_4.zip
+	unzip train_5.zip
+
+	unzip test.zip
+
+Then execute the following to convert events into pickle files:
+
+.. code-block:: none
+
+	source tests/process_trackml.sh
 
 
 Folder structure

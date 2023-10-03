@@ -120,6 +120,7 @@ using ``--transfer_tag`` and ``--save_tag`` command line parameters when startin
 
 Remember to remove ``--transfer_tag`` afterwards. 
 
+
 Learning rate
 ----------------------
 Start with

@@ -48,6 +48,7 @@
 <li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="introduction.html#overview">Overview</a></li>
 <li class="toctree-l2"><a class="reference internal" href="introduction.html#hugging-face-quick-start">Hugging Face Quick Start</a></li>
+<li class="toctree-l2"><a class="reference internal" href="introduction.html#trackml-dataset">TrackML dataset</a></li>
 <li class="toctree-l2"><a class="reference internal" href="introduction.html#folder-structure">Folder structure</a></li>
 </ul>
 </li>
@@ -293,11 +294,6 @@
              
   <section id="inference">
 <h1>Inference<a class="headerlink" href="#inference" title="Permalink to this heading">¶</a></h1>
-<nav class="contents local" id="contents">
-<ul class="simple">
-<li><p><a class="reference internal" href="#main-parameters" id="id1">Main parameters</a></p></li>
-</ul>
-</nav>
 <p>The inference for the track reconstruction problem is executed with:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>python src/trackml_inference.py \
     --param tune-5 \
@@ -313,7 +309,7 @@
 </div>
 <p>See more examples under <code class="docutils literal notranslate"><span class="pre">/tests/inference*</span></code> for different pile-up scenarios.</p>
 <section id="main-parameters">
-<h2><a class="toc-backref" href="#id1" role="doc-backlink">Main parameters</a><a class="headerlink" href="#main-parameters" title="Permalink to this heading">¶</a></h2>
+<h2>Main parameters<a class="headerlink" href="#main-parameters" title="Permalink to this heading">¶</a></h2>
 <p>The inference steering program parameters can be seen with the command <code class="docutils literal notranslate"><span class="pre">--help</span></code>. The main parameters are:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>--edge_threshold 0.55
 --cluster &quot;transformer&quot; (cut, dbscan, hdbscan)
