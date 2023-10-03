@@ -1,0 +1,64 @@
+# Github actions CI (continuous integration) setup.
+#
+# m.mieskolainen@imperial.ac.uk, 2023
+
+name: hypertrack-install-test
+
+on: [push]
+
+jobs:
+  icenet-install-test:
+    runs-on: ubuntu-22.04
+    
+    # Needed for Conda
+    defaults:
+      run:
+        shell: bash -l {0}
+
+    steps:
+
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v1
+
+      - uses: actions/setup-python@v4
+        with:
+          python-version: '3.10.11'
+      
+      # Conda environment
+      - uses: conda-incubator/setup-miniconda@v2
+        with:
+          activate-environment: hypertrack
+          environment-file: environment.yml
+          auto-activate-base: false
+      - run: |
+          conda info
+          conda list
+      
+      # Pip packages
+      - name: Install requirements
+        run: |
+          pip install -r requirements.txt
+          pip install -r requirements-aux.txt
+          pip install -r requirements-docs.txt
+        
+      ## Docs building
+      - name: Build docs
+        run: |
+          if [ -e yarn.lock ]; then
+          yarn install --frozen-lockfile
+          elif [ -e package-lock.json ]; then
+          npm ci
+          else
+          npm i
+          fi
+          npm run build
+          make -C docs/ clean
+          make -C docs/ html
+          touch docs/build/html/.nojekyll
+      
+      ## Release to gh-pages
+      - name: Release docs to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./docs/build/html/

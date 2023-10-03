@@ -1,0 +1,18 @@
+*.pk
+*.pkl
+*.pt
+*.pdf
+*.png
+*.log
+dev_*
+.fuse*
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+
+.pytest_cache
+
+/trash
+/tmp
+/dev
