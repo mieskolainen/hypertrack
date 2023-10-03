@@ -6,8 +6,7 @@
   ██   ██    ██    ██      ██      ██   ██    ██    ██   ██ ██   ██ ██      ██  ██
   ██   ██    ██    ██      ███████ ██   ██    ██    ██   ██ ██   ██  ██████ ██   ██
 
-*HyperTrack*: Neural Combinatorics for High Energy Physics
-============================================================
+**HyperTrack: Neural Combinatorics for High Energy Physics**
 
 | https://arxiv.org/abs/2309.14113
 | https://indico.jlab.org/event/459/contributions/11748 (CHEP 2023)
